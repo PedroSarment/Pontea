@@ -29,13 +29,37 @@ paths:
       tags:
         - Endpoints
       security: []
-  /api/register:
-    post:
-      summary: 'Handle an incoming registration request.'
-      operationId: handleAnIncomingRegistrationRequest
+  /api/oi:
+    get:
+      summary: ''
+      operationId: getApiOi
       description: ''
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: oi
+      tags:
+        - Endpoints
+      security: []
+  /api/register:
+    post:
+      summary: 'Log in the user.'
+      operationId: logInTheUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"access_token\": \"eyJ0eXA...\",\n \"token_type\": \"Bearer\",\n}"
       tags:
         - Endpoints
       requestBody:
@@ -47,58 +71,25 @@ paths:
               properties:
                 name:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: eqrjjy
+                  description: 'The name of the  user.'
+                  example: secret
                 email:
                   type: string
-                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: zankunding@example.org
+                  description: 'The email of the  user.'
+                  example: testuser@example.com
                 password:
                   type: string
-                  description: ''
-                  example: vitae
+                  description: 'The password of the  user.'
+                  example: secret
+                password_confirmation:
+                  type: string
+                  description: 'The password of the  user password.'
+                  example: secret
               required:
                 - name
                 - email
                 - password
-      security: []
-  /api/login:
-    post:
-      summary: 'Handle an incoming authentication request.'
-      operationId: handleAnIncomingAuthenticationRequest
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: xrobel@example.net
-                password:
-                  type: string
-                  description: ''
-                  example: 'pab"]-nPO''//qhXEWIqb'
-              required:
-                - email
-                - password
-      security: []
-  /api/logout:
-    post:
-      summary: 'Destroy an authenticated session.'
-      operationId: destroyAnAuthenticatedSession
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
+                - password_confirmation
       security: []
 tags:
   -

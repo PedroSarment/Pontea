@@ -31,7 +31,49 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-origin: 'http://localhost'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/oi
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: oi
+        headers:
+          content-type: 'text/html; charset=UTF-8'
+          cache-control: 'no-cache, private'
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: 'http://localhost'
           access-control-allow-credentials: 'true'
         description: null
         custom: []
@@ -50,7 +92,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Handle an incoming registration request.'
+      title: 'Log in the user.'
       description: ''
       authenticated: false
       custom: []
@@ -64,107 +106,53 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
+        description: 'The name of the  user.'
         required: true
-        example: eqrjjy
+        example: secret
         type: string
+        enumValues: []
         custom: []
       email:
         name: email
-        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        description: 'The email of the  user.'
         required: true
-        example: zankunding@example.org
+        example: testuser@example.com
         type: string
+        enumValues: []
         custom: []
       password:
         name: password
-        description: ''
+        description: 'The password of the  user.'
         required: true
-        example: vitae
+        example: secret
         type: string
+        enumValues: []
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The password of the  user password.'
+        required: true
+        example: secret
+        type: string
+        enumValues: []
         custom: []
     cleanBodyParameters:
-      name: eqrjjy
-      email: zankunding@example.org
-      password: vitae
+      name: secret
+      email: testuser@example.com
+      password: secret
+      password_confirmation: secret
     fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/login
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Handle an incoming authentication request.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: true
-        example: xrobel@example.net
-        type: string
-        custom: []
-      password:
-        name: password
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "access_token": "eyJ0eXA...",
+           "token_type": "Bearer",
+          }
+        headers: []
         description: ''
-        required: true
-        example: 'pab"]-nPO''//qhXEWIqb'
-        type: string
         custom: []
-    cleanBodyParameters:
-      email: xrobel@example.net
-      password: 'pab"]-nPO''//qhXEWIqb'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/logout
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Destroy an authenticated session.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
     responseFields: []
     auth: []
     controller: null
