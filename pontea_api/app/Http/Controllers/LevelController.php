@@ -9,11 +9,33 @@ use App\Http\Requests\UpdateLevelRequest;
 class LevelController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of levels.
+     *
+     * @group Levels
+     *
+     * @header Authorization Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi
+     * Retrieves a list of all levels.
+     *
+     * @response 200 {
+     *     "data": [
+     *         {
+     *             "id": 1,
+     *             "title": "Beginner"
+     *         },
+     *         {
+     *             "id": 2,
+     *             "title": "Intermediate"
+     *         },
+     *         // ... (other level objects)
+     *     ]
+     * }
      */
     public function index()
     {
-        //
+        // Retrieve a list of all levels
+        $levels = Level::all();
+
+        return response()->json(['data' => $levels]);
     }
 
     /**

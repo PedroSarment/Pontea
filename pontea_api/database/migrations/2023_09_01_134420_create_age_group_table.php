@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('age_group', function (Blueprint $table) {
+        Schema::create('age_groups', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->text('title');

@@ -45,16 +45,43 @@ Certifique-se de que seu sistema atenda aos seguintes pré-requisitos:
    php artisan key:generate
    ```
 
-7. Execute as migrações do banco de dados para criar as tabelas necessárias:
+6. No novo arquivo .env, substitua as seguite linhas: 
+   
+   ```
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=laravel
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+   pelas linhas: 
+
+   ```
+   DB_CONNECTION=sqlite
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   ```
+7. Crie um arquivo chamado "database.sqlite" no diretório pontea_api/database/
+
+8. Execute as migrações do banco de dados para criar as tabelas necessárias:
    ```
    php artisan migrate
    ```
 
-8. Inicie o servidor de desenvolvimento do Laravel:
+9. Execute os comandos de seed para popular o banco de dados com dados de amostra (se necessário):
+   ```
+   php artisan db:seed
+
+
+   ```
+
+10. Inicie o servidor de desenvolvimento do Laravel:
    ```
    php artisan serve
    ```
 
-9. Abra um navegador da web e acesse a URL `http://localhost:8000`. A aplicação Laravel agora deve estar em execução localmente.
+11. Abra um navegador da web e acesse a URL `http://localhost:8000`. A aplicação Laravel agora deve estar em execução localmente.
 
-10. Para acessar a documentação da API, acesse a url http://localhost:8000/docs.
+12. Para acessar a documentação da API, acesse a url http://localhost:8000/docs.

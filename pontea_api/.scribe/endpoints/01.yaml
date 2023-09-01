@@ -1,0 +1,417 @@
+name: Activities
+description: |-
+  This function allows you to filter activities based on various criteria, including text in the title or description,
+  age group, area, level, created by user, and the presence of multimedia resources or visual instructions.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/activity
+    metadata:
+      groupName: Activities
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retrieve all activities with related information.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 1,
+                      "created_by": {
+                          "id": 1,
+                          "name": "John Doe",
+                          "email": "john@example.com",
+                          "created_at": "2023-09-01T12:34:56Z",
+                          "updated_at": "2023-09-01T12:34:56Z"
+                      },
+                      "area": {
+                          "id": 1,
+                          "title": "Science"
+                      },
+                      "age_group": {
+                          "id": 2,
+                          "title": "Ages 5-8"
+                      },
+                      "level": {
+                          "id": 3,
+                          "title": "Intermediate"
+                      },
+                      "title": "Fun Science Experiment",
+                      "description": "A simple and fun science experiment for kids.",
+                      "media_path_1": "https://example.com/media/experiment.jpg",
+                      "media_path_2": null,
+                      "media_path_3": null,
+                      "media_path_4": null,
+                      "created_at": "2023-09-02T10:15:30Z",
+                      "updated_at": "2023-09-02T10:15:30Z"
+                  },
+                  {
+                      "id": 2,
+                      "created_by": {
+                          "id": 2,
+                          "name": "Alice Smith",
+                          "email": "alice@example.com",
+                          "created_at": "2023-09-01T13:45:00Z",
+                          "updated_at": "2023-09-01T13:45:00Z"
+                      },
+                      "area": {
+                          "id": 2,
+                          "title": "Art"
+                      },
+                      "age_group": {
+                          "id": 1,
+                          "title": "Ages 3-5"
+                      },
+                      "level": {
+                          "id": 2,
+                          "title": "Beginner"
+                      },
+                      "title": "Creative Painting",
+                      "description": "Learn creative painting techniques for beginners.",
+                      "media_path_1": "https://example.com/media/painting.jpg",
+                      "media_path_2": null,
+                      "media_path_3": null,
+                      "media_path_4": null,
+                      "created_at": "2023-09-02T11:30:45Z",
+                      "updated_at": "2023-09-02T11:30:45Z"
+                      "note": 3.5
+
+                  }
+                  // ... (other activity objects)
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/activity/filter
+    metadata:
+      groupName: Activities
+      groupDescription: |-
+        This function allows you to filter activities based on various criteria, including text in the title or description,
+        age group, area, level, created by user, and the presence of multimedia resources or visual instructions.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Filter activities based on request parameters.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      text:
+        name: text
+        description: 'The text to search in the title or description of the activity (optional).'
+        required: false
+        example: consectetur
+        type: string
+        enumValues: []
+        custom: []
+      age_group_id:
+        name: age_group_id
+        description: 'The ID of the age group to filter activities by a specific age group (optional).'
+        required: false
+        example: 19
+        type: integer
+        enumValues: []
+        custom: []
+      area_id:
+        name: area_id
+        description: 'The ID of the area to filter activities by a specific area (optional).'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        custom: []
+      level_id:
+        name: level_id
+        description: 'The ID of the level to filter activities by a specific level (optional).'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        custom: []
+      created_by:
+        name: created_by
+        description: 'The ID of the user who created the activity to filter activities created by a specific user (optional).'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+      has_multimedia_resources:
+        name: has_multimedia_resources
+        description: 'Defines whether the activity should have multimedia resources (true) or not (false) (optional).'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        custom: []
+      has_visual_instructions:
+        name: has_visual_instructions
+        description: 'Defines whether the activity should have visual instructions (true) or not (false) (optional).'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        custom: []
+    cleanQueryParameters:
+      text: consectetur
+      age_group_id: 19
+      area_id: 17
+      level_id: 5
+      created_by: 1
+      has_multimedia_resources: false
+      has_visual_instructions: false
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 1,
+                      "created_by": {
+                          "id": 1,
+                          "name": "John Doe",
+                          "email": "john@example.com",
+                          "created_at": "2023-09-01T12:34:56Z",
+                          "updated_at": "2023-09-01T12:34:56Z"
+                      },
+                      "area": {
+                          "id": 1,
+                          "title": "Science"
+                      },
+                      "age_group": {
+                          "id": 2,
+                          "title": "Ages 5-8"
+                      },
+                      "level": {
+                          "id": 3,
+                          "title": "Intermediate"
+                      },
+                      "title": "Sample Activity",
+                      "description": "Description of the sample activity.",
+                      "media_path_1": "media/activity1.jpg",
+                      "media_path_2": null,
+                      "media_path_3": null,
+                      "media_path_4": null,
+                      "has_multimedia_resources": true,
+                      "has_visual_instructions": false,
+                      "created_at": "2023-09-02T10:15:30Z",
+                      "updated_at": "2023-09-02T10:15:30Z"
+                      "note": 3.5
+                  },
+                  {
+                      "id": 2,
+                      "created_by": {
+                          "id": 2,
+                          "name": "Alice Smith",
+                          "email": "alice@example.com",
+                          "created_at": "2023-09-01T13:45:00Z",
+                          "updated_at": "2023-09-01T13:45:00Z"
+                      },
+                      "area": {
+                          "id": 2,
+                          "title": "Art"
+                      },
+                      "age_group": {
+                          "id": 1,
+                          "title": "Ages 3-5"
+                      },
+                      "level": {
+                          "id": 2,
+                          "title": "Beginner"
+                      },
+                      "title": "Another Activity",
+                      "description": "Description of another activity.",
+                      "media_path_1": null,
+                      "media_path_2": null,
+                      "media_path_3": null,
+                      "media_path_4": null,
+                      "has_multimedia_resources": false,
+                      "has_visual_instructions": true,
+                      "created_at": "2023-09-02T11:30:45Z",
+                      "updated_at": "2023-09-02T11:30:45Z"
+                      "note": 3.5
+                  }
+                  // ... other activities that match the filtering criteria
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/activity/{id}'
+    metadata:
+      groupName: Activities
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retrieve a specific activity with related information and similar activities.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the activity.'
+        required: true
+        example: 19
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 19
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": {
+                  "id": 1,
+                  "created_by": {
+                      "id": 1,
+                      "name": "John Doe",
+                      "email": "john@example.com",
+                      "created_at": "2023-09-01T12:34:56Z",
+                      "updated_at": "2023-09-01T12:34:56Z"
+                  },
+                  "area": {
+                      "id": 1,
+                      "title": "Science"
+                  },
+                  "age_group": {
+                      "id": 2,
+                      "title": "Ages 5-8"
+                  },
+                  "level": {
+                      "id": 3,
+                      "title": "Intermediate"
+                  },
+                  "title": "Fun Science Experiment",
+                  "description": "A simple and fun science experiment for kids.",
+                  "media_path_1": "https://example.com/media/experiment.jpg",
+                  "media_path_2": null,
+                  "media_path_3": null,
+                  "media_path_4": null,
+                  "created_at": "2023-09-02T10:15:30Z",
+                  "updated_at": "2023-09-02T10:15:30Z",
+                  "note": 4.2, // The calculated average rating based on comments
+                  "comments": [
+                      {
+                          "id": 1,
+                          "user_id": 2,
+                          "activity_id": 1,
+                          "note": 4.5,
+                          "created_at": "2023-09-03T14:30:00Z",
+                          "updated_at": "2023-09-03T14:30:00Z"
+                      },
+                      // ... (other comment objects)
+                  ],
+                  "questions": [
+                      {
+                          "id": 1,
+                          "activity_id": 1,
+                          "question": "Can I use household items for this experiment?",
+                          "created_at": "2023-09-03T14:30:00Z",
+                          "updated_at": "2023-09-03T14:30:00Z"
+                      },
+                      // ... (other question objects)
+                  ]
+              },
+              "similar_activities": [
+                  {
+                      "id": 2,
+                      "created_by": {
+                          "id": 2,
+                          "name": "Alice Smith",
+                          "email": "alice@example.com",
+                          "created_at": "2023-09-01T13:45:00Z",
+                          "updated_at": "2023-09-01T13:45:00Z"
+                      },
+                      "area": {
+                          "id": 2,
+                          "title": "Art"
+                      },
+                      "age_group": {
+                          "id": 1,
+                          "title": "Ages 3-5"
+                      },
+                      "level": {
+                          "id": 2,
+                          "title": "Beginner"
+                      },
+                      "title": "Creative Painting",
+                      "description": "Learn creative painting techniques for beginners.",
+                      "media_path_1": "https://example.com/media/painting.jpg",
+                      "media_path_2": null,
+                      "media_path_3": null,
+                      "media_path_4": null,
+                      "created_at": "2023-09-02T11:30:45Z",
+                      "updated_at": "2023-09-02T11:30:45Z",
+                      "note": 3.8 // The calculated average rating based on comments
+                  },
+                  // ... (other similar activity objects)
+              ]
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

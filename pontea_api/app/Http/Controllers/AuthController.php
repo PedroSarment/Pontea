@@ -17,17 +17,35 @@ use Illuminate\Support\Str;
 class AuthController extends Controller
 {
     /**
-     * Register the user.
+     * Register a new user.
      *
-     * @bodyParam   name   string  required    The name of the  user.   Example: secret
-     * @bodyParam   email    string  required    The email of the  user.      Example: testuser@example.com
-     * @bodyParam   password    string  required    The password of the  user.   Example: secret
-     * @bodyParam   password_confirmation string  required    The password of the  user password.  Example: secret
+     * @group Authentication
      *
-     * @response {
-     *  'message' => 'User created successfully',
+     * Creates a new user with the provided information.
+     *
+     * @bodyParam name string required The name of the user. Example: John Doe
+     * @bodyParam email string required The email address of the user. Example: john@example.com
+     * @bodyParam password string required The password for the user. Example: secret
+     * @bodyParam password_confirmation string required The confirmation of the user's password. Example: secret
+     *
+     * @response 201 {
+     *     "user": {
+     *         "id": 1,
+     *         "name": "John Doe",
+     *         "email": "john@example.com",
+     *         "created_at": "2023-09-01T12:34:56Z",
+     *         "updated_at": "2023-09-01T12:34:56Z"
+     *     },
+     *     "message": "User created successfully"
      * }
-    */
+     *
+     * @response 422 {
+     *     "message": "The given data was invalid.",
+     *     "errors": {
+     *         "email": ["The email has already been taken."]
+     *     }
+     * }
+     */
     public function register(Request $request)
     {
         $campos = $request->all();
@@ -42,22 +60,32 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'credit' => 0
         ]);
 
         return response()
-            ->json(['message' => 'User created successfully']);
+            ->json(['message' => 'User created successfully'], 201);
     }
 
     /**
      * Log in the user.
      *
-     * @bodyParam   name   string  required    The name of the  user.   Example: secret
-     * @bodyParam   email    string  required    The email of the  user.      Example: testuser@example.com
-     * @bodyParam   password    string  required    The password of the  user.   Example: secret
-     * @bodyParam   password_confirmation string  required    The password of the  user password.  Example: secret
+     * @group Authentication
+     *
+     * @bodyParam email string required The email of the user. Example: testuser@example.com
+     * @bodyParam password string required The password of the user. Example: secret
      *
      * @response {
-     *  'message' => 'User created successfully',
+     *     "message": "User successfully logged in",
+     *     "token": "generated_token_here"
+     * }
+     *
+     * @response 422 {
+     *     "message": "We could not find a user with that email"
+     * }
+     *
+     * @response 422 {
+     *     "message": "Incorrect password"
      * }
     */
     public function login(Request $request)
@@ -66,7 +94,7 @@ class AuthController extends Controller
 
         Validator::make($campos, [
             'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required'],
         ])->validate();
 
         $user = User::where('email', '=', $campos['email'])->get()->first();
@@ -91,7 +119,7 @@ class AuthController extends Controller
         return response()
         ->json(['message' => 'User successfully logged in',
                 'token' => $auth->token
-            ]);
+            ], 201);
     }
 
 

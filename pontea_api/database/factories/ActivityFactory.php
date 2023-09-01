@@ -9,7 +9,7 @@ use App\Models\Activity;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Activities>
  */
-class ActivitiesFactory extends Factory
+class ActivityFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -32,6 +32,8 @@ class ActivitiesFactory extends Factory
             'media_path_2' => null,
             'media_path_3' => null,
             'media_path_4' => null,
+            'has_multimedia_resources' => $this->faker->randomElement([true, false]), // Valor aleatório entre true e false
+            'has_visual_instructions' => $this->faker->randomElement([true, false]), // Valor aleatório entre true e false
         ];
     }
 }

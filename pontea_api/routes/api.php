@@ -4,6 +4,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Middleware\CheckToken;
+use App\Http\Controllers\ActivitiesController;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\AgeGroupController;
+use App\Http\Controllers\LevelController;
 
 
 /*
@@ -17,13 +22,9 @@ use App\Http\Middleware\CheckToken;
 |
 */
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
+/* Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
-});
-
-Route::get('/oi', function (Request $request) {
-    return 'oi';
-});
+}); */
 
 Route::controller(AuthController::class)->group(function () {
 
@@ -33,6 +34,61 @@ Route::controller(AuthController::class)->group(function () {
     Route::middleware(CheckToken::class)->group(function () {
 
 
+    });
+});
+
+Route::controller(ActivitiesController::class)->group(function () {
+
+    Route::prefix('activity')->group(function () {
+
+        Route::middleware(CheckToken::class)->group(function () {
+            Route::get('/', 'index');
+            Route::get('/filter', 'filter');
+            Route::get('/{id}', 'show');
+
+        });
+    });
+});
+
+Route::controller(AreaController::class)->group(function () {
+
+    Route::prefix('area')->group(function () {
+
+        Route::middleware(CheckToken::class)->group(function () {
+            Route::get('/', 'index');
+        });
+    });
+});
+
+Route::controller(TeacherController ::class)->group(function () {
+
+    Route::prefix('teacher')->group(function () {
+
+        Route::middleware(CheckToken::class)->group(function () {
+            Route::get('/', 'index');
+            Route::get('/{id}', 'show');
+        });
+    });
+});
+
+Route::controller(AgeGroupController ::class)->group(function () {
+
+    Route::prefix('age_group')->group(function () {
+
+        Route::middleware(CheckToken::class)->group(function () {
+            Route::get('/', 'index');
+            Route::get('/{id}', 'show');
+        });
+    });
+});
+
+Route::controller(LevelController ::class)->group(function () {
+
+    Route::prefix('levels')->group(function () {
+
+        Route::middleware(CheckToken::class)->group(function () {
+            Route::get('/', 'index');
+        });
     });
 });
 

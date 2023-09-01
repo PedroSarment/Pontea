@@ -1,16 +1,16 @@
-name: Endpoints
-description: ''
+name: Authentication
+description: 'Creates a new user with the provided information.'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/user
+      - POST
+    uri: api/register
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Authentication
+      groupDescription: 'Creates a new user with the provided information.'
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Register a new user.'
       description: ''
       authenticated: false
       custom: []
@@ -21,61 +21,73 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: 'http://localhost'
-          access-control-allow-credentials: 'true'
-        description: null
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the user.'
+        required: true
+        example: 'John Doe'
+        type: string
+        enumValues: []
         custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/oi
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+      email:
+        name: email
+        description: 'The email address of the user.'
+        required: true
+        example: john@example.com
+        type: string
+        enumValues: []
+        custom: []
+      password:
+        name: password
+        description: 'The password for the user.'
+        required: true
+        example: secret
+        type: string
+        enumValues: []
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: "The confirmation of the user's password."
+        required: true
+        example: secret
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      name: 'John Doe'
+      email: john@example.com
+      password: secret
+      password_confirmation: secret
     fileParameters: []
     responses:
       -
-        status: 200
-        content: oi
-        headers:
-          content-type: 'text/html; charset=UTF-8'
-          cache-control: 'no-cache, private'
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
-          access-control-allow-origin: 'http://localhost'
-          access-control-allow-credentials: 'true'
-        description: null
+        status: 201
+        content: |-
+          {
+              "user": {
+                  "id": 1,
+                  "name": "John Doe",
+                  "email": "john@example.com",
+                  "created_at": "2023-09-01T12:34:56Z",
+                  "updated_at": "2023-09-01T12:34:56Z"
+              },
+              "message": "User created successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+              "message": "The given data was invalid.",
+              "errors": {
+                  "email": ["The email has already been taken."]
+              }
+          }
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -86,9 +98,9 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/register
+    uri: api/login
     metadata:
-      groupName: Endpoints
+      groupName: Authentication
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -104,17 +116,9 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'The name of the  user.'
-        required: true
-        example: secret
-        type: string
-        enumValues: []
-        custom: []
       email:
         name: email
-        description: 'The email of the  user.'
+        description: 'The email of the user.'
         required: true
         example: testuser@example.com
         type: string
@@ -122,33 +126,41 @@ endpoints:
         custom: []
       password:
         name: password
-        description: 'The password of the  user.'
-        required: true
-        example: secret
-        type: string
-        enumValues: []
-        custom: []
-      password_confirmation:
-        name: password_confirmation
-        description: 'The password of the  user password.'
+        description: 'The password of the user.'
         required: true
         example: secret
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: secret
       email: testuser@example.com
       password: secret
-      password_confirmation: secret
     fileParameters: []
     responses:
       -
         status: 200
         content: |-
           {
-           "access_token": "eyJ0eXA...",
-           "token_type": "Bearer",
+              "message": "User successfully logged in",
+              "token": "generated_token_here"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+              "message": "We could not find a user with that email"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+              "message": "Incorrect password"
           }
         headers: []
         description: ''

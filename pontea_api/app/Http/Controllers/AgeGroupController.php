@@ -9,11 +9,34 @@ use App\Http\Requests\UpdateAgeGroupRequest;
 class AgeGroupController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of age groups.
+     *
+     * @group Age Groups
+     *
+     * @header Authorization Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi
+     *
+     * Retrieves a list of all age groups.
+     *
+     * @response 200 {
+     *     "data": [
+     *         {
+     *             "id": 1,
+     *             "title": "Ages 3-5"
+     *         },
+     *         {
+     *             "id": 2,
+     *             "title": "Ages 5-8"
+     *         },
+     *         // ... (other age group objects)
+     *     ]
+     * }
      */
     public function index()
     {
-        //
+        // Retrieve a list of all age groups
+        $ageGroups = AgeGroup::all();
+
+        return response()->json(['data' => $ageGroups]);
     }
 
     /**

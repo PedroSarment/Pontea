@@ -66,19 +66,85 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
+                    <ul id="tocify-header-activities" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="activities">
+                    <a href="#activities">Activities</a>
+                </li>
+                                    <ul id="tocify-subheader-activities" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="activities-GETapi-activity">
+                                <a href="#activities-GETapi-activity">Retrieve all activities with related information.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="activities-GETapi-activity-filter">
+                                <a href="#activities-GETapi-activity-filter">Filter activities based on request parameters.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="activities-GETapi-activity--id-">
+                                <a href="#activities-GETapi-activity--id-">Retrieve a specific activity with related information and similar activities.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-age-groups" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="age-groups">
+                    <a href="#age-groups">Age Groups</a>
+                </li>
+                                    <ul id="tocify-subheader-age-groups" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="age-groups-GETapi-age_group">
+                                <a href="#age-groups-GETapi-age_group">Display a listing of age groups.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-areas" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="areas">
+                    <a href="#areas">Areas</a>
+                </li>
+                                    <ul id="tocify-subheader-areas" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="areas-GETapi-area">
+                                <a href="#areas-GETapi-area">Display a listing of areas with associated activities.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-authentication" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authentication">
+                    <a href="#authentication">Authentication</a>
+                </li>
+                                    <ul id="tocify-subheader-authentication" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-register">
+                                <a href="#authentication-POSTapi-register">Register a new user.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="authentication-POSTapi-login">
+                                <a href="#authentication-POSTapi-login">Log in the user.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-endpoints" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="endpoints">
                     <a href="#endpoints">Endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
-                                <a href="#endpoints-GETapi-user">GET api/user</a>
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-age_group--id-">
+                                <a href="#endpoints-GETapi-age_group--id-">Display the specified resource.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-oi">
-                                <a href="#endpoints-GETapi-oi">GET api/oi</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-levels" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="levels">
+                    <a href="#levels">Levels</a>
+                </li>
+                                    <ul id="tocify-subheader-levels" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="levels-GETapi-levels">
+                                <a href="#levels-GETapi-levels">Display a listing of levels.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-register">
-                                <a href="#endpoints-POSTapi-register">Log in the user.</a>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-teachers" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="teachers">
+                    <a href="#teachers">Teachers</a>
+                </li>
+                                    <ul id="tocify-subheader-teachers" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="teachers-GETapi-teacher">
+                                <a href="#teachers-GETapi-teacher">Retrieve all teachers with their average rating.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="teachers-GETapi-teacher--id-">
+                                <a href="#teachers-GETapi-teacher--id-">Retrieve a specific teacher and their created activities.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -91,7 +157,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 31, 2023</li>
+        <li>Last updated: September 1, 2023</li>
     </ul>
 </div>
 
@@ -109,36 +175,39 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="activities">Activities</h1>
 
-    
+    <p>This function allows you to filter activities based on various criteria, including text in the title or description,
+age group, area, level, created by user, and the presence of multimedia resources or visual instructions.</p>
 
-                                <h2 id="endpoints-GETapi-user">GET api/user</h2>
+                                <h2 id="activities-GETapi-activity">Retrieve all activities with related information.</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-GETapi-user">
+<span id="example-requests-GETapi-activity">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/user" \
+    --get "http://localhost:8000/api/activity" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/user"
+    "http://localhost:8000/api/activity"
 );
 
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
 };
 
 fetch(url, {
@@ -148,187 +217,118 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-user">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: http://localhost
-access-control-allow-credentials: true
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-user" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-user"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-user"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-user" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-user">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-user" data-method="GET"
-      data-path="api/user"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-user"
-                    onclick="tryItOut('GETapi-user');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-user"
-                    onclick="cancelTryOut('GETapi-user');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-user"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/user</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-user"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-user"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="endpoints-GETapi-oi">GET api/oi</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-oi">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/oi" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/oi"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-oi">
+<span id="example-responses-GETapi-activity">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">content-type: text/html; charset=UTF-8
-cache-control: no-cache, private
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
-access-control-allow-origin: http://localhost
-access-control-allow-credentials: true
- </code></pre></details>         <pre>
+                <pre>
 
-<code class="language-json" style="max-height: 300px;">oi</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;created_by&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;John Doe&quot;,
+                &quot;email&quot;: &quot;john@example.com&quot;,
+                &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-09-01T12:34:56Z&quot;
+            },
+            &quot;area&quot;: {
+                &quot;id&quot;: 1,
+                &quot;title&quot;: &quot;Science&quot;
+            },
+            &quot;age_group&quot;: {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Ages 5-8&quot;
+            },
+            &quot;level&quot;: {
+                &quot;id&quot;: 3,
+                &quot;title&quot;: &quot;Intermediate&quot;
+            },
+            &quot;title&quot;: &quot;Fun Science Experiment&quot;,
+            &quot;description&quot;: &quot;A simple and fun science experiment for kids.&quot;,
+            &quot;media_path_1&quot;: &quot;https://example.com/media/experiment.jpg&quot;,
+            &quot;media_path_2&quot;: null,
+            &quot;media_path_3&quot;: null,
+            &quot;media_path_4&quot;: null,
+            &quot;created_at&quot;: &quot;2023-09-02T10:15:30Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-02T10:15:30Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;created_by&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Alice Smith&quot;,
+                &quot;email&quot;: &quot;alice@example.com&quot;,
+                &quot;created_at&quot;: &quot;2023-09-01T13:45:00Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-09-01T13:45:00Z&quot;
+            },
+            &quot;area&quot;: {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Art&quot;
+            },
+            &quot;age_group&quot;: {
+                &quot;id&quot;: 1,
+                &quot;title&quot;: &quot;Ages 3-5&quot;
+            },
+            &quot;level&quot;: {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Beginner&quot;
+            },
+            &quot;title&quot;: &quot;Creative Painting&quot;,
+            &quot;description&quot;: &quot;Learn creative painting techniques for beginners.&quot;,
+            &quot;media_path_1&quot;: &quot;https://example.com/media/painting.jpg&quot;,
+            &quot;media_path_2&quot;: null,
+            &quot;media_path_3&quot;: null,
+            &quot;media_path_4&quot;: null,
+            &quot;created_at&quot;: &quot;2023-09-02T11:30:45Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-02T11:30:45Z&quot;
+            &quot;note&quot;: 3.5
+
+        }
+        // ... (other activity objects)
+    ]
+}</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-oi" hidden>
+<span id="execution-results-GETapi-activity" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-oi"></span>:
+                id="execution-response-status-GETapi-activity"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-oi"
+    <pre class="json"><code id="execution-response-content-GETapi-activity"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-oi" hidden>
+<span id="execution-error-GETapi-activity" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-oi">
+    <pre><code id="execution-error-message-GETapi-activity">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-oi" data-method="GET"
-      data-path="api/oi"
+<form id="form-GETapi-activity" data-method="GET"
+      data-path="api/activity"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-oi', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-activity', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-oi"
-                    onclick="tryItOut('GETapi-oi');">Try it out ⚡
+                    id="btn-tryout-GETapi-activity"
+                    onclick="tryItOut('GETapi-activity');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-oi"
-                    onclick="cancelTryOut('GETapi-oi');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-activity"
+                    onclick="cancelTryOut('GETapi-activity');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-oi"
+                    id="btn-executetryout-GETapi-activity"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -336,7 +336,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/oi</code></b>
+            <b><code>api/activity</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -344,7 +344,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-oi"
+                              name="Content-Type"                data-endpoint="GETapi-activity"
                value="application/json"
                data-component="header">
     <br>
@@ -355,15 +355,914 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-oi"
+                              name="Accept"                data-endpoint="GETapi-activity"
                value="application/json"
                data-component="header">
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-activity"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-register">Log in the user.</h2>
+                    <h2 id="activities-GETapi-activity-filter">Filter activities based on request parameters.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-activity-filter">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/activity/filter?text=consectetur&amp;age_group_id=19&amp;area_id=17&amp;level_id=5&amp;created_by=1&amp;has_multimedia_resources=&amp;has_visual_instructions=" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/activity/filter"
+);
+
+const params = {
+    "text": "consectetur",
+    "age_group_id": "19",
+    "area_id": "17",
+    "level_id": "5",
+    "created_by": "1",
+    "has_multimedia_resources": "0",
+    "has_visual_instructions": "0",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-activity-filter">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;created_by&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;John Doe&quot;,
+                &quot;email&quot;: &quot;john@example.com&quot;,
+                &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-09-01T12:34:56Z&quot;
+            },
+            &quot;area&quot;: {
+                &quot;id&quot;: 1,
+                &quot;title&quot;: &quot;Science&quot;
+            },
+            &quot;age_group&quot;: {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Ages 5-8&quot;
+            },
+            &quot;level&quot;: {
+                &quot;id&quot;: 3,
+                &quot;title&quot;: &quot;Intermediate&quot;
+            },
+            &quot;title&quot;: &quot;Sample Activity&quot;,
+            &quot;description&quot;: &quot;Description of the sample activity.&quot;,
+            &quot;media_path_1&quot;: &quot;media/activity1.jpg&quot;,
+            &quot;media_path_2&quot;: null,
+            &quot;media_path_3&quot;: null,
+            &quot;media_path_4&quot;: null,
+            &quot;has_multimedia_resources&quot;: true,
+            &quot;has_visual_instructions&quot;: false,
+            &quot;created_at&quot;: &quot;2023-09-02T10:15:30Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-02T10:15:30Z&quot;
+            &quot;note&quot;: 3.5
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;created_by&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Alice Smith&quot;,
+                &quot;email&quot;: &quot;alice@example.com&quot;,
+                &quot;created_at&quot;: &quot;2023-09-01T13:45:00Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-09-01T13:45:00Z&quot;
+            },
+            &quot;area&quot;: {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Art&quot;
+            },
+            &quot;age_group&quot;: {
+                &quot;id&quot;: 1,
+                &quot;title&quot;: &quot;Ages 3-5&quot;
+            },
+            &quot;level&quot;: {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Beginner&quot;
+            },
+            &quot;title&quot;: &quot;Another Activity&quot;,
+            &quot;description&quot;: &quot;Description of another activity.&quot;,
+            &quot;media_path_1&quot;: null,
+            &quot;media_path_2&quot;: null,
+            &quot;media_path_3&quot;: null,
+            &quot;media_path_4&quot;: null,
+            &quot;has_multimedia_resources&quot;: false,
+            &quot;has_visual_instructions&quot;: true,
+            &quot;created_at&quot;: &quot;2023-09-02T11:30:45Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-02T11:30:45Z&quot;
+            &quot;note&quot;: 3.5
+        }
+        // ... other activities that match the filtering criteria
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-activity-filter" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-activity-filter"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-activity-filter"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-activity-filter" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-activity-filter">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-activity-filter" data-method="GET"
+      data-path="api/activity/filter"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-activity-filter', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-activity-filter"
+                    onclick="tryItOut('GETapi-activity-filter');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-activity-filter"
+                    onclick="cancelTryOut('GETapi-activity-filter');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-activity-filter"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/activity/filter</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-activity-filter"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-activity-filter"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-activity-filter"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>text</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="text"                data-endpoint="GETapi-activity-filter"
+               value="consectetur"
+               data-component="query">
+    <br>
+<p>The text to search in the title or description of the activity (optional). Example: <code>consectetur</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>age_group_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="age_group_id"                data-endpoint="GETapi-activity-filter"
+               value="19"
+               data-component="query">
+    <br>
+<p>The ID of the age group to filter activities by a specific age group (optional). Example: <code>19</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>area_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="area_id"                data-endpoint="GETapi-activity-filter"
+               value="17"
+               data-component="query">
+    <br>
+<p>The ID of the area to filter activities by a specific area (optional). Example: <code>17</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>level_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="level_id"                data-endpoint="GETapi-activity-filter"
+               value="5"
+               data-component="query">
+    <br>
+<p>The ID of the level to filter activities by a specific level (optional). Example: <code>5</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>created_by</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="created_by"                data-endpoint="GETapi-activity-filter"
+               value="1"
+               data-component="query">
+    <br>
+<p>The ID of the user who created the activity to filter activities created by a specific user (optional). Example: <code>1</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>has_multimedia_resources</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="GETapi-activity-filter" style="display: none">
+            <input type="radio" name="has_multimedia_resources"
+                   value="1"
+                   data-endpoint="GETapi-activity-filter"
+                   data-component="query"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="GETapi-activity-filter" style="display: none">
+            <input type="radio" name="has_multimedia_resources"
+                   value="0"
+                   data-endpoint="GETapi-activity-filter"
+                   data-component="query"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Defines whether the activity should have multimedia resources (true) or not (false) (optional). Example: <code>false</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>has_visual_instructions</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="GETapi-activity-filter" style="display: none">
+            <input type="radio" name="has_visual_instructions"
+                   value="1"
+                   data-endpoint="GETapi-activity-filter"
+                   data-component="query"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="GETapi-activity-filter" style="display: none">
+            <input type="radio" name="has_visual_instructions"
+                   value="0"
+                   data-endpoint="GETapi-activity-filter"
+                   data-component="query"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Defines whether the activity should have visual instructions (true) or not (false) (optional). Example: <code>false</code></p>
+            </div>
+                </form>
+
+                    <h2 id="activities-GETapi-activity--id-">Retrieve a specific activity with related information and similar activities.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-activity--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/activity/19" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/activity/19"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-activity--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;created_by&quot;: {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;John Doe&quot;,
+            &quot;email&quot;: &quot;john@example.com&quot;,
+            &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-01T12:34:56Z&quot;
+        },
+        &quot;area&quot;: {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Science&quot;
+        },
+        &quot;age_group&quot;: {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Ages 5-8&quot;
+        },
+        &quot;level&quot;: {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;Intermediate&quot;
+        },
+        &quot;title&quot;: &quot;Fun Science Experiment&quot;,
+        &quot;description&quot;: &quot;A simple and fun science experiment for kids.&quot;,
+        &quot;media_path_1&quot;: &quot;https://example.com/media/experiment.jpg&quot;,
+        &quot;media_path_2&quot;: null,
+        &quot;media_path_3&quot;: null,
+        &quot;media_path_4&quot;: null,
+        &quot;created_at&quot;: &quot;2023-09-02T10:15:30Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-09-02T10:15:30Z&quot;,
+        &quot;note&quot;: 4.2, // The calculated average rating based on comments
+        &quot;comments&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;user_id&quot;: 2,
+                &quot;activity_id&quot;: 1,
+                &quot;note&quot;: 4.5,
+                &quot;created_at&quot;: &quot;2023-09-03T14:30:00Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-09-03T14:30:00Z&quot;
+            },
+            // ... (other comment objects)
+        ],
+        &quot;questions&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;activity_id&quot;: 1,
+                &quot;question&quot;: &quot;Can I use household items for this experiment?&quot;,
+                &quot;created_at&quot;: &quot;2023-09-03T14:30:00Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-09-03T14:30:00Z&quot;
+            },
+            // ... (other question objects)
+        ]
+    },
+    &quot;similar_activities&quot;: [
+        {
+            &quot;id&quot;: 2,
+            &quot;created_by&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Alice Smith&quot;,
+                &quot;email&quot;: &quot;alice@example.com&quot;,
+                &quot;created_at&quot;: &quot;2023-09-01T13:45:00Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-09-01T13:45:00Z&quot;
+            },
+            &quot;area&quot;: {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Art&quot;
+            },
+            &quot;age_group&quot;: {
+                &quot;id&quot;: 1,
+                &quot;title&quot;: &quot;Ages 3-5&quot;
+            },
+            &quot;level&quot;: {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Beginner&quot;
+            },
+            &quot;title&quot;: &quot;Creative Painting&quot;,
+            &quot;description&quot;: &quot;Learn creative painting techniques for beginners.&quot;,
+            &quot;media_path_1&quot;: &quot;https://example.com/media/painting.jpg&quot;,
+            &quot;media_path_2&quot;: null,
+            &quot;media_path_3&quot;: null,
+            &quot;media_path_4&quot;: null,
+            &quot;created_at&quot;: &quot;2023-09-02T11:30:45Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-02T11:30:45Z&quot;,
+            &quot;note&quot;: 3.8 // The calculated average rating based on comments
+        },
+        // ... (other similar activity objects)
+    ]
+}
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-activity--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-activity--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-activity--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-activity--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-activity--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-activity--id-" data-method="GET"
+      data-path="api/activity/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-activity--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-activity--id-"
+                    onclick="tryItOut('GETapi-activity--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-activity--id-"
+                    onclick="cancelTryOut('GETapi-activity--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-activity--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/activity/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-activity--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-activity--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-activity--id-"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-activity--id-"
+               value="19"
+               data-component="url">
+    <br>
+<p>The ID of the activity. Example: <code>19</code></p>
+            </div>
+                    </form>
+
+                <h1 id="age-groups">Age Groups</h1>
+
+    
+
+                                <h2 id="age-groups-GETapi-age_group">Display a listing of age groups.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-age_group">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/age_group" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/age_group"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-age_group">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Ages 3-5&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Ages 5-8&quot;
+        },
+        // ... (other age group objects)
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-age_group" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-age_group"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-age_group"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-age_group" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-age_group">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-age_group" data-method="GET"
+      data-path="api/age_group"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-age_group', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-age_group"
+                    onclick="tryItOut('GETapi-age_group');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-age_group"
+                    onclick="cancelTryOut('GETapi-age_group');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-age_group"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/age_group</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-age_group"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-age_group"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-age_group"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        </form>
+
+                <h1 id="areas">Areas</h1>
+
+    
+
+                                <h2 id="areas-GETapi-area">Display a listing of areas with associated activities.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-area">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/area" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/area"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-area">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Science&quot;,
+            &quot;activities_count&quot;: 3,
+            &quot;activities&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;created_by&quot;: {
+                        &quot;id&quot;: 1,
+                        &quot;name&quot;: &quot;John Doe&quot;,
+                        &quot;email&quot;: &quot;john@example.com&quot;,
+                        &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+                        &quot;updated_at&quot;: &quot;2023-09-01T12:34:56Z&quot;
+                    },
+                    &quot;age_group&quot;: {
+                        &quot;id&quot;: 2,
+                        &quot;title&quot;: &quot;Ages 5-8&quot;
+                    },
+                    &quot;level&quot;: {
+                        &quot;id&quot;: 3,
+                        &quot;title&quot;: &quot;Intermediate&quot;
+                    },
+                    &quot;title&quot;: &quot;Fun Science Experiment&quot;,
+                    &quot;description&quot;: &quot;A simple and fun science experiment for kids.&quot;,
+                    &quot;media_path_1&quot;: &quot;https://example.com/media/experiment.jpg&quot;,
+                    &quot;media_path_2&quot;: null,
+                    &quot;media_path_3&quot;: null,
+                    &quot;media_path_4&quot;: null,
+                    &quot;created_at&quot;: &quot;2023-09-02T10:15:30Z&quot;,
+                    &quot;updated_at&quot;: &quot;2023-09-02T10:15:30Z&quot;
+                },
+                // ... (other activity objects in the Science area)
+            ]
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Art&quot;,
+            &quot;activities_count&quot;: 2,
+            &quot;activities&quot;: [
+                {
+                    &quot;id&quot;: 2,
+                    &quot;created_by&quot;: {
+                        &quot;id&quot;: 2,
+                        &quot;name&quot;: &quot;Alice Smith&quot;,
+                        &quot;email&quot;: &quot;alice@example.com&quot;,
+                        &quot;created_at&quot;: &quot;2023-09-01T13:45:00Z&quot;,
+                        &quot;updated_at&quot;: &quot;2023-09-01T13:45:00Z&quot;
+                    },
+                    &quot;age_group&quot;: {
+                        &quot;id&quot;: 1,
+                        &quot;title&quot;: &quot;Ages 3-5&quot;
+                    },
+                    &quot;level&quot;: {
+                        &quot;id&quot;: 2,
+                        &quot;title&quot;: &quot;Beginner&quot;
+                    },
+                    &quot;title&quot;: &quot;Creative Painting&quot;,
+                    &quot;description&quot;: &quot;Learn creative painting techniques for beginners.&quot;,
+                    &quot;media_path_1&quot;: &quot;https://example.com/media/painting.jpg&quot;,
+                    &quot;media_path_2&quot;: null,
+                    &quot;media_path_3&quot;: null,
+                    &quot;media_path_4&quot;: null,
+                    &quot;created_at&quot;: &quot;2023-09-02T11:30:45Z&quot;,
+                    &quot;updated_at&quot;: &quot;2023-09-02T11:30:45Z&quot;
+                },
+                // ... (other activity objects in the Art area)
+            ]
+        },
+        // ... (other area objects)
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-area" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-area"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-area"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-area" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-area">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-area" data-method="GET"
+      data-path="api/area"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-area', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-area"
+                    onclick="tryItOut('GETapi-area');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-area"
+                    onclick="cancelTryOut('GETapi-area');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-area"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/area</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-area"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-area"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-area"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        </form>
+
+                <h1 id="authentication">Authentication</h1>
+
+    <p>Creates a new user with the provided information.</p>
+
+                                <h2 id="authentication-POSTapi-register">Register a new user.</h2>
 
 <p>
 </p>
@@ -380,8 +1279,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"secret\",
-    \"email\": \"testuser@example.com\",
+    \"name\": \"John Doe\",
+    \"email\": \"john@example.com\",
     \"password\": \"secret\",
     \"password_confirmation\": \"secret\"
 }"
@@ -399,8 +1298,8 @@ const headers = {
 };
 
 let body = {
-    "name": "secret",
-    "email": "testuser@example.com",
+    "name": "John Doe",
+    "email": "john@example.com",
     "password": "secret",
     "password_confirmation": "secret"
 };
@@ -415,13 +1314,33 @@ fetch(url, {
 
 <span id="example-responses-POSTapi-register">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (201):</p>
         </blockquote>
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
- &quot;access_token&quot;: &quot;eyJ0eXA...&quot;,
- &quot;token_type&quot;: &quot;Bearer&quot;,
+    &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;John Doe&quot;,
+        &quot;email&quot;: &quot;john@example.com&quot;,
+        &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-09-01T12:34:56Z&quot;
+    },
+    &quot;message&quot;: &quot;User created successfully&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;email&quot;: [
+            &quot;The email has already been taken.&quot;
+        ]
+    }
 }</code>
  </pre>
     </span>
@@ -501,10 +1420,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-register"
-               value="secret"
+               value="John Doe"
                data-component="body">
     <br>
-<p>The name of the  user. Example: <code>secret</code></p>
+<p>The name of the user. Example: <code>John Doe</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -512,10 +1431,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-register"
-               value="testuser@example.com"
+               value="john@example.com"
                data-component="body">
     <br>
-<p>The email of the  user. Example: <code>testuser@example.com</code></p>
+<p>The email address of the user. Example: <code>john@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -526,7 +1445,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="secret"
                data-component="body">
     <br>
-<p>The password of the  user. Example: <code>secret</code></p>
+<p>The password for the user. Example: <code>secret</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -537,9 +1456,799 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="secret"
                data-component="body">
     <br>
-<p>The password of the  user password. Example: <code>secret</code></p>
+<p>The confirmation of the user's password. Example: <code>secret</code></p>
         </div>
         </form>
+
+                    <h2 id="authentication-POSTapi-login">Log in the user.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"testuser@example.com\",
+    \"password\": \"secret\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "testuser@example.com",
+    "password": "secret"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-login">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;User successfully logged in&quot;,
+    &quot;token&quot;: &quot;generated_token_here&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;We could not find a user with that email&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Incorrect password&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-login"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-login">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-login" data-method="POST"
+      data-path="api/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-login"
+                    onclick="tryItOut('POSTapi-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-login"
+                    onclick="cancelTryOut('POSTapi-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-login"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/login</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-login"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-login"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-login"
+               value="testuser@example.com"
+               data-component="body">
+    <br>
+<p>The email of the user. Example: <code>testuser@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-login"
+               value="secret"
+               data-component="body">
+    <br>
+<p>The password of the user. Example: <code>secret</code></p>
+        </div>
+        </form>
+
+                <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-age_group--id-">Display the specified resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-age_group--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/age_group/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/age_group/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-age_group--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: http://localhost
+access-control-allow-credentials: true
+set-cookie: laravel_session=wmothezS3AeRBWEy3CRTDHOjutkpCQwD6mcydu9P; expires=Fri, 01 Sep 2023 21:51:06 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Request without token&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-age_group--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-age_group--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-age_group--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-age_group--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-age_group--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-age_group--id-" data-method="GET"
+      data-path="api/age_group/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-age_group--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-age_group--id-"
+                    onclick="tryItOut('GETapi-age_group--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-age_group--id-"
+                    onclick="cancelTryOut('GETapi-age_group--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-age_group--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/age_group/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-age_group--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-age_group--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-age_group--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the age group. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                <h1 id="levels">Levels</h1>
+
+    
+
+                                <h2 id="levels-GETapi-levels">Display a listing of levels.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-levels">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/levels" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/levels"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-levels">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Beginner&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Intermediate&quot;
+        },
+        // ... (other level objects)
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-levels" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-levels"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-levels"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-levels" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-levels">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-levels" data-method="GET"
+      data-path="api/levels"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-levels', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-levels"
+                    onclick="tryItOut('GETapi-levels');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-levels"
+                    onclick="cancelTryOut('GETapi-levels');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-levels"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/levels</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-levels"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-levels"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-levels"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        </form>
+
+                <h1 id="teachers">Teachers</h1>
+
+    
+
+                                <h2 id="teachers-GETapi-teacher">Retrieve all teachers with their average rating.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-teacher">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/teacher" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/teacher"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-teacher">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;John Doe&quot;,
+            &quot;email&quot;: &quot;john@example.com&quot;,
+            &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+            &quot;note&quot;: 4.5
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Alice Smith&quot;,
+            &quot;email&quot;: &quot;alice@example.com&quot;,
+            &quot;created_at&quot;: &quot;2023-09-01T13:45:00Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-01T13:45:00Z&quot;,
+            &quot;note&quot;: 3.8
+        }
+        // ... (other teacher objects)
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-teacher" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-teacher"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-teacher"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-teacher" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-teacher">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-teacher" data-method="GET"
+      data-path="api/teacher"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-teacher', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-teacher"
+                    onclick="tryItOut('GETapi-teacher');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-teacher"
+                    onclick="cancelTryOut('GETapi-teacher');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-teacher"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/teacher</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-teacher"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-teacher"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-teacher"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="teachers-GETapi-teacher--id-">Retrieve a specific teacher and their created activities.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-teacher--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/teacher/8" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/teacher/8"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-teacher--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;John Doe&quot;,
+        &quot;email&quot;: &quot;john@example.com&quot;,
+        &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+        &quot;note&quot;: 4.5,
+        &quot;created_activities&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;title&quot;: &quot;Sample Activity 1&quot;,
+                &quot;description&quot;: &quot;Description of Sample Activity 1.&quot;,
+                &quot;media_path_1&quot;: &quot;media/activity1.jpg&quot;,
+                &quot;media_path_2&quot;: null,
+                &quot;media_path_3&quot;: null,
+                &quot;media_path_4&quot;: null,
+                &quot;has_multimedia_resources&quot;: true,
+                &quot;has_visual_instructions&quot;: false,
+                &quot;created_at&quot;: &quot;2023-09-01T12:00:00Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-09-01T12:30:00Z&quot;,
+                &quot;note&quot;: 4.2
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;title&quot;: &quot;Sample Activity 2&quot;,
+                &quot;description&quot;: &quot;Description of Sample Activity 2.&quot;,
+                &quot;media_path_1&quot;: &quot;media/activity2.jpg&quot;,
+                &quot;media_path_2&quot;: null,
+                &quot;media_path_3&quot;: null,
+                &quot;media_path_4&quot;: null,
+                &quot;has_multimedia_resources&quot;: true,
+                &quot;has_visual_instructions&quot;: false,
+                &quot;created_at&quot;: &quot;2023-09-02T10:00:00Z&quot;,
+                &quot;updated_at&quot;: &quot;2023-09-02T10:30:00Z&quot;,
+                &quot;note&quot;: 4.7
+            }
+            // ... (other activity objects created by the teacher)
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-teacher--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-teacher--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-teacher--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-teacher--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-teacher--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-teacher--id-" data-method="GET"
+      data-path="api/teacher/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-teacher--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-teacher--id-"
+                    onclick="tryItOut('GETapi-teacher--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-teacher--id-"
+                    onclick="cancelTryOut('GETapi-teacher--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-teacher--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/teacher/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-teacher--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-teacher--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-teacher--id-"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-teacher--id-"
+               value="8"
+               data-component="url">
+    <br>
+<p>The ID of the teacher. Example: <code>8</code></p>
+            </div>
+                    </form>
 
             
 

@@ -7,61 +7,239 @@ servers:
   -
     url: 'http://localhost:8000'
 paths:
-  /api/user:
+  /api/activity:
     get:
-      summary: ''
-      operationId: getApiUser
+      summary: 'Retrieve all activities with related information.'
+      operationId: retrieveAllActivitiesWithRelatedInformation
       description: ''
       parameters: []
       responses:
-        401:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"created_by\": {\n                \"id\": 1,\n                \"name\": \"John Doe\",\n                \"email\": \"john@example.com\",\n                \"created_at\": \"2023-09-01T12:34:56Z\",\n                \"updated_at\": \"2023-09-01T12:34:56Z\"\n            },\n            \"area\": {\n                \"id\": 1,\n                \"title\": \"Science\"\n            },\n            \"age_group\": {\n                \"id\": 2,\n                \"title\": \"Ages 5-8\"\n            },\n            \"level\": {\n                \"id\": 3,\n                \"title\": \"Intermediate\"\n            },\n            \"title\": \"Fun Science Experiment\",\n            \"description\": \"A simple and fun science experiment for kids.\",\n            \"media_path_1\": \"https://example.com/media/experiment.jpg\",\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"created_at\": \"2023-09-02T10:15:30Z\",\n            \"updated_at\": \"2023-09-02T10:15:30Z\"\n        },\n        {\n            \"id\": 2,\n            \"created_by\": {\n                \"id\": 2,\n                \"name\": \"Alice Smith\",\n                \"email\": \"alice@example.com\",\n                \"created_at\": \"2023-09-01T13:45:00Z\",\n                \"updated_at\": \"2023-09-01T13:45:00Z\"\n            },\n            \"area\": {\n                \"id\": 2,\n                \"title\": \"Art\"\n            },\n            \"age_group\": {\n                \"id\": 1,\n                \"title\": \"Ages 3-5\"\n            },\n            \"level\": {\n                \"id\": 2,\n                \"title\": \"Beginner\"\n            },\n            \"title\": \"Creative Painting\",\n            \"description\": \"Learn creative painting techniques for beginners.\",\n            \"media_path_1\": \"https://example.com/media/painting.jpg\",\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"created_at\": \"2023-09-02T11:30:45Z\",\n            \"updated_at\": \"2023-09-02T11:30:45Z\"\n            \"note\": 3.5\n\n        }\n        // ... (other activity objects)\n    ]\n}"
+      tags:
+        - Activities
+      security: []
+  /api/activity/filter:
+    get:
+      summary: 'Filter activities based on request parameters.'
+      operationId: filterActivitiesBasedOnRequestParameters
+      description: ''
+      parameters:
+        -
+          in: query
+          name: text
+          description: 'The text to search in the title or description of the activity (optional).'
+          example: consectetur
+          required: false
+          schema:
+            type: string
+            description: 'The text to search in the title or description of the activity (optional).'
+            example: consectetur
+        -
+          in: query
+          name: age_group_id
+          description: 'The ID of the age group to filter activities by a specific age group (optional).'
+          example: 19
+          required: false
+          schema:
+            type: integer
+            description: 'The ID of the age group to filter activities by a specific age group (optional).'
+            example: 19
+        -
+          in: query
+          name: area_id
+          description: 'The ID of the area to filter activities by a specific area (optional).'
+          example: 17
+          required: false
+          schema:
+            type: integer
+            description: 'The ID of the area to filter activities by a specific area (optional).'
+            example: 17
+        -
+          in: query
+          name: level_id
+          description: 'The ID of the level to filter activities by a specific level (optional).'
+          example: 5
+          required: false
+          schema:
+            type: integer
+            description: 'The ID of the level to filter activities by a specific level (optional).'
+            example: 5
+        -
+          in: query
+          name: created_by
+          description: 'The ID of the user who created the activity to filter activities created by a specific user (optional).'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'The ID of the user who created the activity to filter activities created by a specific user (optional).'
+            example: 1
+        -
+          in: query
+          name: has_multimedia_resources
+          description: 'Defines whether the activity should have multimedia resources (true) or not (false) (optional).'
+          example: false
+          required: false
+          schema:
+            type: boolean
+            description: 'Defines whether the activity should have multimedia resources (true) or not (false) (optional).'
+            example: false
+        -
+          in: query
+          name: has_visual_instructions
+          description: 'Defines whether the activity should have visual instructions (true) or not (false) (optional).'
+          example: false
+          required: false
+          schema:
+            type: boolean
+            description: 'Defines whether the activity should have visual instructions (true) or not (false) (optional).'
+            example: false
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"created_by\": {\n                \"id\": 1,\n                \"name\": \"John Doe\",\n                \"email\": \"john@example.com\",\n                \"created_at\": \"2023-09-01T12:34:56Z\",\n                \"updated_at\": \"2023-09-01T12:34:56Z\"\n            },\n            \"area\": {\n                \"id\": 1,\n                \"title\": \"Science\"\n            },\n            \"age_group\": {\n                \"id\": 2,\n                \"title\": \"Ages 5-8\"\n            },\n            \"level\": {\n                \"id\": 3,\n                \"title\": \"Intermediate\"\n            },\n            \"title\": \"Sample Activity\",\n            \"description\": \"Description of the sample activity.\",\n            \"media_path_1\": \"media/activity1.jpg\",\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"has_multimedia_resources\": true,\n            \"has_visual_instructions\": false,\n            \"created_at\": \"2023-09-02T10:15:30Z\",\n            \"updated_at\": \"2023-09-02T10:15:30Z\"\n            \"note\": 3.5\n        },\n        {\n            \"id\": 2,\n            \"created_by\": {\n                \"id\": 2,\n                \"name\": \"Alice Smith\",\n                \"email\": \"alice@example.com\",\n                \"created_at\": \"2023-09-01T13:45:00Z\",\n                \"updated_at\": \"2023-09-01T13:45:00Z\"\n            },\n            \"area\": {\n                \"id\": 2,\n                \"title\": \"Art\"\n            },\n            \"age_group\": {\n                \"id\": 1,\n                \"title\": \"Ages 3-5\"\n            },\n            \"level\": {\n                \"id\": 2,\n                \"title\": \"Beginner\"\n            },\n            \"title\": \"Another Activity\",\n            \"description\": \"Description of another activity.\",\n            \"media_path_1\": null,\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"has_multimedia_resources\": false,\n            \"has_visual_instructions\": true,\n            \"created_at\": \"2023-09-02T11:30:45Z\",\n            \"updated_at\": \"2023-09-02T11:30:45Z\"\n            \"note\": 3.5\n        }\n        // ... other activities that match the filtering criteria\n    ]\n}"
+      tags:
+        - Activities
+      security: []
+  '/api/activity/{id}':
+    get:
+      summary: 'Retrieve a specific activity with related information and similar activities.'
+      operationId: retrieveASpecificActivityWithRelatedInformationAndSimilarActivities
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"data\": {\n        \"id\": 1,\n        \"created_by\": {\n            \"id\": 1,\n            \"name\": \"John Doe\",\n            \"email\": \"john@example.com\",\n            \"created_at\": \"2023-09-01T12:34:56Z\",\n            \"updated_at\": \"2023-09-01T12:34:56Z\"\n        },\n        \"area\": {\n            \"id\": 1,\n            \"title\": \"Science\"\n        },\n        \"age_group\": {\n            \"id\": 2,\n            \"title\": \"Ages 5-8\"\n        },\n        \"level\": {\n            \"id\": 3,\n            \"title\": \"Intermediate\"\n        },\n        \"title\": \"Fun Science Experiment\",\n        \"description\": \"A simple and fun science experiment for kids.\",\n        \"media_path_1\": \"https://example.com/media/experiment.jpg\",\n        \"media_path_2\": null,\n        \"media_path_3\": null,\n        \"media_path_4\": null,\n        \"created_at\": \"2023-09-02T10:15:30Z\",\n        \"updated_at\": \"2023-09-02T10:15:30Z\",\n        \"note\": 4.2, // The calculated average rating based on comments\n        \"comments\": [\n            {\n                \"id\": 1,\n                \"user_id\": 2,\n                \"activity_id\": 1,\n                \"note\": 4.5,\n                \"created_at\": \"2023-09-03T14:30:00Z\",\n                \"updated_at\": \"2023-09-03T14:30:00Z\"\n            },\n            // ... (other comment objects)\n        ],\n        \"questions\": [\n            {\n                \"id\": 1,\n                \"activity_id\": 1,\n                \"question\": \"Can I use household items for this experiment?\",\n                \"created_at\": \"2023-09-03T14:30:00Z\",\n                \"updated_at\": \"2023-09-03T14:30:00Z\"\n            },\n            // ... (other question objects)\n        ]\n    },\n    \"similar_activities\": [\n        {\n            \"id\": 2,\n            \"created_by\": {\n                \"id\": 2,\n                \"name\": \"Alice Smith\",\n                \"email\": \"alice@example.com\",\n                \"created_at\": \"2023-09-01T13:45:00Z\",\n                \"updated_at\": \"2023-09-01T13:45:00Z\"\n            },\n            \"area\": {\n                \"id\": 2,\n                \"title\": \"Art\"\n            },\n            \"age_group\": {\n                \"id\": 1,\n                \"title\": \"Ages 3-5\"\n            },\n            \"level\": {\n                \"id\": 2,\n                \"title\": \"Beginner\"\n            },\n            \"title\": \"Creative Painting\",\n            \"description\": \"Learn creative painting techniques for beginners.\",\n            \"media_path_1\": \"https://example.com/media/painting.jpg\",\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"created_at\": \"2023-09-02T11:30:45Z\",\n            \"updated_at\": \"2023-09-02T11:30:45Z\",\n            \"note\": 3.8 // The calculated average rating based on comments\n        },\n        // ... (other similar activity objects)\n    ]\n}\n}"
+      tags:
+        - Activities
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the activity.'
+        example: 19
+        required: true
+        schema:
+          type: integer
+  /api/age_group:
+    get:
+      summary: 'Display a listing of age groups.'
+      operationId: displayAListingOfAgeGroups
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Ages 3-5\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Ages 5-8\"\n        },\n        // ... (other age group objects)\n    ]\n}"
+      tags:
+        - 'Age Groups'
+      security: []
+  /api/area:
+    get:
+      summary: 'Display a listing of areas with associated activities.'
+      operationId: displayAListingOfAreasWithAssociatedActivities
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Science\",\n            \"activities_count\": 3,\n            \"activities\": [\n                {\n                    \"id\": 1,\n                    \"created_by\": {\n                        \"id\": 1,\n                        \"name\": \"John Doe\",\n                        \"email\": \"john@example.com\",\n                        \"created_at\": \"2023-09-01T12:34:56Z\",\n                        \"updated_at\": \"2023-09-01T12:34:56Z\"\n                    },\n                    \"age_group\": {\n                        \"id\": 2,\n                        \"title\": \"Ages 5-8\"\n                    },\n                    \"level\": {\n                        \"id\": 3,\n                        \"title\": \"Intermediate\"\n                    },\n                    \"title\": \"Fun Science Experiment\",\n                    \"description\": \"A simple and fun science experiment for kids.\",\n                    \"media_path_1\": \"https://example.com/media/experiment.jpg\",\n                    \"media_path_2\": null,\n                    \"media_path_3\": null,\n                    \"media_path_4\": null,\n                    \"created_at\": \"2023-09-02T10:15:30Z\",\n                    \"updated_at\": \"2023-09-02T10:15:30Z\"\n                },\n                // ... (other activity objects in the Science area)\n            ]\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Art\",\n            \"activities_count\": 2,\n            \"activities\": [\n                {\n                    \"id\": 2,\n                    \"created_by\": {\n                        \"id\": 2,\n                        \"name\": \"Alice Smith\",\n                        \"email\": \"alice@example.com\",\n                        \"created_at\": \"2023-09-01T13:45:00Z\",\n                        \"updated_at\": \"2023-09-01T13:45:00Z\"\n                    },\n                    \"age_group\": {\n                        \"id\": 1,\n                        \"title\": \"Ages 3-5\"\n                    },\n                    \"level\": {\n                        \"id\": 2,\n                        \"title\": \"Beginner\"\n                    },\n                    \"title\": \"Creative Painting\",\n                    \"description\": \"Learn creative painting techniques for beginners.\",\n                    \"media_path_1\": \"https://example.com/media/painting.jpg\",\n                    \"media_path_2\": null,\n                    \"media_path_3\": null,\n                    \"media_path_4\": null,\n                    \"created_at\": \"2023-09-02T11:30:45Z\",\n                    \"updated_at\": \"2023-09-02T11:30:45Z\"\n                },\n                // ... (other activity objects in the Art area)\n            ]\n        },\n        // ... (other area objects)\n    ]\n}"
+      tags:
+        - Areas
+      security: []
+  /api/register:
+    post:
+      summary: 'Register a new user.'
+      operationId: registerANewUser
+      description: ''
+      parameters: []
+      responses:
+        201:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  user:
+                    id: 1
+                    name: 'John Doe'
+                    email: john@example.com
+                    created_at: '2023-09-01T12:34:56Z'
+                    updated_at: '2023-09-01T12:34:56Z'
+                  message: 'User created successfully'
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      email:
+                        type: string
+                        example: john@example.com
+                      created_at:
+                        type: string
+                        example: '2023-09-01T12:34:56Z'
+                      updated_at:
+                        type: string
+                        example: '2023-09-01T12:34:56Z'
+                  message:
+                    type: string
+                    example: 'User created successfully'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    email:
+                      - 'The email has already been taken.'
                 properties:
                   message:
                     type: string
-                    example: Unauthenticated.
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email has already been taken.'
+                        items:
+                          type: string
       tags:
-        - Endpoints
-      security: []
-  /api/oi:
-    get:
-      summary: ''
-      operationId: getApiOi
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: oi
-      tags:
-        - Endpoints
-      security: []
-  /api/register:
-    post:
-      summary: 'Log in the user.'
-      operationId: logInTheUser
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n \"access_token\": \"eyJ0eXA...\",\n \"token_type\": \"Bearer\",\n}"
-      tags:
-        - Endpoints
+        - Authentication
       requestBody:
         required: true
         content:
@@ -71,19 +249,19 @@ paths:
               properties:
                 name:
                   type: string
-                  description: 'The name of the  user.'
-                  example: secret
+                  description: 'The name of the user.'
+                  example: 'John Doe'
                 email:
                   type: string
-                  description: 'The email of the  user.'
-                  example: testuser@example.com
+                  description: 'The email address of the user.'
+                  example: john@example.com
                 password:
                   type: string
-                  description: 'The password of the  user.'
+                  description: 'The password for the user.'
                   example: secret
                 password_confirmation:
                   type: string
-                  description: 'The password of the  user password.'
+                  description: "The confirmation of the user's password."
                   example: secret
               required:
                 - name
@@ -91,7 +269,172 @@ paths:
                 - password
                 - password_confirmation
       security: []
+  /api/login:
+    post:
+      summary: 'Log in the user.'
+      operationId: logInTheUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User successfully logged in'
+                  token: generated_token_here
+                properties:
+                  message:
+                    type: string
+                    example: 'User successfully logged in'
+                  token:
+                    type: string
+                    example: generated_token_here
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Incorrect password'
+                properties:
+                  message:
+                    type: string
+                    example: 'Incorrect password'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: testuser@example.com
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: secret
+              required:
+                - email
+                - password
+      security: []
+  '/api/age_group/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Request without token'
+                properties:
+                  message:
+                    type: string
+                    example: 'Request without token'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the age group.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/levels:
+    get:
+      summary: 'Display a listing of levels.'
+      operationId: displayAListingOfLevels
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Beginner\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Intermediate\"\n        },\n        // ... (other level objects)\n    ]\n}"
+      tags:
+        - Levels
+      security: []
+  /api/teacher:
+    get:
+      summary: 'Retrieve all teachers with their average rating.'
+      operationId: retrieveAllTeachersWithTheirAverageRating
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"John Doe\",\n            \"email\": \"john@example.com\",\n            \"created_at\": \"2023-09-01T12:34:56Z\",\n            \"updated_at\": \"2023-09-01T12:34:56Z\",\n            \"note\": 4.5\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Alice Smith\",\n            \"email\": \"alice@example.com\",\n            \"created_at\": \"2023-09-01T13:45:00Z\",\n            \"updated_at\": \"2023-09-01T13:45:00Z\",\n            \"note\": 3.8\n        }\n        // ... (other teacher objects)\n    ]\n}"
+      tags:
+        - Teachers
+      security: []
+  '/api/teacher/{id}':
+    get:
+      summary: 'Retrieve a specific teacher and their created activities.'
+      operationId: retrieveASpecificTeacherAndTheirCreatedActivities
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"John Doe\",\n        \"email\": \"john@example.com\",\n        \"created_at\": \"2023-09-01T12:34:56Z\",\n        \"updated_at\": \"2023-09-01T12:34:56Z\",\n        \"note\": 4.5,\n        \"created_activities\": [\n            {\n                \"id\": 1,\n                \"title\": \"Sample Activity 1\",\n                \"description\": \"Description of Sample Activity 1.\",\n                \"media_path_1\": \"media/activity1.jpg\",\n                \"media_path_2\": null,\n                \"media_path_3\": null,\n                \"media_path_4\": null,\n                \"has_multimedia_resources\": true,\n                \"has_visual_instructions\": false,\n                \"created_at\": \"2023-09-01T12:00:00Z\",\n                \"updated_at\": \"2023-09-01T12:30:00Z\",\n                \"note\": 4.2\n            },\n            {\n                \"id\": 2,\n                \"title\": \"Sample Activity 2\",\n                \"description\": \"Description of Sample Activity 2.\",\n                \"media_path_1\": \"media/activity2.jpg\",\n                \"media_path_2\": null,\n                \"media_path_3\": null,\n                \"media_path_4\": null,\n                \"has_multimedia_resources\": true,\n                \"has_visual_instructions\": false,\n                \"created_at\": \"2023-09-02T10:00:00Z\",\n                \"updated_at\": \"2023-09-02T10:30:00Z\",\n                \"note\": 4.7\n            }\n            // ... (other activity objects created by the teacher)\n        ]\n    }\n}"
+      tags:
+        - Teachers
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the teacher.'
+        example: 8
+        required: true
+        schema:
+          type: integer
 tags:
   -
+    name: Activities
+    description: "This function allows you to filter activities based on various criteria, including text in the title or description,\nage group, area, level, created by user, and the presence of multimedia resources or visual instructions."
+  -
+    name: 'Age Groups'
+    description: ''
+  -
+    name: Areas
+    description: ''
+  -
+    name: Authentication
+    description: 'Creates a new user with the provided information.'
+  -
     name: Endpoints
+    description: ''
+  -
+    name: Levels
+    description: ''
+  -
+    name: Teachers
     description: ''

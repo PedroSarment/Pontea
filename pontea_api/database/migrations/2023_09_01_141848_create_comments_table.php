@@ -17,7 +17,7 @@ return new class extends Migration
             $table->dateTime('deleted_at')->nullable();
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('activity_id');
-            $table->text('text ');
+            $table->text('text');
             $table->unsignedBigInteger('note');
         });
     }

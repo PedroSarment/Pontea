@@ -21,11 +21,11 @@ class CheckToken
 
         if($token != ''){
 
-            $auths = Auth::where(['token' => $token, 'deleted_at' => ''])->get();
+            $auths = Auth::where(['token' => $token, 'deleted_at' => null])->get()->first();
 
             if($auths){
 
-                $user = User::find($auths[0]->user_id);
+                $user = User::find($auths->user_id);
 
                 $request->session()->put('user', $user);
 

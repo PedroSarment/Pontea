@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -48,4 +49,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function createdActivities(): HasMany
+    {
+        return $this->hasMany(Activity::class, 'created_by');
+    }
+
+    public function createdComments(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'created_by');
+    }
+
+    public function createdQuestions(): HasMany
+    {
+        return $this->hasMany(Question::class, 'created_by');
+    }
 }
