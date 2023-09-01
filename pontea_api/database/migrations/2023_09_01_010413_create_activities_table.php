@@ -13,7 +13,19 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('area_id');
+            $table->unsignedBigInteger('level_id ');
+            $table->unsignedBigInteger('age_group_id');
+            $table->text('title');
+            $table->text('description');
+            $table->text('media_path_1')->nullable();
+            $table->text('media_path_2')->nullable();
+            $table->text('media_path_3')->nullable();
+            $table->text('media_path_4')->nullable();
             $table->timestamps();
+            $table->dateTime('deleted_at')->nullable();
+
         });
     }
 

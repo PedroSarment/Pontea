@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Activity;
 
 class ActivitiesSeeder extends Seeder
 {
@@ -12,6 +13,8 @@ class ActivitiesSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // Generate sample activities using the factory
+        Activity::factory(20)->create();
+
     }
 }
