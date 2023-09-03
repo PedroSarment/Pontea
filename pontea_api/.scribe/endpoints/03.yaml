@@ -62,6 +62,54 @@ endpoints:
   -
     httpMethods:
       - GET
+    uri: api/teacher/turn_user_into_teacher
+    metadata:
+      groupName: Teachers
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Turn a user into a teacher.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "user": {
+                  "id": 1,
+                  "name": "John Doe",
+                  "email": "john@example.com",
+                  "is_teacher": true,
+                  "created_at": "2023-09-01T12:34:56Z",
+                  "updated_at": "2023-09-01T12:36:24Z"
+              },
+              "message": "User is now a teacher"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
     uri: 'api/teacher/{id}'
     metadata:
       groupName: Teachers

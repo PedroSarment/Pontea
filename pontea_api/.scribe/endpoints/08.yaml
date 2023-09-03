@@ -1,0 +1,88 @@
+name: Purchase
+description: 'This endpoint allows a user to purchase an activity, either by making a direct payment or using their available credit balance.'
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/purchase
+    metadata:
+      groupName: Purchase
+      groupDescription: 'This endpoint allows a user to purchase an activity, either by making a direct payment or using their available credit balance.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Purchase an activity.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      activity_id:
+        name: activity_id
+        description: 'The ID of the activity to be purchased.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+      pontea_credit_payment:
+        name: pontea_credit_payment
+        description: 'Indicates whether the purchase should be made using available credit (true) or direct payment (false). Default is false.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      activity_id: 1
+      pontea_credit_payment: false
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Purchase completed successfully."
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+              "message": "You have already purchased this activity"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+              "message": "Insufficient credit to purchase this activity"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+              "message": "Activity not found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

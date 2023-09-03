@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorepurchaseRequest extends FormRequest
+class StoreShoppingCartRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class StorepurchaseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'activity_id' => 'required|integer'
+
         ];
     }
 }

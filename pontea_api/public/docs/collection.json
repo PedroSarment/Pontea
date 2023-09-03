@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "24f1cc5f-b96a-4ac6-8f8c-59345bcaef7f",
+        "_postman_id": "9dfd9ffe-03da-4e89-bba8-450975e40a3d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -53,7 +53,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"created_by\": {\n                \"id\": 1,\n                \"name\": \"John Doe\",\n                \"email\": \"john@example.com\",\n                \"created_at\": \"2023-09-01T12:34:56Z\",\n                \"updated_at\": \"2023-09-01T12:34:56Z\"\n            },\n            \"area\": {\n                \"id\": 1,\n                \"title\": \"Science\"\n            },\n            \"age_group\": {\n                \"id\": 2,\n                \"title\": \"Ages 5-8\"\n            },\n            \"level\": {\n                \"id\": 3,\n                \"title\": \"Intermediate\"\n            },\n            \"title\": \"Fun Science Experiment\",\n            \"description\": \"A simple and fun science experiment for kids.\",\n            \"media_path_1\": \"https:\/\/example.com\/media\/experiment.jpg\",\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"created_at\": \"2023-09-02T10:15:30Z\",\n            \"updated_at\": \"2023-09-02T10:15:30Z\"\n        },\n        {\n            \"id\": 2,\n            \"created_by\": {\n                \"id\": 2,\n                \"name\": \"Alice Smith\",\n                \"email\": \"alice@example.com\",\n                \"created_at\": \"2023-09-01T13:45:00Z\",\n                \"updated_at\": \"2023-09-01T13:45:00Z\"\n            },\n            \"area\": {\n                \"id\": 2,\n                \"title\": \"Art\"\n            },\n            \"age_group\": {\n                \"id\": 1,\n                \"title\": \"Ages 3-5\"\n            },\n            \"level\": {\n                \"id\": 2,\n                \"title\": \"Beginner\"\n            },\n            \"title\": \"Creative Painting\",\n            \"description\": \"Learn creative painting techniques for beginners.\",\n            \"media_path_1\": \"https:\/\/example.com\/media\/painting.jpg\",\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"created_at\": \"2023-09-02T11:30:45Z\",\n            \"updated_at\": \"2023-09-02T11:30:45Z\"\n            \"note\": 3.5\n\n        }\n        \/\/ ... (other activity objects)\n    ]\n}",
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"created_by\": {\n                \"id\": 1,\n                \"name\": \"John Doe\",\n                \"email\": \"john@example.com\",\n                \"created_at\": \"2023-09-01T12:34:56Z\",\n                \"updated_at\": \"2023-09-01T12:34:56Z\"\n            },\n            \"area\": {\n                \"id\": 1,\n                \"title\": \"Science\"\n            },\n            \"age_group\": {\n                \"id\": 2,\n                \"title\": \"Ages 5-8\"\n            },\n            \"level\": {\n                \"id\": 3,\n                \"title\": \"Intermediate\"\n            },\n            \"title\": \"Fun Science Experiment\",\n            \"description\": \"A simple and fun science experiment for kids.\",\n            \"media_path_1\": \"https:\/\/example.com\/media\/experiment.jpg\",\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"created_at\": \"2023-09-02T10:15:30Z\",\n            \"updated_at\": \"2023-09-02T10:15:30Z\"\n\n        },\n        {\n            \"id\": 2,\n            \"created_by\": {\n                \"id\": 2,\n                \"name\": \"Alice Smith\",\n                \"email\": \"alice@example.com\",\n                \"created_at\": \"2023-09-01T13:45:00Z\",\n                \"updated_at\": \"2023-09-01T13:45:00Z\"\n            },\n            \"area\": {\n                \"id\": 2,\n                \"title\": \"Art\"\n            },\n            \"age_group\": {\n                \"id\": 1,\n                \"title\": \"Ages 3-5\"\n            },\n            \"level\": {\n                \"id\": 2,\n                \"title\": \"Beginner\"\n            },\n            \"title\": \"Creative Painting\",\n            \"description\": \"Learn creative painting techniques for beginners.\",\n            \"media_path_1\": \"https:\/\/example.com\/media\/painting.jpg\",\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"created_at\": \"2023-09-02T11:30:45Z\",\n            \"updated_at\": \"2023-09-02T11:30:45Z\"\n            \"note\": 3.5\n\n        }\n        \/\/ ... (other activity objects)\n    ]\n}",
                             "name": ""
                         }
                     ]
@@ -67,31 +67,31 @@
                             "query": [
                                 {
                                     "key": "text",
-                                    "value": "consectetur",
+                                    "value": "qui",
                                     "description": "The text to search in the title or description of the activity (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "age_group_id",
-                                    "value": "19",
+                                    "value": "16",
                                     "description": "The ID of the age group to filter activities by a specific age group (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "area_id",
-                                    "value": "17",
+                                    "value": "5",
                                     "description": "The ID of the area to filter activities by a specific area (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "level_id",
-                                    "value": "5",
+                                    "value": "14",
                                     "description": "The ID of the level to filter activities by a specific level (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "created_by",
-                                    "value": "1",
+                                    "value": "9",
                                     "description": "The ID of the user who created the activity to filter activities created by a specific user (optional).",
                                     "disabled": false
                                 },
@@ -108,7 +108,7 @@
                                     "disabled": true
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activity\/filter?text=consectetur&age_group_id=19&area_id=17&level_id=5&created_by=1&has_multimedia_resources=&has_visual_instructions="
+                            "raw": "{{baseUrl}}\/api\/activity\/filter?text=qui&age_group_id=16&area_id=5&level_id=14&created_by=9&has_multimedia_resources=&has_visual_instructions="
                         },
                         "method": "GET",
                         "header": [
@@ -141,23 +141,15 @@
                     ]
                 },
                 {
-                    "name": "Retrieve a specific activity with related information and similar activities.",
+                    "name": "Store a newly created resource in storage.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/activity\/:id",
+                            "path": "api\/activity\/store",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/activity\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "19",
-                                    "description": "The ID of the activity."
-                                }
-                            ]
+                            "raw": "{{baseUrl}}\/api\/activity\/store"
                         },
-                        "method": "GET",
+                        "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -172,7 +164,66 @@
                                 "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"Sample Activity\",\"description\":\"Description of the sample activity.\",\"age_group_id\":1,\"area_id\":2,\"level_id\":3,\"has_multimedia_resources\":true,\"has_visual_instructions\":false,\"media_path_1\":\"sed\",\"media_path_2\":\"et\",\"media_path_3\":\"qui\",\"media_path_4\":\"minus\",\"price\":312.4}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"activity\": {\n        \"id\": 1,\n        \"title\": \"Sample Activity\",\n        \"description\": \"Description of the sample activity.\",\n        \"age_group_id\": 1,\n        \"area_id\": 2,\n        \"level_id\": 3,\n        \"has_multimedia_resources\": true,\n        \"has_visual_instructions\": false,\n        \"created_at\": \"2023-09-01T12:00:00Z\",\n        \"updated_at\": \"2023-09-01T12:00:00Z\"\n    },\n    \"message\": \"Activity created successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"title\": [\"The title field is required.\"],\n        \"description\": [\"The description field is required.\"],\n        \"age_group_id\": [\"The age group id field is required.\"],\n        \"area_id\": [\"The area id field is required.\"],\n        \"level_id\": [\"The level id field is required.\"],\n        \"has_multimedia_resources\": [\"The has multimedia resources field is required.\"],\n        \"has_visual_instructions\": [\"The has visual instructions field is required.\"]\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activity\/update\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/activity\/update\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "19",
+                                    "description": "The ID of the activity to update."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"Updated Activity\",\"description\":\"Updated description.\",\"age_group_id\":2,\"area_id\":1,\"level_id\":4,\"has_multimedia_resources\":false,\"has_visual_instructions\":true,\"media_path_1\":\"quas\",\"media_path_2\":\"assumenda\",\"media_path_3\":\"est\",\"media_path_4\":\"quo\",\"price\":169388769.11417484}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -182,7 +233,19 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"created_by\": {\n            \"id\": 1,\n            \"name\": \"John Doe\",\n            \"email\": \"john@example.com\",\n            \"created_at\": \"2023-09-01T12:34:56Z\",\n            \"updated_at\": \"2023-09-01T12:34:56Z\"\n        },\n        \"area\": {\n            \"id\": 1,\n            \"title\": \"Science\"\n        },\n        \"age_group\": {\n            \"id\": 2,\n            \"title\": \"Ages 5-8\"\n        },\n        \"level\": {\n            \"id\": 3,\n            \"title\": \"Intermediate\"\n        },\n        \"title\": \"Fun Science Experiment\",\n        \"description\": \"A simple and fun science experiment for kids.\",\n        \"media_path_1\": \"https:\/\/example.com\/media\/experiment.jpg\",\n        \"media_path_2\": null,\n        \"media_path_3\": null,\n        \"media_path_4\": null,\n        \"created_at\": \"2023-09-02T10:15:30Z\",\n        \"updated_at\": \"2023-09-02T10:15:30Z\",\n        \"note\": 4.2, \/\/ The calculated average rating based on comments\n        \"comments\": [\n            {\n                \"id\": 1,\n                \"user_id\": 2,\n                \"activity_id\": 1,\n                \"note\": 4.5,\n                \"created_at\": \"2023-09-03T14:30:00Z\",\n                \"updated_at\": \"2023-09-03T14:30:00Z\"\n            },\n            \/\/ ... (other comment objects)\n        ],\n        \"questions\": [\n            {\n                \"id\": 1,\n                \"activity_id\": 1,\n                \"question\": \"Can I use household items for this experiment?\",\n                \"created_at\": \"2023-09-03T14:30:00Z\",\n                \"updated_at\": \"2023-09-03T14:30:00Z\"\n            },\n            \/\/ ... (other question objects)\n        ]\n    },\n    \"similar_activities\": [\n        {\n            \"id\": 2,\n            \"created_by\": {\n                \"id\": 2,\n                \"name\": \"Alice Smith\",\n                \"email\": \"alice@example.com\",\n                \"created_at\": \"2023-09-01T13:45:00Z\",\n                \"updated_at\": \"2023-09-01T13:45:00Z\"\n            },\n            \"area\": {\n                \"id\": 2,\n                \"title\": \"Art\"\n            },\n            \"age_group\": {\n                \"id\": 1,\n                \"title\": \"Ages 3-5\"\n            },\n            \"level\": {\n                \"id\": 2,\n                \"title\": \"Beginner\"\n            },\n            \"title\": \"Creative Painting\",\n            \"description\": \"Learn creative painting techniques for beginners.\",\n            \"media_path_1\": \"https:\/\/example.com\/media\/painting.jpg\",\n            \"media_path_2\": null,\n            \"media_path_3\": null,\n            \"media_path_4\": null,\n            \"created_at\": \"2023-09-02T11:30:45Z\",\n            \"updated_at\": \"2023-09-02T11:30:45Z\",\n            \"note\": 3.8 \/\/ The calculated average rating based on comments\n        },\n        \/\/ ... (other similar activity objects)\n    ]\n}\n}",
+                            "body": "{\n    \"activity\": {\n        \"id\": 1,\n        \"title\": \"Updated Activity\",\n        \"description\": \"Updated description.\",\n        \"age_group_id\": 2,\n        \"area_id\": 1,\n        \"level_id\": 4,\n        \"has_multimedia_resources\": false,\n        \"has_visual_instructions\": true,\n        \"created_at\": \"2023-09-01T12:00:00Z\",\n        \"updated_at\": \"2023-09-02T10:00:00Z\"\n    },\n    \"message\": \"Activity updated successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"Activity not found\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"age_group_id\": [\"The selected age group id is invalid.\"],\n        \"area_id\": [\"The selected area id is invalid.\"],\n        \"level_id\": [\"The selected level id is invalid.\"],\n    }\n}",
                             "name": ""
                         }
                     ]
@@ -376,6 +439,42 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Get the profile information for the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/profile"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint retrieves detailed information about the authenticated user, including their purchased activities, activities created by them,\naverage rating, and count of ratings for their created activities."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"John Doe\",\n        \"email\": \"john@example.com\",\n        \"created_at\": \"2023-09-01T12:34:56Z\",\n        \"updated_at\": \"2023-09-01T12:34:56Z\"\n    },\n    \"purchased_activities\": [\n        {\n            \"id\": 1,\n            \"title\": \"Activity 1\",\n            \"description\": \"Description of Activity 1\",\n            \"price\": 10.99,\n            \"created_at\": \"2023-09-02T14:45:00Z\",\n            \"updated_at\": \"2023-09-02T14:45:00Z\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Activity 2\",\n            \"description\": \"Description of Activity 2\",\n            \"price\": 12.99,\n            \"created_at\": \"2023-09-03T10:30:00Z\",\n            \"updated_at\": \"2023-09-03T10:30:00Z\"\n        }\n    ],\n    \"created_activities\": [\n        {\n            \"id\": 3,\n            \"title\": \"My Created Activity 1\",\n            \"description\": \"Description of My Created Activity 1\",\n            \"price\": 8.99,\n            \"created_at\": \"2023-09-04T09:15:00Z\",\n            \"updated_at\": \"2023-09-04T09:15:00Z\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -434,7 +533,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "58"
+                                    "value": "57"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -446,7 +545,7 @@
                                 },
                                 {
                                     "key": "set-cookie",
-                                    "value": "laravel_session=wmothezS3AeRBWEy3CRTDHOjutkpCQwD6mcydu9P; expires=Fri, 01 Sep 2023 21:51:06 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                    "value": "laravel_session=verMH7KnG036FRD5OBq96hXIrngv2bGNjB4sYpRS; expires=Sun, 03 Sep 2023 20:45:42 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                 }
                             ],
                             "code": 200,
@@ -503,6 +602,243 @@
             ]
         },
         {
+            "name": "Purchase",
+            "description": "This endpoint allows a user to purchase an activity, either by making a direct payment or using their available credit balance.",
+            "item": [
+                {
+                    "name": "Purchase an activity.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/purchase",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/purchase"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"activity_id\":1,\"pontea_credit_payment\":false}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Purchase completed successfully.\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"message\": \"You have already purchased this activity\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"message\": \"Insufficient credit to purchase this activity\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"Activity not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Shopping Cart",
+            "description": "Retrieve a list of all items in the shopping cart for the authenticated user.",
+            "item": [
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/shopping_carts",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/shopping_carts"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"activity_id\": 5,\n            \"created_at\": \"2023-09-01 12:00:00\",\n            \"updated_at\": \"2023-09-01 12:00:00\",\n            \"activity\": {\n                \"id\": 5,\n                \"title\": \"Sample Activity\",\n                \"price\": 10.0\n            }\n        },\n        \/\/ ... (other shopping cart items)\n    ],\n    \"total\": 50.0\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/shopping_carts\/store",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/shopping_carts\/store"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"activity_id\":9}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Item added to the shopping cart\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\n    \"message\": \"Item already exists in the shopping cart\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove all shopping cart items with a specific activity for a user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/shopping_carts\/remove",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/shopping_carts\/remove"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"activity_id\":6}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"All items with the specified activity removed from the shopping cart\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove all shopping cart items for a user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/shopping_carts\/destroy",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/shopping_carts\/destroy"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"All items removed from the shopping cart\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Teachers",
             "description": "",
             "item": [
@@ -541,6 +877,42 @@
                             "header": [],
                             "code": 200,
                             "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"John Doe\",\n            \"email\": \"john@example.com\",\n            \"created_at\": \"2023-09-01T12:34:56Z\",\n            \"updated_at\": \"2023-09-01T12:34:56Z\",\n            \"note\": 4.5\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Alice Smith\",\n            \"email\": \"alice@example.com\",\n            \"created_at\": \"2023-09-01T13:45:00Z\",\n            \"updated_at\": \"2023-09-01T13:45:00Z\",\n            \"note\": 3.8\n        }\n        \/\/ ... (other teacher objects)\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Turn a user into a teacher.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/teacher\/turn_user_into_teacher",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/teacher\/turn_user_into_teacher"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"John Doe\",\n        \"email\": \"john@example.com\",\n        \"is_teacher\": true,\n        \"created_at\": \"2023-09-01T12:34:56Z\",\n        \"updated_at\": \"2023-09-01T12:36:24Z\"\n    },\n    \"message\": \"User is now a teacher\"\n}",
                             "name": ""
                         }
                     ]

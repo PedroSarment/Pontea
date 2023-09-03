@@ -77,8 +77,11 @@
                                                                                 <li class="tocify-item level-2" data-unique="activities-GETapi-activity-filter">
                                 <a href="#activities-GETapi-activity-filter">Filter activities based on request parameters.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="activities-GETapi-activity--id-">
-                                <a href="#activities-GETapi-activity--id-">Retrieve a specific activity with related information and similar activities.</a>
+                                                                                <li class="tocify-item level-2" data-unique="activities-POSTapi-activity-store">
+                                <a href="#activities-POSTapi-activity-store">Store a newly created resource in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="activities-PUTapi-activity-update--id-">
+                                <a href="#activities-PUTapi-activity-update--id-">Update the specified resource in storage.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -113,6 +116,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="authentication-POSTapi-login">
                                 <a href="#authentication-POSTapi-login">Log in the user.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="authentication-GETapi-profile">
+                                <a href="#authentication-GETapi-profile">Get the profile information for the authenticated user.</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-endpoints" class="tocify-header">
@@ -135,6 +141,35 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-purchase" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="purchase">
+                    <a href="#purchase">Purchase</a>
+                </li>
+                                    <ul id="tocify-subheader-purchase" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="purchase-POSTapi-purchase">
+                                <a href="#purchase-POSTapi-purchase">Purchase an activity.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-shopping-cart" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="shopping-cart">
+                    <a href="#shopping-cart">Shopping Cart</a>
+                </li>
+                                    <ul id="tocify-subheader-shopping-cart" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="shopping-cart-GETapi-shopping_carts">
+                                <a href="#shopping-cart-GETapi-shopping_carts">Display a listing of the resource.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="shopping-cart-POSTapi-shopping_carts-store">
+                                <a href="#shopping-cart-POSTapi-shopping_carts-store">Store a newly created resource in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="shopping-cart-POSTapi-shopping_carts-remove">
+                                <a href="#shopping-cart-POSTapi-shopping_carts-remove">Remove all shopping cart items with a specific activity for a user.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="shopping-cart-DELETEapi-shopping_carts-destroy">
+                                <a href="#shopping-cart-DELETEapi-shopping_carts-destroy">Remove all shopping cart items for a user.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-teachers" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="teachers">
                     <a href="#teachers">Teachers</a>
@@ -142,6 +177,9 @@
                                     <ul id="tocify-subheader-teachers" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="teachers-GETapi-teacher">
                                 <a href="#teachers-GETapi-teacher">Retrieve all teachers with their average rating.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="teachers-GETapi-teacher-turn_user_into_teacher">
+                                <a href="#teachers-GETapi-teacher-turn_user_into_teacher">Turn a user into a teacher.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="teachers-GETapi-teacher--id-">
                                 <a href="#teachers-GETapi-teacher--id-">Retrieve a specific teacher and their created activities.</a>
@@ -157,7 +195,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 1, 2023</li>
+        <li>Last updated: September 3, 2023</li>
     </ul>
 </div>
 
@@ -254,6 +292,7 @@ fetch(url, {
             &quot;media_path_4&quot;: null,
             &quot;created_at&quot;: &quot;2023-09-02T10:15:30Z&quot;,
             &quot;updated_at&quot;: &quot;2023-09-02T10:15:30Z&quot;
+
         },
         {
             &quot;id&quot;: 2,
@@ -387,7 +426,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/activity/filter?text=consectetur&amp;age_group_id=19&amp;area_id=17&amp;level_id=5&amp;created_by=1&amp;has_multimedia_resources=&amp;has_visual_instructions=" \
+    --get "http://localhost:8000/api/activity/filter?text=qui&amp;age_group_id=16&amp;area_id=5&amp;level_id=14&amp;created_by=9&amp;has_multimedia_resources=&amp;has_visual_instructions=" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -399,11 +438,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "text": "consectetur",
-    "age_group_id": "19",
-    "area_id": "17",
-    "level_id": "5",
-    "created_by": "1",
+    "text": "qui",
+    "age_group_id": "16",
+    "area_id": "5",
+    "level_id": "14",
+    "created_by": "9",
     "has_multimedia_resources": "0",
     "has_visual_instructions": "0",
 };
@@ -589,10 +628,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="text"                data-endpoint="GETapi-activity-filter"
-               value="consectetur"
+               value="qui"
                data-component="query">
     <br>
-<p>The text to search in the title or description of the activity (optional). Example: <code>consectetur</code></p>
+<p>The text to search in the title or description of the activity (optional). Example: <code>qui</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>age_group_id</code></b>&nbsp;&nbsp;
@@ -600,10 +639,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="age_group_id"                data-endpoint="GETapi-activity-filter"
-               value="19"
+               value="16"
                data-component="query">
     <br>
-<p>The ID of the age group to filter activities by a specific age group (optional). Example: <code>19</code></p>
+<p>The ID of the age group to filter activities by a specific age group (optional). Example: <code>16</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>area_id</code></b>&nbsp;&nbsp;
@@ -611,10 +650,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="area_id"                data-endpoint="GETapi-activity-filter"
-               value="17"
+               value="5"
                data-component="query">
     <br>
-<p>The ID of the area to filter activities by a specific area (optional). Example: <code>17</code></p>
+<p>The ID of the area to filter activities by a specific area (optional). Example: <code>5</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>level_id</code></b>&nbsp;&nbsp;
@@ -622,10 +661,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="level_id"                data-endpoint="GETapi-activity-filter"
-               value="5"
+               value="14"
                data-component="query">
     <br>
-<p>The ID of the level to filter activities by a specific level (optional). Example: <code>5</code></p>
+<p>The ID of the level to filter activities by a specific level (optional). Example: <code>14</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>created_by</code></b>&nbsp;&nbsp;
@@ -633,10 +672,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="created_by"                data-endpoint="GETapi-activity-filter"
-               value="1"
+               value="9"
                data-component="query">
     <br>
-<p>The ID of the user who created the activity to filter activities created by a specific user (optional). Example: <code>1</code></p>
+<p>The ID of the user who created the activity to filter activities created by a specific user (optional). Example: <code>9</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>has_multimedia_resources</code></b>&nbsp;&nbsp;
@@ -682,28 +721,43 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="activities-GETapi-activity--id-">Retrieve a specific activity with related information and similar activities.</h2>
+                    <h2 id="activities-POSTapi-activity-store">Store a newly created resource in storage.</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-GETapi-activity--id-">
+<span id="example-requests-POSTapi-activity-store">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/activity/19" \
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/activity/store" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
+    --data "{
+    \"title\": \"Sample Activity\",
+    \"description\": \"Description of the sample activity.\",
+    \"age_group_id\": 1,
+    \"area_id\": 2,
+    \"level_id\": 3,
+    \"has_multimedia_resources\": true,
+    \"has_visual_instructions\": false,
+    \"media_path_1\": \"sed\",
+    \"media_path_2\": \"et\",
+    \"media_path_3\": \"qui\",
+    \"media_path_4\": \"minus\",
+    \"price\": 312.4
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/activity/19"
+    "http://localhost:8000/api/activity/store"
 );
 
 const headers = {
@@ -712,155 +766,129 @@ const headers = {
     "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
 };
 
+let body = {
+    "title": "Sample Activity",
+    "description": "Description of the sample activity.",
+    "age_group_id": 1,
+    "area_id": 2,
+    "level_id": 3,
+    "has_multimedia_resources": true,
+    "has_visual_instructions": false,
+    "media_path_1": "sed",
+    "media_path_2": "et",
+    "media_path_3": "qui",
+    "media_path_4": "minus",
+    "price": 312.4
+};
+
 fetch(url, {
-    method: "GET",
+    method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-GETapi-activity--id-">
+<span id="example-responses-POSTapi-activity-store">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (201):</p>
         </blockquote>
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
+    &quot;activity&quot;: {
         &quot;id&quot;: 1,
-        &quot;created_by&quot;: {
-            &quot;id&quot;: 1,
-            &quot;name&quot;: &quot;John Doe&quot;,
-            &quot;email&quot;: &quot;john@example.com&quot;,
-            &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-09-01T12:34:56Z&quot;
-        },
-        &quot;area&quot;: {
-            &quot;id&quot;: 1,
-            &quot;title&quot;: &quot;Science&quot;
-        },
-        &quot;age_group&quot;: {
-            &quot;id&quot;: 2,
-            &quot;title&quot;: &quot;Ages 5-8&quot;
-        },
-        &quot;level&quot;: {
-            &quot;id&quot;: 3,
-            &quot;title&quot;: &quot;Intermediate&quot;
-        },
-        &quot;title&quot;: &quot;Fun Science Experiment&quot;,
-        &quot;description&quot;: &quot;A simple and fun science experiment for kids.&quot;,
-        &quot;media_path_1&quot;: &quot;https://example.com/media/experiment.jpg&quot;,
-        &quot;media_path_2&quot;: null,
-        &quot;media_path_3&quot;: null,
-        &quot;media_path_4&quot;: null,
-        &quot;created_at&quot;: &quot;2023-09-02T10:15:30Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-09-02T10:15:30Z&quot;,
-        &quot;note&quot;: 4.2, // The calculated average rating based on comments
-        &quot;comments&quot;: [
-            {
-                &quot;id&quot;: 1,
-                &quot;user_id&quot;: 2,
-                &quot;activity_id&quot;: 1,
-                &quot;note&quot;: 4.5,
-                &quot;created_at&quot;: &quot;2023-09-03T14:30:00Z&quot;,
-                &quot;updated_at&quot;: &quot;2023-09-03T14:30:00Z&quot;
-            },
-            // ... (other comment objects)
-        ],
-        &quot;questions&quot;: [
-            {
-                &quot;id&quot;: 1,
-                &quot;activity_id&quot;: 1,
-                &quot;question&quot;: &quot;Can I use household items for this experiment?&quot;,
-                &quot;created_at&quot;: &quot;2023-09-03T14:30:00Z&quot;,
-                &quot;updated_at&quot;: &quot;2023-09-03T14:30:00Z&quot;
-            },
-            // ... (other question objects)
-        ]
+        &quot;title&quot;: &quot;Sample Activity&quot;,
+        &quot;description&quot;: &quot;Description of the sample activity.&quot;,
+        &quot;age_group_id&quot;: 1,
+        &quot;area_id&quot;: 2,
+        &quot;level_id&quot;: 3,
+        &quot;has_multimedia_resources&quot;: true,
+        &quot;has_visual_instructions&quot;: false,
+        &quot;created_at&quot;: &quot;2023-09-01T12:00:00Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-09-01T12:00:00Z&quot;
     },
-    &quot;similar_activities&quot;: [
-        {
-            &quot;id&quot;: 2,
-            &quot;created_by&quot;: {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Alice Smith&quot;,
-                &quot;email&quot;: &quot;alice@example.com&quot;,
-                &quot;created_at&quot;: &quot;2023-09-01T13:45:00Z&quot;,
-                &quot;updated_at&quot;: &quot;2023-09-01T13:45:00Z&quot;
-            },
-            &quot;area&quot;: {
-                &quot;id&quot;: 2,
-                &quot;title&quot;: &quot;Art&quot;
-            },
-            &quot;age_group&quot;: {
-                &quot;id&quot;: 1,
-                &quot;title&quot;: &quot;Ages 3-5&quot;
-            },
-            &quot;level&quot;: {
-                &quot;id&quot;: 2,
-                &quot;title&quot;: &quot;Beginner&quot;
-            },
-            &quot;title&quot;: &quot;Creative Painting&quot;,
-            &quot;description&quot;: &quot;Learn creative painting techniques for beginners.&quot;,
-            &quot;media_path_1&quot;: &quot;https://example.com/media/painting.jpg&quot;,
-            &quot;media_path_2&quot;: null,
-            &quot;media_path_3&quot;: null,
-            &quot;media_path_4&quot;: null,
-            &quot;created_at&quot;: &quot;2023-09-02T11:30:45Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-09-02T11:30:45Z&quot;,
-            &quot;note&quot;: 3.8 // The calculated average rating based on comments
-        },
-        // ... (other similar activity objects)
-    ]
-}
+    &quot;message&quot;: &quot;Activity created successfully&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;title&quot;: [
+            &quot;The title field is required.&quot;
+        ],
+        &quot;description&quot;: [
+            &quot;The description field is required.&quot;
+        ],
+        &quot;age_group_id&quot;: [
+            &quot;The age group id field is required.&quot;
+        ],
+        &quot;area_id&quot;: [
+            &quot;The area id field is required.&quot;
+        ],
+        &quot;level_id&quot;: [
+            &quot;The level id field is required.&quot;
+        ],
+        &quot;has_multimedia_resources&quot;: [
+            &quot;The has multimedia resources field is required.&quot;
+        ],
+        &quot;has_visual_instructions&quot;: [
+            &quot;The has visual instructions field is required.&quot;
+        ]
+    }
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-activity--id-" hidden>
+<span id="execution-results-POSTapi-activity-store" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-activity--id-"></span>:
+                id="execution-response-status-POSTapi-activity-store"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-activity--id-"
+    <pre class="json"><code id="execution-response-content-POSTapi-activity-store"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-activity--id-" hidden>
+<span id="execution-error-POSTapi-activity-store" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-activity--id-">
+    <pre><code id="execution-error-message-POSTapi-activity-store">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-activity--id-" data-method="GET"
-      data-path="api/activity/{id}"
+<form id="form-POSTapi-activity-store" data-method="POST"
+      data-path="api/activity/store"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-activity--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-activity-store', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-activity--id-"
-                    onclick="tryItOut('GETapi-activity--id-');">Try it out ⚡
+                    id="btn-tryout-POSTapi-activity-store"
+                    onclick="tryItOut('POSTapi-activity-store');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-activity--id-"
-                    onclick="cancelTryOut('GETapi-activity--id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-activity-store"
+                    onclick="cancelTryOut('POSTapi-activity-store');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-activity--id-"
+                    id="btn-executetryout-POSTapi-activity-store"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
             </button>
             </h3>
             <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/activity/{id}</code></b>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/activity/store</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -868,7 +896,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-activity--id-"
+                              name="Content-Type"                data-endpoint="POSTapi-activity-store"
                value="application/json"
                data-component="header">
     <br>
@@ -879,7 +907,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-activity--id-"
+                              name="Accept"                data-endpoint="POSTapi-activity-store"
                value="application/json"
                data-component="header">
     <br>
@@ -890,7 +918,356 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization"                data-endpoint="GETapi-activity--id-"
+                              name="Authorization"                data-endpoint="POSTapi-activity-store"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="POSTapi-activity-store"
+               value="Sample Activity"
+               data-component="body">
+    <br>
+<p>The title of the activity. Example: <code>Sample Activity</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi-activity-store"
+               value="Description of the sample activity."
+               data-component="body">
+    <br>
+<p>The description of the activity. Example: <code>Description of the sample activity.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>age_group_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="age_group_id"                data-endpoint="POSTapi-activity-store"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the age group associated with the activity. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>area_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="area_id"                data-endpoint="POSTapi-activity-store"
+               value="2"
+               data-component="body">
+    <br>
+<p>The ID of the area associated with the activity. Example: <code>2</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>level_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="level_id"                data-endpoint="POSTapi-activity-store"
+               value="3"
+               data-component="body">
+    <br>
+<p>The ID of the level associated with the activity. Example: <code>3</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>has_multimedia_resources</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-activity-store" style="display: none">
+            <input type="radio" name="has_multimedia_resources"
+                   value="true"
+                   data-endpoint="POSTapi-activity-store"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-activity-store" style="display: none">
+            <input type="radio" name="has_multimedia_resources"
+                   value="false"
+                   data-endpoint="POSTapi-activity-store"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Defines whether the activity has multimedia resources (true) or not (false). Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>has_visual_instructions</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-activity-store" style="display: none">
+            <input type="radio" name="has_visual_instructions"
+                   value="true"
+                   data-endpoint="POSTapi-activity-store"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-activity-store" style="display: none">
+            <input type="radio" name="has_visual_instructions"
+                   value="false"
+                   data-endpoint="POSTapi-activity-store"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Defines whether the activity has visual instructions (true) or not (false). Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>media_path_1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="media_path_1"                data-endpoint="POSTapi-activity-store"
+               value="sed"
+               data-component="body">
+    <br>
+<p>Example: <code>sed</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>media_path_2</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="media_path_2"                data-endpoint="POSTapi-activity-store"
+               value="et"
+               data-component="body">
+    <br>
+<p>Example: <code>et</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>media_path_3</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="media_path_3"                data-endpoint="POSTapi-activity-store"
+               value="qui"
+               data-component="body">
+    <br>
+<p>Example: <code>qui</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>media_path_4</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="media_path_4"                data-endpoint="POSTapi-activity-store"
+               value="minus"
+               data-component="body">
+    <br>
+<p>Example: <code>minus</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="price"                data-endpoint="POSTapi-activity-store"
+               value="312.4"
+               data-component="body">
+    <br>
+<p>Example: <code>312.4</code></p>
+        </div>
+        </form>
+
+                    <h2 id="activities-PUTapi-activity-update--id-">Update the specified resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-activity-update--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/activity/update/19" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
+    --data "{
+    \"title\": \"Updated Activity\",
+    \"description\": \"Updated description.\",
+    \"age_group_id\": 2,
+    \"area_id\": 1,
+    \"level_id\": 4,
+    \"has_multimedia_resources\": false,
+    \"has_visual_instructions\": true,
+    \"media_path_1\": \"quas\",
+    \"media_path_2\": \"assumenda\",
+    \"media_path_3\": \"est\",
+    \"media_path_4\": \"quo\",
+    \"price\": 169388769.11417484
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/activity/update/19"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+let body = {
+    "title": "Updated Activity",
+    "description": "Updated description.",
+    "age_group_id": 2,
+    "area_id": 1,
+    "level_id": 4,
+    "has_multimedia_resources": false,
+    "has_visual_instructions": true,
+    "media_path_1": "quas",
+    "media_path_2": "assumenda",
+    "media_path_3": "est",
+    "media_path_4": "quo",
+    "price": 169388769.11417484
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-activity-update--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;activity&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Updated Activity&quot;,
+        &quot;description&quot;: &quot;Updated description.&quot;,
+        &quot;age_group_id&quot;: 2,
+        &quot;area_id&quot;: 1,
+        &quot;level_id&quot;: 4,
+        &quot;has_multimedia_resources&quot;: false,
+        &quot;has_visual_instructions&quot;: true,
+        &quot;created_at&quot;: &quot;2023-09-01T12:00:00Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-09-02T10:00:00Z&quot;
+    },
+    &quot;message&quot;: &quot;Activity updated successfully&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Activity not found&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The given data was invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;age_group_id&quot;: [&quot;The selected age group id is invalid.&quot;],
+        &quot;area_id&quot;: [&quot;The selected area id is invalid.&quot;],
+        &quot;level_id&quot;: [&quot;The selected level id is invalid.&quot;],
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-activity-update--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-activity-update--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-activity-update--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-activity-update--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-activity-update--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-activity-update--id-" data-method="PUT"
+      data-path="api/activity/update/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-activity-update--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-activity-update--id-"
+                    onclick="tryItOut('PUTapi-activity-update--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-activity-update--id-"
+                    onclick="cancelTryOut('PUTapi-activity-update--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-activity-update--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/activity/update/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-activity-update--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-activity-update--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="PUTapi-activity-update--id-"
                value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
                data-component="header">
     <br>
@@ -902,13 +1279,166 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETapi-activity--id-"
+               step="any"               name="id"                data-endpoint="PUTapi-activity-update--id-"
                value="19"
                data-component="url">
     <br>
-<p>The ID of the activity. Example: <code>19</code></p>
+<p>The ID of the activity to update. Example: <code>19</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="PUTapi-activity-update--id-"
+               value="Updated Activity"
+               data-component="body">
+    <br>
+<p>The new title of the activity. Example: <code>Updated Activity</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="PUTapi-activity-update--id-"
+               value="Updated description."
+               data-component="body">
+    <br>
+<p>The new description of the activity. Example: <code>Updated description.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>age_group_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="age_group_id"                data-endpoint="PUTapi-activity-update--id-"
+               value="2"
+               data-component="body">
+    <br>
+<p>The new age group ID associated with the activity. Example: <code>2</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>area_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="area_id"                data-endpoint="PUTapi-activity-update--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The new area ID associated with the activity. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>level_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="level_id"                data-endpoint="PUTapi-activity-update--id-"
+               value="4"
+               data-component="body">
+    <br>
+<p>The new level ID associated with the activity. Example: <code>4</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>has_multimedia_resources</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="PUTapi-activity-update--id-" style="display: none">
+            <input type="radio" name="has_multimedia_resources"
+                   value="true"
+                   data-endpoint="PUTapi-activity-update--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-activity-update--id-" style="display: none">
+            <input type="radio" name="has_multimedia_resources"
+                   value="false"
+                   data-endpoint="PUTapi-activity-update--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Defines whether the activity has multimedia resources (true) or not (false). Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>has_visual_instructions</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="PUTapi-activity-update--id-" style="display: none">
+            <input type="radio" name="has_visual_instructions"
+                   value="true"
+                   data-endpoint="PUTapi-activity-update--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-activity-update--id-" style="display: none">
+            <input type="radio" name="has_visual_instructions"
+                   value="false"
+                   data-endpoint="PUTapi-activity-update--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Defines whether the activity has visual instructions (true) or not (false). Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>media_path_1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="media_path_1"                data-endpoint="PUTapi-activity-update--id-"
+               value="quas"
+               data-component="body">
+    <br>
+<p>Example: <code>quas</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>media_path_2</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="media_path_2"                data-endpoint="PUTapi-activity-update--id-"
+               value="assumenda"
+               data-component="body">
+    <br>
+<p>Example: <code>assumenda</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>media_path_3</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="media_path_3"                data-endpoint="PUTapi-activity-update--id-"
+               value="est"
+               data-component="body">
+    <br>
+<p>Example: <code>est</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>media_path_4</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="media_path_4"                data-endpoint="PUTapi-activity-update--id-"
+               value="quo"
+               data-component="body">
+    <br>
+<p>Example: <code>quo</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="price"                data-endpoint="PUTapi-activity-update--id-"
+               value="169388769.11417"
+               data-component="body">
+    <br>
+<p>Example: <code>169388769.11417</code></p>
+        </div>
+        </form>
 
                 <h1 id="age-groups">Age Groups</h1>
 
@@ -1630,6 +2160,172 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
+                    <h2 id="authentication-GETapi-profile">Get the profile information for the authenticated user.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This endpoint retrieves detailed information about the authenticated user, including their purchased activities, activities created by them,
+average rating, and count of ratings for their created activities.</p>
+
+<span id="example-requests-GETapi-profile">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/profile" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/profile"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-profile">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;John Doe&quot;,
+        &quot;email&quot;: &quot;john@example.com&quot;,
+        &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-09-01T12:34:56Z&quot;
+    },
+    &quot;purchased_activities&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Activity 1&quot;,
+            &quot;description&quot;: &quot;Description of Activity 1&quot;,
+            &quot;price&quot;: 10.99,
+            &quot;created_at&quot;: &quot;2023-09-02T14:45:00Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-02T14:45:00Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Activity 2&quot;,
+            &quot;description&quot;: &quot;Description of Activity 2&quot;,
+            &quot;price&quot;: 12.99,
+            &quot;created_at&quot;: &quot;2023-09-03T10:30:00Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-03T10:30:00Z&quot;
+        }
+    ],
+    &quot;created_activities&quot;: [
+        {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;My Created Activity 1&quot;,
+            &quot;description&quot;: &quot;Description of My Created Activity 1&quot;,
+            &quot;price&quot;: 8.99,
+            &quot;created_at&quot;: &quot;2023-09-04T09:15:00Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-04T09:15:00Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-profile" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-profile"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-profile"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-profile">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-profile" data-method="GET"
+      data-path="api/profile"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-profile', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-profile"
+                    onclick="tryItOut('GETapi-profile');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-profile"
+                    onclick="cancelTryOut('GETapi-profile');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-profile"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/profile</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-profile"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        </form>
+
                 <h1 id="endpoints">Endpoints</h1>
 
     
@@ -1680,10 +2376,10 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 57
 access-control-allow-origin: http://localhost
 access-control-allow-credentials: true
-set-cookie: laravel_session=wmothezS3AeRBWEy3CRTDHOjutkpCQwD6mcydu9P; expires=Fri, 01 Sep 2023 21:51:06 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: laravel_session=verMH7KnG036FRD5OBq96hXIrngv2bGNjB4sYpRS; expires=Sun, 03 Sep 2023 20:45:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1918,6 +2614,802 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                <h1 id="purchase">Purchase</h1>
+
+    <p>This endpoint allows a user to purchase an activity, either by making a direct payment or using their available credit balance.</p>
+
+                                <h2 id="purchase-POSTapi-purchase">Purchase an activity.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-purchase">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/purchase" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
+    --data "{
+    \"activity_id\": 1,
+    \"pontea_credit_payment\": false
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/purchase"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+let body = {
+    "activity_id": 1,
+    "pontea_credit_payment": false
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-purchase">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Purchase completed successfully.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;You have already purchased this activity&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Insufficient credit to purchase this activity&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Activity not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-purchase" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-purchase"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-purchase"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-purchase" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-purchase">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-purchase" data-method="POST"
+      data-path="api/purchase"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-purchase', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-purchase"
+                    onclick="tryItOut('POSTapi-purchase');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-purchase"
+                    onclick="cancelTryOut('POSTapi-purchase');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-purchase"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/purchase</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-purchase"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-purchase"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-purchase"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>activity_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="activity_id"                data-endpoint="POSTapi-purchase"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the activity to be purchased. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>pontea_credit_payment</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="POSTapi-purchase" style="display: none">
+            <input type="radio" name="pontea_credit_payment"
+                   value="true"
+                   data-endpoint="POSTapi-purchase"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-purchase" style="display: none">
+            <input type="radio" name="pontea_credit_payment"
+                   value="false"
+                   data-endpoint="POSTapi-purchase"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Indicates whether the purchase should be made using available credit (true) or direct payment (false). Default is false. Example: <code>false</code></p>
+        </div>
+        </form>
+
+                <h1 id="shopping-cart">Shopping Cart</h1>
+
+    <p>Retrieve a list of all items in the shopping cart for the authenticated user.</p>
+
+                                <h2 id="shopping-cart-GETapi-shopping_carts">Display a listing of the resource.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-shopping_carts">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/shopping_carts" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/shopping_carts"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-shopping_carts">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user_id&quot;: 1,
+            &quot;activity_id&quot;: 5,
+            &quot;created_at&quot;: &quot;2023-09-01 12:00:00&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-01 12:00:00&quot;,
+            &quot;activity&quot;: {
+                &quot;id&quot;: 5,
+                &quot;title&quot;: &quot;Sample Activity&quot;,
+                &quot;price&quot;: 10.0
+            }
+        },
+        // ... (other shopping cart items)
+    ],
+    &quot;total&quot;: 50.0
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-shopping_carts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-shopping_carts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-shopping_carts"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-shopping_carts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-shopping_carts">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-shopping_carts" data-method="GET"
+      data-path="api/shopping_carts"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-shopping_carts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-shopping_carts"
+                    onclick="tryItOut('GETapi-shopping_carts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-shopping_carts"
+                    onclick="cancelTryOut('GETapi-shopping_carts');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-shopping_carts"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/shopping_carts</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-shopping_carts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-shopping_carts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-shopping_carts"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="shopping-cart-POSTapi-shopping_carts-store">Store a newly created resource in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-shopping_carts-store">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/shopping_carts/store" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
+    --data "{
+    \"activity_id\": 9
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/shopping_carts/store"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+let body = {
+    "activity_id": 9
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-shopping_carts-store">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Item added to the shopping cart&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (409):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Item already exists in the shopping cart&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-shopping_carts-store" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-shopping_carts-store"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-shopping_carts-store"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-shopping_carts-store" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-shopping_carts-store">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-shopping_carts-store" data-method="POST"
+      data-path="api/shopping_carts/store"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-shopping_carts-store', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-shopping_carts-store"
+                    onclick="tryItOut('POSTapi-shopping_carts-store');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-shopping_carts-store"
+                    onclick="cancelTryOut('POSTapi-shopping_carts-store');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-shopping_carts-store"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/shopping_carts/store</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-shopping_carts-store"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-shopping_carts-store"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="POSTapi-shopping_carts-store"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>activity_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="activity_id"                data-endpoint="POSTapi-shopping_carts-store"
+               value="9"
+               data-component="body">
+    <br>
+<p>The ID of the activity to add to the shopping cart. Example: <code>9</code></p>
+        </div>
+        </form>
+
+                    <h2 id="shopping-cart-POSTapi-shopping_carts-remove">Remove all shopping cart items with a specific activity for a user.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-shopping_carts-remove">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/shopping_carts/remove" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
+    --data "{
+    \"activity_id\": 6
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/shopping_carts/remove"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+let body = {
+    "activity_id": 6
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-shopping_carts-remove">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;All items with the specified activity removed from the shopping cart&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-shopping_carts-remove" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-shopping_carts-remove"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-shopping_carts-remove"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-shopping_carts-remove" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-shopping_carts-remove">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-shopping_carts-remove" data-method="POST"
+      data-path="api/shopping_carts/remove"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-shopping_carts-remove', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-shopping_carts-remove"
+                    onclick="tryItOut('POSTapi-shopping_carts-remove');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-shopping_carts-remove"
+                    onclick="cancelTryOut('POSTapi-shopping_carts-remove');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-shopping_carts-remove"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/shopping_carts/remove</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-shopping_carts-remove"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-shopping_carts-remove"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="POSTapi-shopping_carts-remove"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>activity_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="activity_id"                data-endpoint="POSTapi-shopping_carts-remove"
+               value="6"
+               data-component="body">
+    <br>
+<p>The ID of the activity to remove from the shopping cart. Example: <code>6</code></p>
+        </div>
+        </form>
+
+                    <h2 id="shopping-cart-DELETEapi-shopping_carts-destroy">Remove all shopping cart items for a user.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-shopping_carts-destroy">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/shopping_carts/destroy" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/shopping_carts/destroy"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-shopping_carts-destroy">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;All items removed from the shopping cart&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-shopping_carts-destroy" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-shopping_carts-destroy"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-shopping_carts-destroy"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-shopping_carts-destroy" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-shopping_carts-destroy">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-shopping_carts-destroy" data-method="DELETE"
+      data-path="api/shopping_carts/destroy"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-shopping_carts-destroy', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-shopping_carts-destroy"
+                    onclick="tryItOut('DELETEapi-shopping_carts-destroy');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-shopping_carts-destroy"
+                    onclick="cancelTryOut('DELETEapi-shopping_carts-destroy');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-shopping_carts-destroy"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/shopping_carts/destroy</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-shopping_carts-destroy"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-shopping_carts-destroy"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="DELETEapi-shopping_carts-destroy"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        </form>
+
                 <h1 id="teachers">Teachers</h1>
 
     
@@ -2063,6 +3555,145 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Authorization"                data-endpoint="GETapi-teacher"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="teachers-GETapi-teacher-turn_user_into_teacher">Turn a user into a teacher.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-teacher-turn_user_into_teacher">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/teacher/turn_user_into_teacher" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/teacher/turn_user_into_teacher"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-teacher-turn_user_into_teacher">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;John Doe&quot;,
+        &quot;email&quot;: &quot;john@example.com&quot;,
+        &quot;is_teacher&quot;: true,
+        &quot;created_at&quot;: &quot;2023-09-01T12:34:56Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-09-01T12:36:24Z&quot;
+    },
+    &quot;message&quot;: &quot;User is now a teacher&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-teacher-turn_user_into_teacher" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-teacher-turn_user_into_teacher"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-teacher-turn_user_into_teacher"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-teacher-turn_user_into_teacher" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-teacher-turn_user_into_teacher">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-teacher-turn_user_into_teacher" data-method="GET"
+      data-path="api/teacher/turn_user_into_teacher"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-teacher-turn_user_into_teacher', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-teacher-turn_user_into_teacher"
+                    onclick="tryItOut('GETapi-teacher-turn_user_into_teacher');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-teacher-turn_user_into_teacher"
+                    onclick="cancelTryOut('GETapi-teacher-turn_user_into_teacher');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-teacher-turn_user_into_teacher"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/teacher/turn_user_into_teacher</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-teacher-turn_user_into_teacher"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-teacher-turn_user_into_teacher"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-teacher-turn_user_into_teacher"
                value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
                data-component="header">
     <br>

@@ -34,6 +34,7 @@ class ActivityFactory extends Factory
             'media_path_4' => null,
             'has_multimedia_resources' => $this->faker->randomElement([true, false]), // Valor aleatório entre true e false
             'has_visual_instructions' => $this->faker->randomElement([true, false]), // Valor aleatório entre true e false
+            'price' => 200
         ];
     }
 }

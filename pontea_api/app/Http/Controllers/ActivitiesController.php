@@ -51,6 +51,7 @@ class ActivitiesController extends Controller
      *             "media_path_4": null,
      *             "created_at": "2023-09-02T10:15:30Z",
      *             "updated_at": "2023-09-02T10:15:30Z"
+     *
      *         },
      *         {
      *             "id": 2,
@@ -381,11 +382,181 @@ class ActivitiesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Store a newly created resource in storage.
+     *
+     * @group Activities
+     *
+     * @header Authorization Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi
+     *
+     * Creates a new activity with the provided information.
+     *
+     * @bodyParam title string required The title of the activity. Example: Sample Activity
+     * @bodyParam description string required The description of the activity. Example: Description of the sample activity.
+     * @bodyParam age_group_id integer required The ID of the age group associated with the activity. Example: 1
+     * @bodyParam area_id integer required The ID of the area associated with the activity. Example: 2
+     * @bodyParam level_id integer required The ID of the level associated with the activity. Example: 3
+     * @bodyParam has_multimedia_resources boolean required Defines whether the activity has multimedia resources (true) or not (false). Example: true
+     * @bodyParam has_visual_instructions boolean required Defines whether the activity has visual instructions (true) or not (false). Example: false
+     *
+     * @response 201 {
+     *     "activity": {
+     *         "id": 1,
+     *         "title": "Sample Activity",
+     *         "description": "Description of the sample activity.",
+     *         "age_group_id": 1,
+     *         "area_id": 2,
+     *         "level_id": 3,
+     *         "has_multimedia_resources": true,
+     *         "has_visual_instructions": false,
+     *         "created_at": "2023-09-01T12:00:00Z",
+     *         "updated_at": "2023-09-01T12:00:00Z"
+     *     },
+     *     "message": "Activity created successfully"
+     * }
+     *
+     * @response 422 {
+     *     "message": "The given data was invalid.",
+     *     "errors": {
+     *         "title": ["The title field is required."],
+     *         "description": ["The description field is required."],
+     *         "age_group_id": ["The age group id field is required."],
+     *         "area_id": ["The area id field is required."],
+     *         "level_id": ["The level id field is required."],
+     *         "has_multimedia_resources": ["The has multimedia resources field is required."],
+     *         "has_visual_instructions": ["The has visual instructions field is required."]
+     *     }
+     * }
      */
-    public function update(UpdateActivitiesRequest $request, Activities $activities)
+    public function store(StoreActivitiesRequest $request)
     {
-        //
+        $user = session('user');
+
+        // Crie uma nova instância de Activity com base nos dados do request.
+        $activity = new Activity([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'age_group_id' => $request->input('age_group_id'),
+            'area_id' => $request->input('area_id'),
+            'level_id' => $request->input('level_id'),
+            'has_multimedia_resources' => $request->input('has_multimedia_resources'),
+            'has_visual_instructions' => $request->input('has_visual_instructions'),
+            'created_by' => $user->id,
+            'price' => $request->input('price')
+        ]);
+
+        if( $request->input('media_path_1')) {
+
+            $activity->media_path_1 = $request->input('media_path_1');
+        }
+        if( $request->input('media_path_2')) {
+
+            $activity->media_path_1 = $request->input('media_path_2');
+        }
+        if( $request->input('media_path_3')) {
+
+            $activity->media_path_1 = $request->input('media_path_3');
+        }
+        if( $request->input('media_path_4')) {
+
+            $activity->media_path_1 = $request->input('media_path_4');
+        }
+
+        // Salve a nova atividade no banco de dados.
+        $activity->save();
+
+        // Retorne a atividade criada com uma mensagem de sucesso.
+        return response()->json(['activity' => $activity, 'message' => 'Activity created successfully'], 201);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @group Activities
+     *
+     * Update an existing activity with the provided information.
+     * @header Authorization Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi
+     * @urlParam id int required The ID of the activity to update.
+     *
+     * @bodyParam title string The new title of the activity. Example: Updated Activity
+     * @bodyParam description string The new description of the activity. Example: Updated description.
+     * @bodyParam age_group_id integer The new age group ID associated with the activity. Example: 2
+     * @bodyParam area_id integer The new area ID associated with the activity. Example: 1
+     * @bodyParam level_id integer The new level ID associated with the activity. Example: 4
+     * @bodyParam has_multimedia_resources boolean Defines whether the activity has multimedia resources (true) or not (false). Example: false
+     * @bodyParam has_visual_instructions boolean Defines whether the activity has visual instructions (true) or not (false). Example: true
+     *
+     * @response 200 {
+     *     "activity": {
+     *         "id": 1,
+     *         "title": "Updated Activity",
+     *         "description": "Updated description.",
+     *         "age_group_id": 2,
+     *         "area_id": 1,
+     *         "level_id": 4,
+     *         "has_multimedia_resources": false,
+     *         "has_visual_instructions": true,
+     *         "created_at": "2023-09-01T12:00:00Z",
+     *         "updated_at": "2023-09-02T10:00:00Z"
+     *     },
+     *     "message": "Activity updated successfully"
+     * }
+     *
+     * @response 404 {
+     *     "message": "Activity not found"
+     * }
+     *
+     * @response 422 {
+     *     "message": "The given data was invalid.",
+     *     "errors": {
+     *         "age_group_id": ["The selected age group id is invalid."],
+     *         "area_id": ["The selected area id is invalid."],
+     *         "level_id": ["The selected level id is invalid."],
+     *     }
+     * }
+     */
+    public function update(UpdateActivitiesRequest $request, int $id)
+    {
+        // Os dados já foram validados pela classe de solicitação UpdateActivitiesRequest.
+
+        // Encontre a atividade com o ID especificado no banco de dados.
+        $activity = Activity::find($id);
+
+        // Verifique se a atividade existe.
+        if (!$activity) {
+            return response()->json(['message' => 'Activity not found'], 404);
+        }
+
+        // Atualize os campos da atividade com base nos dados do request.
+        $activity->title = $request->input('title', $activity->title);
+        $activity->description = $request->input('description', $activity->description);
+        $activity->age_group_id = $request->input('age_group_id', $activity->age_group_id);
+        $activity->area_id = $request->input('area_id', $activity->area_id);
+        $activity->level_id = $request->input('level_id', $activity->level_id);
+        $activity->has_multimedia_resources = $request->input('has_multimedia_resources', $activity->has_multimedia_resources);
+        $activity->has_visual_instructions = $request->input('has_visual_instructions', $activity->has_visual_instructions);
+
+        if( $request->input('media_path_1')) {
+
+            $activity->media_path_1 = $request->input('media_path_1');
+        }
+        if( $request->input('media_path_2')) {
+
+            $activity->media_path_1 = $request->input('media_path_2');
+        }
+        if( $request->input('media_path_3')) {
+
+            $activity->media_path_1 = $request->input('media_path_3');
+        }
+        if( $request->input('media_path_4')) {
+
+            $activity->media_path_1 = $request->input('media_path_4');
+        }
+
+        // Salve a atividade atualizada no banco de dados.
+        $activity->save();
+
+        // Retorne a atividade atualizada com uma mensagem de sucesso.
+        return response()->json(['activity' => $activity, 'message' => 'Activity updated successfully'], 200);
     }
 
     /**

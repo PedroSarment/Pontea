@@ -1,0 +1,205 @@
+name: 'Shopping Cart'
+description: 'Retrieve a list of all items in the shopping cart for the authenticated user.'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/shopping_carts
+    metadata:
+      groupName: 'Shopping Cart'
+      groupDescription: 'Retrieve a list of all items in the shopping cart for the authenticated user.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a listing of the resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 1,
+                      "user_id": 1,
+                      "activity_id": 5,
+                      "created_at": "2023-09-01 12:00:00",
+                      "updated_at": "2023-09-01 12:00:00",
+                      "activity": {
+                          "id": 5,
+                          "title": "Sample Activity",
+                          "price": 10.0
+                      }
+                  },
+                  // ... (other shopping cart items)
+              ],
+              "total": 50.0
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/shopping_carts/store
+    metadata:
+      groupName: 'Shopping Cart'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a newly created resource in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      activity_id:
+        name: activity_id
+        description: 'The ID of the activity to add to the shopping cart.'
+        required: true
+        example: 9
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      activity_id: 9
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "Item added to the shopping cart"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 409
+        content: |-
+          {
+              "message": "Item already exists in the shopping cart"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/shopping_carts/remove
+    metadata:
+      groupName: 'Shopping Cart'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove all shopping cart items with a specific activity for a user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      activity_id:
+        name: activity_id
+        description: 'The ID of the activity to remove from the shopping cart.'
+        required: true
+        example: 6
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      activity_id: 6
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "All items with the specified activity removed from the shopping cart"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: api/shopping_carts/destroy
+    metadata:
+      groupName: 'Shopping Cart'
+      groupDescription: 'Remove all items from the shopping cart for the authenticated user.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove all shopping cart items for a user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "message": "All items removed from the shopping cart"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

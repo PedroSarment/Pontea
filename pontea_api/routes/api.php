@@ -9,8 +9,8 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AgeGroupController;
 use App\Http\Controllers\LevelController;
-
-
+use App\Http\Controllers\ShoppingCartController;
+use App\Http\Controllers\PurchaseController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,7 +33,7 @@ Route::controller(AuthController::class)->group(function () {
 
     Route::middleware(CheckToken::class)->group(function () {
 
-
+        Route::get('/profile', 'profile');
     });
 });
 
@@ -44,7 +44,8 @@ Route::controller(ActivitiesController::class)->group(function () {
         Route::middleware(CheckToken::class)->group(function () {
             Route::get('/', 'index');
             Route::get('/filter', 'filter');
-            Route::get('/{id}', 'show');
+            Route::post('/store', 'store');
+            Route::put('/update/{id}', 'update');
 
         });
     });
@@ -66,6 +67,7 @@ Route::controller(TeacherController ::class)->group(function () {
 
         Route::middleware(CheckToken::class)->group(function () {
             Route::get('/', 'index');
+            Route::get('/turn_user_into_teacher', 'turnUserIntoTeacher');
             Route::get('/{id}', 'show');
         });
     });
@@ -91,6 +93,30 @@ Route::controller(LevelController ::class)->group(function () {
         });
     });
 });
+
+Route::controller(ShoppingCartController ::class)->group(function () {
+
+    Route::prefix('shopping_carts')->group(function () {
+
+        Route::middleware(CheckToken::class)->group(function () {
+            Route::get('/', 'index');
+            Route::post('/store', 'store');
+            Route::post('/remove', 'remove');
+            Route::delete('/destroy', 'destroy');
+        });
+    });
+});
+
+Route::controller(PurchaseController ::class)->group(function () {
+
+    Route::prefix('purchase')->group(function () {
+
+        Route::middleware(CheckToken::class)->group(function () {
+            Route::post('/', 'purchase');
+        });
+    });
+});
+
 
 /* Route::post('/login', [AuthenticatedSessionController::class, 'store'])
                 ->middleware('guest')

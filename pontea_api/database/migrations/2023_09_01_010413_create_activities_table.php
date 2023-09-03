@@ -27,6 +27,9 @@ return new class extends Migration
             $table->dateTime('deleted_at')->nullable();
             $table->boolean('has_multimedia_resources')->default(false); // Adiciona a coluna "has_multimedia_resources"
             $table->boolean('has_visual_instructions')->default(false); // Adiciona a coluna "has_visual_instructions"
+            $table->float('price');
+
+
 
         });
     }

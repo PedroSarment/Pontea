@@ -146,6 +146,39 @@ class TeacherController  extends Controller
     }
 
     /**
+     * Turn a user into a teacher.
+     *
+     * @group Teachers
+     * @header Authorization Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi
+     *
+     * This function allows you to update a user's status to become a teacher.
+     *
+     * @response 200 {
+     *     "user": {
+     *         "id": 1,
+     *         "name": "John Doe",
+     *         "email": "john@example.com",
+     *         "is_teacher": true,
+     *         "created_at": "2023-09-01T12:34:56Z",
+     *         "updated_at": "2023-09-01T12:36:24Z"
+     *     },
+     *     "message": "User is now a teacher"
+     * }
+     *
+     * @authenticated
+     */
+    public function turnUserIntoTeacher()
+    {
+        $user = session('user');
+
+        $user->is_teacher = true;
+
+        $user->save();
+
+        return response()->json(['user' => $user, 'message' => 'User is now a teacher'], 200);
+    }
+
+    /**
      * Calculate the average rating for a teacher based on comments received on activities they created.
      *
      * @param \App\Models\User $teacher

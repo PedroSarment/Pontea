@@ -173,3 +173,79 @@ endpoints:
     method: null
     route: null
     custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/profile
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get the profile information for the authenticated user.'
+      description: |-
+        This endpoint retrieves detailed information about the authenticated user, including their purchased activities, activities created by them,
+        average rating, and count of ratings for their created activities.
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "user": {
+                  "id": 1,
+                  "name": "John Doe",
+                  "email": "john@example.com",
+                  "created_at": "2023-09-01T12:34:56Z",
+                  "updated_at": "2023-09-01T12:34:56Z"
+              },
+              "purchased_activities": [
+                  {
+                      "id": 1,
+                      "title": "Activity 1",
+                      "description": "Description of Activity 1",
+                      "price": 10.99,
+                      "created_at": "2023-09-02T14:45:00Z",
+                      "updated_at": "2023-09-02T14:45:00Z"
+                  },
+                  {
+                      "id": 2,
+                      "title": "Activity 2",
+                      "description": "Description of Activity 2",
+                      "price": 12.99,
+                      "created_at": "2023-09-03T10:30:00Z",
+                      "updated_at": "2023-09-03T10:30:00Z"
+                  }
+              ],
+              "created_activities": [
+                  {
+                      "id": 3,
+                      "title": "My Created Activity 1",
+                      "description": "Description of My Created Activity 1",
+                      "price": 8.99,
+                      "created_at": "2023-09-04T09:15:00Z",
+                      "updated_at": "2023-09-04T09:15:00Z"
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

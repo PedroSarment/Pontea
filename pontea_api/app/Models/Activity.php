@@ -26,7 +26,8 @@ class Activity extends Model
         'media_path_3',
         'media_path_4',
         'has_multimedia_resources',
-        'has_visual_instructions'
+        'has_visual_instructions',
+        'price'
     ];
 
     public function ageGroup(): BelongsTo
