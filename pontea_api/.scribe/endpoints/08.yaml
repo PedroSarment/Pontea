@@ -27,7 +27,7 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity to be purchased.'
         required: true
-        example: 1
+        example: 16
         type: integer
         enumValues: []
         custom: []
@@ -40,7 +40,7 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      activity_id: 1
+      activity_id: 16
       pontea_credit_payment: false
     fileParameters: []
     responses:

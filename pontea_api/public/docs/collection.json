@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost:8000"
+            "value": "https:\/\/pontea.000webhostapp.com"
         }
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "9dfd9ffe-03da-4e89-bba8-450975e40a3d",
+        "_postman_id": "649f49b4-a449-45fe-b87e-7a974b62daf6",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -67,31 +67,31 @@
                             "query": [
                                 {
                                     "key": "text",
-                                    "value": "qui",
+                                    "value": "harum",
                                     "description": "The text to search in the title or description of the activity (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "age_group_id",
-                                    "value": "16",
+                                    "value": "13",
                                     "description": "The ID of the age group to filter activities by a specific age group (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "area_id",
-                                    "value": "5",
+                                    "value": "16",
                                     "description": "The ID of the area to filter activities by a specific area (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "level_id",
-                                    "value": "14",
+                                    "value": "19",
                                     "description": "The ID of the level to filter activities by a specific level (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "created_by",
-                                    "value": "9",
+                                    "value": "3",
                                     "description": "The ID of the user who created the activity to filter activities created by a specific user (optional).",
                                     "disabled": false
                                 },
@@ -108,7 +108,7 @@
                                     "disabled": true
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activity\/filter?text=qui&age_group_id=16&area_id=5&level_id=14&created_by=9&has_multimedia_resources=&has_visual_instructions="
+                            "raw": "{{baseUrl}}\/api\/activity\/filter?text=harum&age_group_id=13&area_id=16&level_id=19&created_by=3&has_multimedia_resources=&has_visual_instructions="
                         },
                         "method": "GET",
                         "header": [
@@ -166,7 +166,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Sample Activity\",\"description\":\"Description of the sample activity.\",\"age_group_id\":1,\"area_id\":2,\"level_id\":3,\"has_multimedia_resources\":true,\"has_visual_instructions\":false,\"media_path_1\":\"sed\",\"media_path_2\":\"et\",\"media_path_3\":\"qui\",\"media_path_4\":\"minus\",\"price\":312.4}"
+                            "raw": "{\"title\":\"Sample Activity\",\"description\":\"Description of the sample activity.\",\"age_group_id\":1,\"area_id\":2,\"level_id\":3,\"has_multimedia_resources\":true,\"has_visual_instructions\":false,\"media_path_1\":\"ea\",\"media_path_2\":\"maxime\",\"media_path_3\":\"error\",\"media_path_4\":\"quia\",\"price\":622596.7732492}"
                         },
                         "description": "",
                         "auth": {
@@ -200,7 +200,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "19",
+                                    "value": "13",
                                     "description": "The ID of the activity to update."
                                 }
                             ]
@@ -222,7 +222,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Updated Activity\",\"description\":\"Updated description.\",\"age_group_id\":2,\"area_id\":1,\"level_id\":4,\"has_multimedia_resources\":false,\"has_visual_instructions\":true,\"media_path_1\":\"quas\",\"media_path_2\":\"assumenda\",\"media_path_3\":\"est\",\"media_path_4\":\"quo\",\"price\":169388769.11417484}"
+                            "raw": "{\"title\":\"Updated Activity\",\"description\":\"Updated description.\",\"age_group_id\":2,\"area_id\":1,\"level_id\":4,\"has_multimedia_resources\":false,\"has_visual_instructions\":true,\"media_path_1\":\"et\",\"media_path_2\":\"a\",\"media_path_3\":\"mollitia\",\"media_path_4\":\"quis\",\"price\":468090530.4402369}"
                         },
                         "description": "",
                         "auth": {
@@ -533,7 +533,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "57"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -545,7 +545,7 @@
                                 },
                                 {
                                     "key": "set-cookie",
-                                    "value": "laravel_session=verMH7KnG036FRD5OBq96hXIrngv2bGNjB4sYpRS; expires=Sun, 03 Sep 2023 20:45:42 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                    "value": "laravel_session=4OA7AtOeW4qg3cjfM0uUm8y7cy02CtuMqsSIz2Es; expires=Sun, 10 Sep 2023 19:43:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                 }
                             ],
                             "code": 200,
@@ -631,7 +631,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":1,\"pontea_credit_payment\":false}"
+                            "raw": "{\"activity_id\":16,\"pontea_credit_payment\":false}"
                         },
                         "description": ""
                     },
@@ -733,7 +733,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":9}"
+                            "raw": "{\"activity_id\":16}"
                         },
                         "description": "",
                         "auth": {
@@ -781,7 +781,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":6}"
+                            "raw": "{\"activity_id\":13}"
                         },
                         "description": "",
                         "auth": {
@@ -929,7 +929,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "8",
+                                    "value": "11",
                                     "description": "The ID of the teacher."
                                 }
                             ]
