@@ -26,6 +26,8 @@
 <script>
 import KnowledgeCard from 'components/KnowledgeCard.vue';
 import TeacherCard from 'src/components/TeacherCard.vue';
+import { onMounted } from 'vue';
+import axios from 'axios'
 
 export default {
   name: 'HomePage',
@@ -33,6 +35,45 @@ export default {
     KnowledgeCard,
     TeacherCard
 },
+  async mounted () {
+
+    const getAreas = () => {
+      const url = new URL("https://pontea.000webhostapp.com/api/area");
+
+      axios.get(url)
+      .then((res) => {
+        console.log(res);
+        return res.data
+      })
+      .catch(err=> console.log(err))
+    }
+
+    const getTeachers = () => {
+      const url = new URL("https://pontea.000webhostapp.com/api/teacher");
+
+      axios.get(url)
+      .then((res) => {
+        console.log(res);
+        return res.data
+      })
+      .catch(err => console.log(err))
+    }
+
+    const getActivitys = () => {
+      const url = new URL("https://pontea.000webhostapp.com/api/activity");
+
+      axios.get(url)
+      .then((res) => {
+        console.log(res);
+        return res.data
+      })
+      .catch(err => console.log(err))
+    }
+
+    let areas = getAreas();
+    let teachers = getTeachers();
+    let activitys = getActivitys();
+  },
   data() {
     return {
       items: [
