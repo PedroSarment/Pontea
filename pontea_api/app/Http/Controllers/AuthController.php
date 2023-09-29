@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Models\purchase;
+use App\Models\Activity;
 
 
 class AuthController extends Controller
@@ -178,8 +180,28 @@ class AuthController extends Controller
     {
         $user = session('user'); // Assuming the user is already logged in via session.
 
-        // Retrieve purchased activities for the user.
-        $purchasedActivities = $user->purchasedActivities;
+        $purchases = purchase::where('bought_by', $user->id)->get();
+
+        $activities = [];
+
+        if($purchases) {
+
+            foreach($purchases as $purchase) {
+                $activity = Activity::find($purchase->activity_id);
+
+                if($activity)
+                {
+                    $activities[] = $activity;
+                }
+
+
+            }
+
+            $purchasedActivities = $activities;
+        } else {
+
+            $purchasedActivities = null;
+        }
 
         // Retrieve activities created by the user.
         $createdActivities = $user->createdActivities;

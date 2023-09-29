@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use App\Models\Activity;
 
 class TeacherController  extends Controller
 {
@@ -26,7 +27,8 @@ class TeacherController  extends Controller
      *             "email": "john@example.com",
      *             "created_at": "2023-09-01T12:34:56Z",
      *             "updated_at": "2023-09-01T12:34:56Z",
-     *             "note": 4.5
+     *             "note": 4.5,
+     *             "countActivities": 2
      *         },
      *         {
      *             "id": 2,
@@ -34,7 +36,8 @@ class TeacherController  extends Controller
      *             "email": "alice@example.com",
      *             "created_at": "2023-09-01T13:45:00Z",
      *             "updated_at": "2023-09-01T13:45:00Z",
-     *             "note": 3.8
+     *             "note": 3.8,
+     *             "countActivities": 2
      *         }
      *         // ... (other teacher objects)
      *     ]
@@ -53,6 +56,7 @@ class TeacherController  extends Controller
 
             // Set the note attribute for each teacher
             $teacher->note = $averageRating ? $averageRating : 0;
+            $teacher->countActivities = Activity::where('created_by', $teacher->id)->get()->count();
         }
 
         return response()->json(['data' => $teachers]);
