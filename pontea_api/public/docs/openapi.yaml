@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost:8000'
+    url: 'https://pontea.000webhostapp.com'
 paths:
   /api/activity:
     get:
@@ -34,52 +34,52 @@ paths:
           in: query
           name: text
           description: 'The text to search in the title or description of the activity (optional).'
-          example: laborum
+          example: enim
           required: false
           schema:
             type: string
             description: 'The text to search in the title or description of the activity (optional).'
-            example: laborum
+            example: enim
         -
           in: query
           name: age_group_id
           description: 'The ID of the age group to filter activities by a specific age group (optional).'
-          example: 4
+          example: 12
           required: false
           schema:
             type: integer
             description: 'The ID of the age group to filter activities by a specific age group (optional).'
-            example: 4
+            example: 12
         -
           in: query
           name: area_id
           description: 'The ID of the area to filter activities by a specific area (optional).'
-          example: 20
+          example: 5
           required: false
           schema:
             type: integer
             description: 'The ID of the area to filter activities by a specific area (optional).'
-            example: 20
+            example: 5
         -
           in: query
           name: level_id
           description: 'The ID of the level to filter activities by a specific level (optional).'
-          example: 16
+          example: 8
           required: false
           schema:
             type: integer
             description: 'The ID of the level to filter activities by a specific level (optional).'
-            example: 16
+            example: 8
         -
           in: query
           name: created_by
           description: 'The ID of the user who created the activity to filter activities created by a specific user (optional).'
-          example: 2
+          example: 8
           required: false
           schema:
             type: integer
             description: 'The ID of the user who created the activity to filter activities created by a specific user (optional).'
-            example: 2
+            example: 8
         -
           in: query
           name: has_multimedia_resources
@@ -286,23 +286,23 @@ paths:
                 media_path_1:
                   type: string
                   description: ''
-                  example: nesciunt
+                  example: qui
                 media_path_2:
                   type: string
                   description: ''
-                  example: et
+                  example: dolor
                 media_path_3:
                   type: string
                   description: ''
-                  example: sed
+                  example: aut
                 media_path_4:
                   type: string
                   description: ''
-                  example: et
+                  example: quis
                 price:
                   type: number
                   description: ''
-                  example: 3.055752
+                  example: 1752.0
               required:
                 - title
                 - description
@@ -435,30 +435,30 @@ paths:
                 media_path_1:
                   type: string
                   description: ''
-                  example: similique
+                  example: assumenda
                 media_path_2:
                   type: string
                   description: ''
-                  example: ea
+                  example: nam
                 media_path_3:
                   type: string
                   description: ''
-                  example: ducimus
+                  example: sint
                 media_path_4:
                   type: string
                   description: ''
-                  example: architecto
+                  example: ea
                 price:
                   type: number
                   description: ''
-                  example: 2.3906873
+                  example: 2.9
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the activity to update.'
-        example: 9
+        example: 18
         required: true
         schema:
           type: integer
@@ -783,6 +783,27 @@ paths:
                           example: '2023-09-04T09:15:00Z'
       tags:
         - Authentication
+  /api/removeCredit:
+    get:
+      summary: "Remove credit from the user's account."
+      operationId: removeCreditFromTheUsersAccount
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Saldo Retirado com Sucesso'
+                properties:
+                  message:
+                    type: string
+                    example: 'Saldo Retirado com Sucesso'
+      tags:
+        - Authentication
   /api/comment/store:
     post:
       summary: 'Store a newly created resource in storage.'
@@ -973,7 +994,7 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity to be purchased.'
-                  example: 6
+                  example: 8
                 pontea_credit_payment:
                   type: boolean
                   description: 'Indicates whether the purchase should be made using available credit (true) or direct payment (false). Default is false.'
@@ -1200,7 +1221,7 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity to add to the shopping cart.'
-                  example: 15
+                  example: 5
               required:
                 - activity_id
       security: []
@@ -1235,7 +1256,7 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity to remove from the shopping cart.'
-                  example: 1
+                  example: 4
               required:
                 - activity_id
       security: []
@@ -1349,7 +1370,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the teacher.'
-        example: 7
+        example: 5
         required: true
         schema:
           type: integer

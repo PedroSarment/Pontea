@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost:8000";
+        var tryItOutBaseUrl = "https://pontea.000webhostapp.com";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -118,6 +118,9 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="authentication-GETapi-profile">
                                 <a href="#authentication-GETapi-profile">Get the profile information for the authenticated user.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="authentication-GETapi-removeCredit">
+                                <a href="#authentication-GETapi-removeCredit">Remove credit from the user's account.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -230,7 +233,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost:8000</code>
+    <strong>Base URL</strong>: <code>https://pontea.000webhostapp.com</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -257,7 +260,7 @@ age group, area, level, created by user, and the presence of multimedia resource
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/activity" \
+    --get "https://pontea.000webhostapp.com/api/activity" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -265,7 +268,7 @@ age group, area, level, created by user, and the presence of multimedia resource
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/activity"
+    "https://pontea.000webhostapp.com/api/activity"
 );
 
 const headers = {
@@ -452,7 +455,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/activity/filter?text=laborum&amp;age_group_id=4&amp;area_id=20&amp;level_id=16&amp;created_by=2&amp;has_multimedia_resources=1&amp;has_visual_instructions=1" \
+    --get "https://pontea.000webhostapp.com/api/activity/filter?text=enim&amp;age_group_id=12&amp;area_id=5&amp;level_id=8&amp;created_by=8&amp;has_multimedia_resources=1&amp;has_visual_instructions=1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -460,15 +463,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/activity/filter"
+    "https://pontea.000webhostapp.com/api/activity/filter"
 );
 
 const params = {
-    "text": "laborum",
-    "age_group_id": "4",
-    "area_id": "20",
-    "level_id": "16",
-    "created_by": "2",
+    "text": "enim",
+    "age_group_id": "12",
+    "area_id": "5",
+    "level_id": "8",
+    "created_by": "8",
     "has_multimedia_resources": "1",
     "has_visual_instructions": "1",
 };
@@ -654,10 +657,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="text"                data-endpoint="GETapi-activity-filter"
-               value="laborum"
+               value="enim"
                data-component="query">
     <br>
-<p>The text to search in the title or description of the activity (optional). Example: <code>laborum</code></p>
+<p>The text to search in the title or description of the activity (optional). Example: <code>enim</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>age_group_id</code></b>&nbsp;&nbsp;
@@ -665,10 +668,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="age_group_id"                data-endpoint="GETapi-activity-filter"
-               value="4"
+               value="12"
                data-component="query">
     <br>
-<p>The ID of the age group to filter activities by a specific age group (optional). Example: <code>4</code></p>
+<p>The ID of the age group to filter activities by a specific age group (optional). Example: <code>12</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>area_id</code></b>&nbsp;&nbsp;
@@ -676,10 +679,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="area_id"                data-endpoint="GETapi-activity-filter"
-               value="20"
+               value="5"
                data-component="query">
     <br>
-<p>The ID of the area to filter activities by a specific area (optional). Example: <code>20</code></p>
+<p>The ID of the area to filter activities by a specific area (optional). Example: <code>5</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>level_id</code></b>&nbsp;&nbsp;
@@ -687,10 +690,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="level_id"                data-endpoint="GETapi-activity-filter"
-               value="16"
+               value="8"
                data-component="query">
     <br>
-<p>The ID of the level to filter activities by a specific level (optional). Example: <code>16</code></p>
+<p>The ID of the level to filter activities by a specific level (optional). Example: <code>8</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>created_by</code></b>&nbsp;&nbsp;
@@ -698,10 +701,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="created_by"                data-endpoint="GETapi-activity-filter"
-               value="2"
+               value="8"
                data-component="query">
     <br>
-<p>The ID of the user who created the activity to filter activities created by a specific user (optional). Example: <code>2</code></p>
+<p>The ID of the user who created the activity to filter activities created by a specific user (optional). Example: <code>8</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>has_multimedia_resources</code></b>&nbsp;&nbsp;
@@ -760,7 +763,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/activity/store" \
+    "https://pontea.000webhostapp.com/api/activity/store" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
@@ -772,18 +775,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"level_id\": 3,
     \"has_multimedia_resources\": true,
     \"has_visual_instructions\": false,
-    \"media_path_1\": \"nesciunt\",
-    \"media_path_2\": \"et\",
-    \"media_path_3\": \"sed\",
-    \"media_path_4\": \"et\",
-    \"price\": 3.055752
+    \"media_path_1\": \"qui\",
+    \"media_path_2\": \"dolor\",
+    \"media_path_3\": \"aut\",
+    \"media_path_4\": \"quis\",
+    \"price\": 1752
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/activity/store"
+    "https://pontea.000webhostapp.com/api/activity/store"
 );
 
 const headers = {
@@ -800,11 +803,11 @@ let body = {
     "level_id": 3,
     "has_multimedia_resources": true,
     "has_visual_instructions": false,
-    "media_path_1": "nesciunt",
-    "media_path_2": "et",
-    "media_path_3": "sed",
-    "media_path_4": "et",
-    "price": 3.055752
+    "media_path_1": "qui",
+    "media_path_2": "dolor",
+    "media_path_3": "aut",
+    "media_path_4": "quis",
+    "price": 1752
 };
 
 fetch(url, {
@@ -1054,10 +1057,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="media_path_1"                data-endpoint="POSTapi-activity-store"
-               value="nesciunt"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>nesciunt</code></p>
+<p>Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media_path_2</code></b>&nbsp;&nbsp;
@@ -1065,10 +1068,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="media_path_2"                data-endpoint="POSTapi-activity-store"
-               value="et"
+               value="dolor"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>dolor</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media_path_3</code></b>&nbsp;&nbsp;
@@ -1076,10 +1079,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="media_path_3"                data-endpoint="POSTapi-activity-store"
-               value="sed"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>sed</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media_path_4</code></b>&nbsp;&nbsp;
@@ -1087,10 +1090,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="media_path_4"                data-endpoint="POSTapi-activity-store"
-               value="et"
+               value="quis"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>quis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
@@ -1098,10 +1101,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="price"                data-endpoint="POSTapi-activity-store"
-               value="3.055752"
+               value="1752"
                data-component="body">
     <br>
-<p>Example: <code>3.055752</code></p>
+<p>Example: <code>1752</code></p>
         </div>
         </form>
 
@@ -1118,7 +1121,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/activity/update/9" \
+    "https://pontea.000webhostapp.com/api/activity/update/18" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
@@ -1130,18 +1133,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"level_id\": 4,
     \"has_multimedia_resources\": false,
     \"has_visual_instructions\": true,
-    \"media_path_1\": \"similique\",
-    \"media_path_2\": \"ea\",
-    \"media_path_3\": \"ducimus\",
-    \"media_path_4\": \"architecto\",
-    \"price\": 2.3906873
+    \"media_path_1\": \"assumenda\",
+    \"media_path_2\": \"nam\",
+    \"media_path_3\": \"sint\",
+    \"media_path_4\": \"ea\",
+    \"price\": 2.9
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/activity/update/9"
+    "https://pontea.000webhostapp.com/api/activity/update/18"
 );
 
 const headers = {
@@ -1158,11 +1161,11 @@ let body = {
     "level_id": 4,
     "has_multimedia_resources": false,
     "has_visual_instructions": true,
-    "media_path_1": "similique",
-    "media_path_2": "ea",
-    "media_path_3": "ducimus",
-    "media_path_4": "architecto",
-    "price": 2.3906873
+    "media_path_1": "assumenda",
+    "media_path_2": "nam",
+    "media_path_3": "sint",
+    "media_path_4": "ea",
+    "price": 2.9
 };
 
 fetch(url, {
@@ -1306,10 +1309,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-activity-update--id-"
-               value="9"
+               value="18"
                data-component="url">
     <br>
-<p>The ID of the activity to update. Example: <code>9</code></p>
+<p>The ID of the activity to update. Example: <code>18</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1415,10 +1418,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="media_path_1"                data-endpoint="PUTapi-activity-update--id-"
-               value="similique"
+               value="assumenda"
                data-component="body">
     <br>
-<p>Example: <code>similique</code></p>
+<p>Example: <code>assumenda</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media_path_2</code></b>&nbsp;&nbsp;
@@ -1426,10 +1429,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="media_path_2"                data-endpoint="PUTapi-activity-update--id-"
-               value="ea"
+               value="nam"
                data-component="body">
     <br>
-<p>Example: <code>ea</code></p>
+<p>Example: <code>nam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media_path_3</code></b>&nbsp;&nbsp;
@@ -1437,10 +1440,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="media_path_3"                data-endpoint="PUTapi-activity-update--id-"
-               value="ducimus"
+               value="sint"
                data-component="body">
     <br>
-<p>Example: <code>ducimus</code></p>
+<p>Example: <code>sint</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>media_path_4</code></b>&nbsp;&nbsp;
@@ -1448,10 +1451,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="media_path_4"                data-endpoint="PUTapi-activity-update--id-"
-               value="architecto"
+               value="ea"
                data-component="body">
     <br>
-<p>Example: <code>architecto</code></p>
+<p>Example: <code>ea</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
@@ -1459,10 +1462,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="price"                data-endpoint="PUTapi-activity-update--id-"
-               value="2.3906873"
+               value="2.9"
                data-component="body">
     <br>
-<p>Example: <code>2.3906873</code></p>
+<p>Example: <code>2.9</code></p>
         </div>
         </form>
 
@@ -1483,7 +1486,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/age_group" \
+    --get "https://pontea.000webhostapp.com/api/age_group" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -1491,7 +1494,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/age_group"
+    "https://pontea.000webhostapp.com/api/age_group"
 );
 
 const headers = {
@@ -1627,7 +1630,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/area" \
+    --get "https://pontea.000webhostapp.com/api/area" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -1635,7 +1638,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/area"
+    "https://pontea.000webhostapp.com/api/area"
 );
 
 const headers = {
@@ -1831,7 +1834,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/register" \
+    "https://pontea.000webhostapp.com/api/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1845,7 +1848,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/register"
+    "https://pontea.000webhostapp.com/api/register"
 );
 
 const headers = {
@@ -2029,7 +2032,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/login" \
+    "https://pontea.000webhostapp.com/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -2041,7 +2044,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/login"
+    "https://pontea.000webhostapp.com/api/login"
 );
 
 const headers = {
@@ -2201,7 +2204,7 @@ average rating, and count of ratings for their created activities.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/profile" \
+    --get "https://pontea.000webhostapp.com/api/profile" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -2209,7 +2212,7 @@ average rating, and count of ratings for their created activities.</p>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/profile"
+    "https://pontea.000webhostapp.com/api/profile"
 );
 
 const headers = {
@@ -2352,6 +2355,137 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="authentication-GETapi-removeCredit">Remove credit from the user&#039;s account.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-removeCredit">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://pontea.000webhostapp.com/api/removeCredit" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://pontea.000webhostapp.com/api/removeCredit"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-removeCredit">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Saldo Retirado com Sucesso&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-removeCredit" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-removeCredit"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-removeCredit"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-removeCredit" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-removeCredit">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-removeCredit" data-method="GET"
+      data-path="api/removeCredit"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-removeCredit', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-removeCredit"
+                    onclick="tryItOut('GETapi-removeCredit');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-removeCredit"
+                    onclick="cancelTryOut('GETapi-removeCredit');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-removeCredit"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/removeCredit</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-removeCredit"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-removeCredit"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-removeCredit"
+               value="Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi</code></p>
+            </div>
+                        </form>
+
                 <h1 id="comments">Comments</h1>
 
     <p>This function creates a new comment associated with a specific activity.</p>
@@ -2369,7 +2503,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/comment/store" \
+    "https://pontea.000webhostapp.com/api/comment/store" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
@@ -2383,7 +2517,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/comment/store"
+    "https://pontea.000webhostapp.com/api/comment/store"
 );
 
 const headers = {
@@ -2571,14 +2705,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/age_group/1" \
+    --get "https://pontea.000webhostapp.com/api/age_group/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/age_group/1"
+    "https://pontea.000webhostapp.com/api/age_group/1"
 );
 
 const headers = {
@@ -2604,12 +2738,12 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 59
 access-control-allow-origin: http://localhost
 access-control-allow-methods: PUT, POST, DELETE, GET, OPTIONS
 access-control-allow-headers: Accept, Authorization, Content-Type
 access-control-allow-credentials: true
-set-cookie: laravel_session=w2QduC2JGr23er88nbnVv8bXW0GaB9YUf6DbKV6j; expires=Sat, 30 Sep 2023 15:58:50 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: laravel_session=1QlzI33DnXfEebfhKqC5807p1dAWnolNLAHZTfTM; expires=Sat, 30 Sep 2023 18:41:12 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2717,7 +2851,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/levels" \
+    --get "https://pontea.000webhostapp.com/api/levels" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -2725,7 +2859,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/levels"
+    "https://pontea.000webhostapp.com/api/levels"
 );
 
 const headers = {
@@ -2862,12 +2996,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/purchase" \
+    "https://pontea.000webhostapp.com/api/purchase" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
     --data "{
-    \"activity_id\": 6,
+    \"activity_id\": 8,
     \"pontea_credit_payment\": false
 }"
 </code></pre></div>
@@ -2875,7 +3009,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/purchase"
+    "https://pontea.000webhostapp.com/api/purchase"
 );
 
 const headers = {
@@ -2885,7 +3019,7 @@ const headers = {
 };
 
 let body = {
-    "activity_id": 6,
+    "activity_id": 8,
     "pontea_credit_payment": false
 };
 
@@ -3022,10 +3156,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-purchase"
-               value="6"
+               value="8"
                data-component="body">
     <br>
-<p>The ID of the activity to be purchased. Example: <code>6</code></p>
+<p>The ID of the activity to be purchased. Example: <code>8</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>pontea_credit_payment</code></b>&nbsp;&nbsp;
@@ -3067,7 +3201,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/question/store" \
+    "https://pontea.000webhostapp.com/api/question/store" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
@@ -3080,7 +3214,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/question/store"
+    "https://pontea.000webhostapp.com/api/question/store"
 );
 
 const headers = {
@@ -3244,7 +3378,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/question/responds" \
+    "https://pontea.000webhostapp.com/api/question/responds" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
@@ -3257,7 +3391,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/question/responds"
+    "https://pontea.000webhostapp.com/api/question/responds"
 );
 
 const headers = {
@@ -3430,7 +3564,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/question/like" \
+    "https://pontea.000webhostapp.com/api/question/like" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
@@ -3442,7 +3576,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/question/like"
+    "https://pontea.000webhostapp.com/api/question/like"
 );
 
 const headers = {
@@ -3606,7 +3740,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/shopping_carts" \
+    --get "https://pontea.000webhostapp.com/api/shopping_carts" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -3614,7 +3748,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/shopping_carts"
+    "https://pontea.000webhostapp.com/api/shopping_carts"
 );
 
 const headers = {
@@ -3751,19 +3885,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/shopping_carts/store" \
+    "https://pontea.000webhostapp.com/api/shopping_carts/store" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
     --data "{
-    \"activity_id\": 15
+    \"activity_id\": 5
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/shopping_carts/store"
+    "https://pontea.000webhostapp.com/api/shopping_carts/store"
 );
 
 const headers = {
@@ -3773,7 +3907,7 @@ const headers = {
 };
 
 let body = {
-    "activity_id": 15
+    "activity_id": 5
 };
 
 fetch(url, {
@@ -3891,10 +4025,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-shopping_carts-store"
-               value="15"
+               value="5"
                data-component="body">
     <br>
-<p>The ID of the activity to add to the shopping cart. Example: <code>15</code></p>
+<p>The ID of the activity to add to the shopping cart. Example: <code>5</code></p>
         </div>
         </form>
 
@@ -3911,19 +4045,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/shopping_carts/remove" \
+    "https://pontea.000webhostapp.com/api/shopping_carts/remove" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi" \
     --data "{
-    \"activity_id\": 1
+    \"activity_id\": 4
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/shopping_carts/remove"
+    "https://pontea.000webhostapp.com/api/shopping_carts/remove"
 );
 
 const headers = {
@@ -3933,7 +4067,7 @@ const headers = {
 };
 
 let body = {
-    "activity_id": 1
+    "activity_id": 4
 };
 
 fetch(url, {
@@ -4042,10 +4176,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="activity_id"                data-endpoint="POSTapi-shopping_carts-remove"
-               value="1"
+               value="4"
                data-component="body">
     <br>
-<p>The ID of the activity to remove from the shopping cart. Example: <code>1</code></p>
+<p>The ID of the activity to remove from the shopping cart. Example: <code>4</code></p>
         </div>
         </form>
 
@@ -4062,7 +4196,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/shopping_carts/destroy" \
+    "https://pontea.000webhostapp.com/api/shopping_carts/destroy" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -4070,7 +4204,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/shopping_carts/destroy"
+    "https://pontea.000webhostapp.com/api/shopping_carts/destroy"
 );
 
 const headers = {
@@ -4196,7 +4330,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/teacher" \
+    --get "https://pontea.000webhostapp.com/api/teacher" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -4204,7 +4338,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/teacher"
+    "https://pontea.000webhostapp.com/api/teacher"
 );
 
 const headers = {
@@ -4347,7 +4481,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/teacher/turn_user_into_teacher" \
+    --get "https://pontea.000webhostapp.com/api/teacher/turn_user_into_teacher" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -4355,7 +4489,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/teacher/turn_user_into_teacher"
+    "https://pontea.000webhostapp.com/api/teacher/turn_user_into_teacher"
 );
 
 const headers = {
@@ -4485,7 +4619,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/teacher/7" \
+    --get "https://pontea.000webhostapp.com/api/teacher/5" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi"</code></pre></div>
@@ -4493,7 +4627,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/teacher/7"
+    "https://pontea.000webhostapp.com/api/teacher/5"
 );
 
 const headers = {
@@ -4645,10 +4779,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-teacher--id-"
-               value="7"
+               value="5"
                data-component="url">
     <br>
-<p>The ID of the teacher. Example: <code>7</code></p>
+<p>The ID of the teacher. Example: <code>5</code></p>
             </div>
                     </form>
 

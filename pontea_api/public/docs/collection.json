@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost:8000"
+            "value": "https:\/\/pontea.000webhostapp.com"
         }
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "91c882a1-2c08-4023-9819-d89f684bdc5c",
+        "_postman_id": "ca5ad61d-edd7-4927-96c7-ef5ffe2aebe2",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -67,31 +67,31 @@
                             "query": [
                                 {
                                     "key": "text",
-                                    "value": "laborum",
+                                    "value": "enim",
                                     "description": "The text to search in the title or description of the activity (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "age_group_id",
-                                    "value": "4",
+                                    "value": "12",
                                     "description": "The ID of the age group to filter activities by a specific age group (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "area_id",
-                                    "value": "20",
+                                    "value": "5",
                                     "description": "The ID of the area to filter activities by a specific area (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "level_id",
-                                    "value": "16",
+                                    "value": "8",
                                     "description": "The ID of the level to filter activities by a specific level (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "created_by",
-                                    "value": "2",
+                                    "value": "8",
                                     "description": "The ID of the user who created the activity to filter activities created by a specific user (optional).",
                                     "disabled": false
                                 },
@@ -108,7 +108,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activity\/filter?text=laborum&age_group_id=4&area_id=20&level_id=16&created_by=2&has_multimedia_resources=1&has_visual_instructions=1"
+                            "raw": "{{baseUrl}}\/api\/activity\/filter?text=enim&age_group_id=12&area_id=5&level_id=8&created_by=8&has_multimedia_resources=1&has_visual_instructions=1"
                         },
                         "method": "GET",
                         "header": [
@@ -166,7 +166,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Sample Activity\",\"description\":\"Description of the sample activity.\",\"age_group_id\":1,\"area_id\":2,\"level_id\":3,\"has_multimedia_resources\":true,\"has_visual_instructions\":false,\"media_path_1\":\"nesciunt\",\"media_path_2\":\"et\",\"media_path_3\":\"sed\",\"media_path_4\":\"et\",\"price\":3.055752}"
+                            "raw": "{\"title\":\"Sample Activity\",\"description\":\"Description of the sample activity.\",\"age_group_id\":1,\"area_id\":2,\"level_id\":3,\"has_multimedia_resources\":true,\"has_visual_instructions\":false,\"media_path_1\":\"qui\",\"media_path_2\":\"dolor\",\"media_path_3\":\"aut\",\"media_path_4\":\"quis\",\"price\":1752}"
                         },
                         "description": "",
                         "auth": {
@@ -200,7 +200,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "9",
+                                    "value": "18",
                                     "description": "The ID of the activity to update."
                                 }
                             ]
@@ -222,7 +222,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Updated Activity\",\"description\":\"Updated description.\",\"age_group_id\":2,\"area_id\":1,\"level_id\":4,\"has_multimedia_resources\":false,\"has_visual_instructions\":true,\"media_path_1\":\"similique\",\"media_path_2\":\"ea\",\"media_path_3\":\"ducimus\",\"media_path_4\":\"architecto\",\"price\":2.3906873}"
+                            "raw": "{\"title\":\"Updated Activity\",\"description\":\"Updated description.\",\"age_group_id\":2,\"area_id\":1,\"level_id\":4,\"has_multimedia_resources\":false,\"has_visual_instructions\":true,\"media_path_1\":\"assumenda\",\"media_path_2\":\"nam\",\"media_path_3\":\"sint\",\"media_path_4\":\"ea\",\"price\":2.9}"
                         },
                         "description": "",
                         "auth": {
@@ -475,6 +475,42 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Remove credit from the user's account.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/removeCredit",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/removeCredit"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Saldo Retirado com Sucesso\"\n}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -587,7 +623,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "58"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -607,7 +643,7 @@
                                 },
                                 {
                                     "key": "set-cookie",
-                                    "value": "laravel_session=w2QduC2JGr23er88nbnVv8bXW0GaB9YUf6DbKV6j; expires=Sat, 30 Sep 2023 15:58:50 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                    "value": "laravel_session=1QlzI33DnXfEebfhKqC5807p1dAWnolNLAHZTfTM; expires=Sat, 30 Sep 2023 18:41:12 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                 }
                             ],
                             "code": 200,
@@ -693,7 +729,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":6,\"pontea_credit_payment\":false}"
+                            "raw": "{\"activity_id\":8,\"pontea_credit_payment\":false}"
                         },
                         "description": ""
                     },
@@ -957,7 +993,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":15}"
+                            "raw": "{\"activity_id\":5}"
                         },
                         "description": "",
                         "auth": {
@@ -1005,7 +1041,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":1}"
+                            "raw": "{\"activity_id\":4}"
                         },
                         "description": "",
                         "auth": {
@@ -1153,7 +1189,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "5",
                                     "description": "The ID of the teacher."
                                 }
                             ]
