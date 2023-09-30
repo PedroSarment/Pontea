@@ -7,6 +7,8 @@ use App\Http\Requests\StoreActivitiesRequest;
 use App\Http\Requests\UpdateActivitiesRequest;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 
 class ActivitiesController extends Controller
@@ -92,11 +94,23 @@ class ActivitiesController extends Controller
     public function index()
     {
         // Recuperar todas as atividades
-        $activities = Activity::with('ageGroup', 'area', 'level', 'createdByUser')->get();
+        $activities = Activity::with('ageGroup', 'area', 'level', 'createdByUser', 'comments', 'questions')->get();
 
          // Calculate the average rating for each activity
             foreach ($activities as $activity) {
                 $activity->note = $activity->comments->avg('note');
+
+                foreach ($activity->comments as $comment) {
+
+                    $user = User::find($comment->created_by);
+                    $comment->user = $user;
+                }
+
+                foreach ($activity->questions as $question) {
+
+                    $user = User::find($question->created_by);
+                    $question->user = $user;
+                }
             }
 
         return response()->json(['data' => $activities]);
