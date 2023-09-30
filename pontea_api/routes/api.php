@@ -11,6 +11,9 @@ use App\Http\Controllers\AgeGroupController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\CommentController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,6 +37,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::middleware(CheckToken::class)->group(function () {
 
         Route::get('/profile', 'profile');
+        Route::get('/removeCredit', 'removeCredit');
     });
 });
 
@@ -117,27 +121,25 @@ Route::controller(PurchaseController ::class)->group(function () {
     });
 });
 
+Route::controller(QuestionController::class)->group(function () {
 
-/* Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-                ->middleware('guest')
-                ->name('login');
+    Route::prefix('question')->group(function () {
 
-Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->middleware('guest')
-                ->name('password.email');
+        Route::middleware(CheckToken::class)->group(function () {
+            Route::post('/store', 'store');
+            Route::post('/responds', 'responds');
+            Route::post('/like', 'like');
 
-Route::post('/reset-password', [NewPasswordController::class, 'store'])
-                ->middleware('guest')
-                ->name('password.store');
+        });
+    });
+});
 
-Route::get('/verify-email/{id}/{hash}', VerifyEmailController::class)
-                ->middleware(['auth', 'signed', 'throttle:6,1'])
-                ->name('verification.verify');
+Route::controller(CommentController::class)->group(function () {
 
-Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-                ->middleware(['auth', 'throttle:6,1'])
-                ->name('verification.send');
+    Route::prefix('comment')->group(function () {
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->middleware('auth')
-                ->name('logout'); */
+        Route::middleware(CheckToken::class)->group(function () {
+            Route::post('/store', 'store');
+        });
+    });
+});
