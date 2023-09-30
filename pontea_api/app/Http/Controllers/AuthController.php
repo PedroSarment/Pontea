@@ -221,6 +221,30 @@ class AuthController extends Controller
         return response()->json($profileData);
     }
 
+    /**
+     * Remove credit from the user's account.
+     *
+     * @authenticated
+    * @header Authorization Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj/aQlmgG9ahXn66BZQ.GBmbGB7gggi
+     *
+     * @group Authentication
+     *
+     * @response 200 {
+     *     "message": "Saldo Retirado com Sucesso"
+     * }
+     */
+    public function removeCredit()
+    {
+        $user = session('user'); // Assuming the user is already logged in via session.
+
+        $user->update([
+            'credit' => 0
+        ]);
+
+        return response()->json(['message' => 'Saldo Retirado com Sucesso']);
+
+    }
+
     private function getSalesHistory(User $teacher)
     {
         $history = [];
