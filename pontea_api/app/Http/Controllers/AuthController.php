@@ -15,7 +15,6 @@ use Illuminate\Support\Str;
 use App\Models\purchase;
 use App\Models\Activity;
 
-
 class AuthController extends Controller
 {
     /**
@@ -214,10 +213,38 @@ class AuthController extends Controller
         $profileData = [
             'user' => $user,
             'purchased_activities' => $purchasedActivities,
-            'created_activities' => $createdActivities
+            'created_activities' => $createdActivities,
+            'sales_history'=> $this->getSalesHistory($user)
+
         ];
 
         return response()->json($profileData);
+    }
+
+    private function getSalesHistory(User $teacher)
+    {
+        $history = [];
+
+        if($teacher->createdActivities) {
+
+            foreach($teacher->createdActivities as $activity) {
+
+                $purchases = purchase::where('activity_id', $activity->id)->get();
+
+                if($purchases != null) {
+
+                    foreach($purchases as $purchase) {
+
+                        $purchase->user = User::find($purchase->bought_by);
+                        $purchase->activity = Activity::find($purchase->activity_id);
+
+                        $history[] = $purchase;
+                    }
+                }
+            }
+        }
+
+        return $history;
     }
 
 }

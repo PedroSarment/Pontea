@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Models\Activity;
+use App\Models\purchase;
+
 
 class TeacherController  extends Controller
 {
@@ -144,6 +146,7 @@ class TeacherController  extends Controller
             'updated_at' => $teacher->updated_at,
             'note' => $teacher->note,
             'created_activities' => $createdActivities,
+            'profession' => $teacher->profession,
         ];
 
         return response()->json(['data' => $responseData]);
@@ -195,5 +198,6 @@ class TeacherController  extends Controller
 
         return round($averageRating, 2); // Round to 2 decimal places
     }
+
 
 }

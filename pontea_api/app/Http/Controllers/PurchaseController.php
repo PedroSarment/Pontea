@@ -79,6 +79,7 @@ class PurchaseController extends Controller
         Purchase::create([
             'bought_by' => $user->id,
             'activity_id' => $activityId,
+            'bought_at' => now(),
         ]);
 
         return response()->json(['message' => 'Compra concluída com sucesso.']);
