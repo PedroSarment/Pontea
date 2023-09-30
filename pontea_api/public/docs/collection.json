@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost:8000\/"
+            "value": "http:\/\/localhost:8000"
         }
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "4195bc09-8438-40d6-884a-4c14778b24a5",
+        "_postman_id": "91c882a1-2c08-4023-9819-d89f684bdc5c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -67,48 +67,48 @@
                             "query": [
                                 {
                                     "key": "text",
-                                    "value": "voluptatem",
+                                    "value": "laborum",
                                     "description": "The text to search in the title or description of the activity (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "age_group_id",
-                                    "value": "19",
+                                    "value": "4",
                                     "description": "The ID of the age group to filter activities by a specific age group (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "area_id",
-                                    "value": "8",
+                                    "value": "20",
                                     "description": "The ID of the area to filter activities by a specific area (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "level_id",
-                                    "value": "8",
+                                    "value": "16",
                                     "description": "The ID of the level to filter activities by a specific level (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "created_by",
-                                    "value": "8",
+                                    "value": "2",
                                     "description": "The ID of the user who created the activity to filter activities created by a specific user (optional).",
                                     "disabled": false
                                 },
                                 {
                                     "key": "has_multimedia_resources",
-                                    "value": "",
+                                    "value": "1",
                                     "description": "Defines whether the activity should have multimedia resources (true) or not (false) (optional).",
-                                    "disabled": true
+                                    "disabled": false
                                 },
                                 {
                                     "key": "has_visual_instructions",
-                                    "value": "",
+                                    "value": "1",
                                     "description": "Defines whether the activity should have visual instructions (true) or not (false) (optional).",
-                                    "disabled": true
+                                    "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/activity\/filter?text=voluptatem&age_group_id=19&area_id=8&level_id=8&created_by=8&has_multimedia_resources=&has_visual_instructions="
+                            "raw": "{{baseUrl}}\/api\/activity\/filter?text=laborum&age_group_id=4&area_id=20&level_id=16&created_by=2&has_multimedia_resources=1&has_visual_instructions=1"
                         },
                         "method": "GET",
                         "header": [
@@ -166,7 +166,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Sample Activity\",\"description\":\"Description of the sample activity.\",\"age_group_id\":1,\"area_id\":2,\"level_id\":3,\"has_multimedia_resources\":true,\"has_visual_instructions\":false,\"media_path_1\":\"dolorum\",\"media_path_2\":\"sit\",\"media_path_3\":\"facere\",\"media_path_4\":\"excepturi\",\"price\":20055.0636479}"
+                            "raw": "{\"title\":\"Sample Activity\",\"description\":\"Description of the sample activity.\",\"age_group_id\":1,\"area_id\":2,\"level_id\":3,\"has_multimedia_resources\":true,\"has_visual_instructions\":false,\"media_path_1\":\"nesciunt\",\"media_path_2\":\"et\",\"media_path_3\":\"sed\",\"media_path_4\":\"et\",\"price\":3.055752}"
                         },
                         "description": "",
                         "auth": {
@@ -200,7 +200,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "5",
+                                    "value": "9",
                                     "description": "The ID of the activity to update."
                                 }
                             ]
@@ -222,7 +222,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"Updated Activity\",\"description\":\"Updated description.\",\"age_group_id\":2,\"area_id\":1,\"level_id\":4,\"has_multimedia_resources\":false,\"has_visual_instructions\":true,\"media_path_1\":\"quae\",\"media_path_2\":\"accusamus\",\"media_path_3\":\"amet\",\"media_path_4\":\"qui\",\"price\":148.34972}"
+                            "raw": "{\"title\":\"Updated Activity\",\"description\":\"Updated description.\",\"age_group_id\":2,\"area_id\":1,\"level_id\":4,\"has_multimedia_resources\":false,\"has_visual_instructions\":true,\"media_path_1\":\"similique\",\"media_path_2\":\"ea\",\"media_path_3\":\"ducimus\",\"media_path_4\":\"architecto\",\"price\":2.3906873}"
                         },
                         "description": "",
                         "auth": {
@@ -479,6 +479,60 @@
             ]
         },
         {
+            "name": "Comments",
+            "description": "This function creates a new comment associated with a specific activity.",
+            "item": [
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comment\/store",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/comment\/store"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"activity_id\":1,\"text\":\"This activity is great!\",\"note\":4}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"message\": \"Comment created successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"activity_id\": [\"The activity_id field is required.\"],\n        \"text\": [\"The text field is required.\"],\n        \"note\": [\"The note field is required.\", \"The note field must be between 1 and 5.\"]\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Endpoints",
             "description": "",
             "item": [
@@ -528,6 +582,14 @@
                                     "value": "application\/json"
                                 },
                                 {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
                                     "key": "access-control-allow-origin",
                                     "value": "http:\/\/localhost"
                                 },
@@ -542,10 +604,14 @@
                                 {
                                     "key": "access-control-allow-credentials",
                                     "value": "true"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "laravel_session=w2QduC2JGr23er88nbnVv8bXW0GaB9YUf6DbKV6j; expires=Sat, 30 Sep 2023 15:58:50 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                 }
                             ],
-                            "code": 404,
-                            "body": "{\n    \"message\": \"The route api\/age_group\/1 could not be found.\",\n    \"exception\": \"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException\",\n    \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\AbstractRouteCollection.php\",\n    \"line\": 44,\n    \"trace\": [\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\RouteCollection.php\",\n            \"line\": 162,\n            \"function\": \"handleMatchedRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\AbstractRouteCollection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 754,\n            \"function\": \"match\",\n            \"class\": \"Illuminate\\\\Routing\\\\RouteCollection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 741,\n            \"function\": \"findRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 730,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 200,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 141,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\app\\\\Http\\\\Middleware\\\\Cors.php\",\n            \"line\": 18,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\Cors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance.php\",\n            \"line\": 89,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Http\\\\Middleware\\\\HandleCors.php\",\n            \"line\": 62,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Http\\\\Middleware\\\\TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 175,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 144,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 299,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 92,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 209,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 166,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 95,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 124,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 71,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 49,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Commands\\\\GenerateDocumentation.php\",\n            \"line\": 51,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php\",\n            \"line\": 662,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Console\\\\Command.php\",\n            \"line\": 211,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\symfony\\\\console\\\\Command\\\\Command.php\",\n            \"line\": 326,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Console\\\\Command.php\",\n            \"line\": 181,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 1081,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 320,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 174,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Console\\\\Kernel.php\",\n            \"line\": 201,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Pedro\\\\Desktop\\\\Faculdade\\\\Projet\\u00e3o\\\\Pontea\\\\pontea_api\\\\artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "code": 200,
+                            "body": "{\"message\":\"Request without token\"}",
                             "name": ""
                         }
                     ]
@@ -627,7 +693,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":12,\"pontea_credit_payment\":true}"
+                            "raw": "{\"activity_id\":6,\"pontea_credit_payment\":false}"
                         },
                         "description": ""
                     },
@@ -654,6 +720,168 @@
                             "header": [],
                             "code": 404,
                             "body": "{\n    \"message\": \"Activity not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Questions",
+            "description": "This function creates a new question associated with a specific activity.",
+            "item": [
+                {
+                    "name": "Store a newly created question.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/question\/store",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/question\/store"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"question\":\"How does this experiment work?\",\"activity_id\":1}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"message\": \"Question created successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"question\": [\"The question field is required.\"],\n        \"activity_id\": [\"The activity_id field is required.\"],\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Respond to a question.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/question\/responds",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/question\/responds"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"question_id\":1,\"response\":\"Here's how the experiment works...\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Question responded successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"Question not found\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"question_id\": [\"The question_id field is required.\"],\n        \"response\": [\"The response field is required.\"],\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Like a question.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/question\/like",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/question\/like"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer $2y$10$mhuGD2BQ6WZYTZcpPxwTHOIj\/aQlmgG9ahXn66BZQ.GBmbGB7gggi"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"question_id\":1}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"message\": \"Question liked successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"Question not found\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"question_id\": [\"The question_id field is required.\"],\n    }\n}",
                             "name": ""
                         }
                     ]
@@ -729,7 +957,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":12}"
+                            "raw": "{\"activity_id\":15}"
                         },
                         "description": "",
                         "auth": {
@@ -777,7 +1005,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"activity_id\":11}"
+                            "raw": "{\"activity_id\":1}"
                         },
                         "description": "",
                         "auth": {
@@ -925,7 +1153,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "7",
                                     "description": "The ID of the teacher."
                                 }
                             ]

@@ -34,72 +34,72 @@ paths:
           in: query
           name: text
           description: 'The text to search in the title or description of the activity (optional).'
-          example: voluptatem
+          example: laborum
           required: false
           schema:
             type: string
             description: 'The text to search in the title or description of the activity (optional).'
-            example: voluptatem
+            example: laborum
         -
           in: query
           name: age_group_id
           description: 'The ID of the age group to filter activities by a specific age group (optional).'
-          example: 19
+          example: 4
           required: false
           schema:
             type: integer
             description: 'The ID of the age group to filter activities by a specific age group (optional).'
-            example: 19
+            example: 4
         -
           in: query
           name: area_id
           description: 'The ID of the area to filter activities by a specific area (optional).'
-          example: 8
+          example: 20
           required: false
           schema:
             type: integer
             description: 'The ID of the area to filter activities by a specific area (optional).'
-            example: 8
+            example: 20
         -
           in: query
           name: level_id
           description: 'The ID of the level to filter activities by a specific level (optional).'
-          example: 8
+          example: 16
           required: false
           schema:
             type: integer
             description: 'The ID of the level to filter activities by a specific level (optional).'
-            example: 8
+            example: 16
         -
           in: query
           name: created_by
           description: 'The ID of the user who created the activity to filter activities created by a specific user (optional).'
-          example: 8
+          example: 2
           required: false
           schema:
             type: integer
             description: 'The ID of the user who created the activity to filter activities created by a specific user (optional).'
-            example: 8
+            example: 2
         -
           in: query
           name: has_multimedia_resources
           description: 'Defines whether the activity should have multimedia resources (true) or not (false) (optional).'
-          example: false
+          example: true
           required: false
           schema:
             type: boolean
             description: 'Defines whether the activity should have multimedia resources (true) or not (false) (optional).'
-            example: false
+            example: true
         -
           in: query
           name: has_visual_instructions
           description: 'Defines whether the activity should have visual instructions (true) or not (false) (optional).'
-          example: false
+          example: true
           required: false
           schema:
             type: boolean
             description: 'Defines whether the activity should have visual instructions (true) or not (false) (optional).'
-            example: false
+            example: true
       responses:
         200:
           description: ''
@@ -286,23 +286,23 @@ paths:
                 media_path_1:
                   type: string
                   description: ''
-                  example: dolorum
+                  example: nesciunt
                 media_path_2:
                   type: string
                   description: ''
-                  example: sit
+                  example: et
                 media_path_3:
                   type: string
                   description: ''
-                  example: facere
+                  example: sed
                 media_path_4:
                   type: string
                   description: ''
-                  example: excepturi
+                  example: et
                 price:
                   type: number
                   description: ''
-                  example: 20055.0636479
+                  example: 3.055752
               required:
                 - title
                 - description
@@ -435,30 +435,30 @@ paths:
                 media_path_1:
                   type: string
                   description: ''
-                  example: quae
+                  example: similique
                 media_path_2:
                   type: string
                   description: ''
-                  example: accusamus
+                  example: ea
                 media_path_3:
                   type: string
                   description: ''
-                  example: amet
+                  example: ducimus
                 media_path_4:
                   type: string
                   description: ''
-                  example: qui
+                  example: architecto
                 price:
                   type: number
                   description: ''
-                  example: 148.34972
+                  example: 2.3906873
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the activity to update.'
-        example: 5
+        example: 9
         required: true
         schema:
           type: integer
@@ -783,6 +783,93 @@ paths:
                           example: '2023-09-04T09:15:00Z'
       tags:
         - Authentication
+  /api/comment/store:
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Comment created successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Comment created successfully'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    activity_id:
+                      - 'The activity_id field is required.'
+                    text:
+                      - 'The text field is required.'
+                    note:
+                      - 'The note field is required.'
+                      - 'The note field must be between 1 and 5.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    properties:
+                      activity_id:
+                        type: array
+                        example:
+                          - 'The activity_id field is required.'
+                        items:
+                          type: string
+                      text:
+                        type: array
+                        example:
+                          - 'The text field is required.'
+                        items:
+                          type: string
+                      note:
+                        type: array
+                        example:
+                          - 'The note field is required.'
+                          - 'The note field must be between 1 and 5.'
+                        items:
+                          type: string
+      tags:
+        - Comments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activity_id:
+                  type: integer
+                  description: 'The ID of the associated activity.'
+                  example: 1
+                text:
+                  type: string
+                  description: 'The text of the comment.'
+                  example: 'This activity is great!'
+                note:
+                  type: integer
+                  description: 'The note for the activity, must be between 1 and 5.'
+                  example: 4
+              required:
+                - activity_id
+                - text
+                - note
+      security: []
   '/api/age_group/{id}':
     get:
       summary: 'Display the specified resource.'
@@ -790,652 +877,18 @@ paths:
       description: ''
       parameters: []
       responses:
-        404:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: 'The route api/age_group/1 could not be found.'
-                  exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-                  file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\AbstractRouteCollection.php'
-                  line: 44
-                  trace:
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php'
-                      line: 162
-                      function: handleMatchedRoute
-                      class: Illuminate\Routing\AbstractRouteCollection
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 754
-                      function: match
-                      class: Illuminate\Routing\RouteCollection
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 741
-                      function: findRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 730
-                      function: dispatchToRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 200
-                      function: dispatch
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 141
-                      function: 'Illuminate\Foundation\Http\{closure}'
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\app\Http\Middleware\Cors.php'
-                      line: 18
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 180
-                      function: handle
-                      class: App\Http\Middleware\Cors
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                      line: 31
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 180
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                      line: 40
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 180
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                      line: 27
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 180
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                      line: 89
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 180
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
-                      line: 62
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 180
-                      function: handle
-                      class: Illuminate\Http\Middleware\HandleCors
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                      line: 39
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 180
-                      function: handle
-                      class: Illuminate\Http\Middleware\TrustProxies
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 116
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 175
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 144
-                      function: sendRequestThroughRouter
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 299
-                      function: handle
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 287
-                      function: callLaravelOrLumenRoute
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 92
-                      function: makeApiCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 45
-                      function: makeResponseCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 35
-                      function: makeResponseCallIfConditionsPass
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 209
-                      function: __invoke
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 166
-                      function: iterateThroughStrategies
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 95
-                      function: fetchResponses
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 124
-                      function: processRoute
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 71
-                      function: extractEndpointsInfoFromLaravelApp
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 49
-                      function: extractEndpointsInfoAndWriteToDisk
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                      line: 51
-                      function: get
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 36
-                      function: handle
-                      class: Knuckles\Scribe\Commands\GenerateDocumentation
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                      line: 41
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                      line: 662
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 211
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\symfony\console\Command\Command.php'
-                      line: 326
-                      function: execute
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 181
-                      function: run
-                      class: Symfony\Component\Console\Command\Command
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\symfony\console\Application.php'
-                      line: 1081
-                      function: run
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\symfony\console\Application.php'
-                      line: 320
-                      function: doRunCommand
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\symfony\console\Application.php'
-                      line: 174
-                      function: doRun
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                      line: 201
-                      function: run
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\artisan'
-                      line: 37
-                      function: handle
-                      class: Illuminate\Foundation\Console\Kernel
-                      type: '->'
+                  message: 'Request without token'
                 properties:
                   message:
                     type: string
-                    example: 'The route api/age_group/1 could not be found.'
-                  exception:
-                    type: string
-                    example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-                  file:
-                    type: string
-                    example: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\AbstractRouteCollection.php'
-                  line:
-                    type: integer
-                    example: 44
-                  trace:
-                    type: array
-                    example:
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php'
-                        line: 162
-                        function: handleMatchedRoute
-                        class: Illuminate\Routing\AbstractRouteCollection
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 754
-                        function: match
-                        class: Illuminate\Routing\RouteCollection
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 741
-                        function: findRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 730
-                        function: dispatchToRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 200
-                        function: dispatch
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 141
-                        function: 'Illuminate\Foundation\Http\{closure}'
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\app\Http\Middleware\Cors.php'
-                        line: 18
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 180
-                        function: handle
-                        class: App\Http\Middleware\Cors
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                        line: 31
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 180
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                        line: 40
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 180
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                        line: 27
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 180
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                        line: 89
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 180
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
-                        line: 62
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 180
-                        function: handle
-                        class: Illuminate\Http\Middleware\HandleCors
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                        line: 39
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 180
-                        function: handle
-                        class: Illuminate\Http\Middleware\TrustProxies
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 116
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 175
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 144
-                        function: sendRequestThroughRouter
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 299
-                        function: handle
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 287
-                        function: callLaravelOrLumenRoute
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 92
-                        function: makeApiCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 45
-                        function: makeResponseCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 35
-                        function: makeResponseCallIfConditionsPass
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 209
-                        function: __invoke
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 166
-                        function: iterateThroughStrategies
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 95
-                        function: fetchResponses
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 124
-                        function: processRoute
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 71
-                        function: extractEndpointsInfoFromLaravelApp
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 49
-                        function: extractEndpointsInfoAndWriteToDisk
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                        line: 51
-                        function: get
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 36
-                        function: handle
-                        class: Knuckles\Scribe\Commands\GenerateDocumentation
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                        line: 41
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                        line: 662
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 211
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\symfony\console\Command\Command.php'
-                        line: 326
-                        function: execute
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 181
-                        function: run
-                        class: Symfony\Component\Console\Command\Command
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\symfony\console\Application.php'
-                        line: 1081
-                        function: run
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\symfony\console\Application.php'
-                        line: 320
-                        function: doRunCommand
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\symfony\console\Application.php'
-                        line: 174
-                        function: doRun
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                        line: 201
-                        function: run
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\artisan'
-                        line: 37
-                        function: handle
-                        class: Illuminate\Foundation\Console\Kernel
-                        type: '->'
-                    items:
-                      type: object
-                      properties:
-                        file:
-                          type: string
-                          example: 'C:\Users\Pedro\Desktop\Faculdade\Projetão\Pontea\pontea_api\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php'
-                        line:
-                          type: integer
-                          example: 162
-                        function:
-                          type: string
-                          example: handleMatchedRoute
-                        class:
-                          type: string
-                          example: Illuminate\Routing\AbstractRouteCollection
-                        type:
-                          type: string
-                          example: '->'
+                    example: 'Request without token'
       tags:
         - Endpoints
       security: []
@@ -1520,13 +973,173 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity to be purchased.'
-                  example: 12
+                  example: 6
                 pontea_credit_payment:
                   type: boolean
                   description: 'Indicates whether the purchase should be made using available credit (true) or direct payment (false). Default is false.'
-                  example: true
+                  example: false
               required:
                 - activity_id
+  /api/question/store:
+    post:
+      summary: 'Store a newly created question.'
+      operationId: storeANewlyCreatedQuestion
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Question created successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Question created successfully'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"question\": [\"The question field is required.\"],\n        \"activity_id\": [\"The activity_id field is required.\"],\n    }\n}"
+      tags:
+        - Questions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                question:
+                  type: string
+                  description: 'The text of the question.'
+                  example: 'How does this experiment work?'
+                activity_id:
+                  type: integer
+                  description: 'The ID of the associated activity.'
+                  example: 1
+              required:
+                - question
+                - activity_id
+      security: []
+  /api/question/responds:
+    post:
+      summary: 'Respond to a question.'
+      operationId: respondToAQuestion
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Question responded successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Question responded successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Question not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'Question not found'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"question_id\": [\"The question_id field is required.\"],\n        \"response\": [\"The response field is required.\"],\n    }\n}"
+      tags:
+        - Questions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                question_id:
+                  type: integer
+                  description: 'The ID of the question to respond to.'
+                  example: 1
+                response:
+                  type: string
+                  description: 'The response to the question.'
+                  example: "Here's how the experiment works..."
+              required:
+                - question_id
+                - response
+      security: []
+  /api/question/like:
+    post:
+      summary: 'Like a question.'
+      operationId: likeAQuestion
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Question liked successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Question liked successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Question not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'Question not found'
+        422:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"question_id\": [\"The question_id field is required.\"],\n    }\n}"
+      tags:
+        - Questions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                question_id:
+                  type: integer
+                  description: 'The ID of the question to like.'
+                  example: 1
+              required:
+                - question_id
+      security: []
   /api/shopping_carts:
     get:
       summary: 'Display a listing of the resource.'
@@ -1587,7 +1200,7 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity to add to the shopping cart.'
-                  example: 12
+                  example: 15
               required:
                 - activity_id
       security: []
@@ -1622,7 +1235,7 @@ paths:
                 activity_id:
                   type: integer
                   description: 'The ID of the activity to remove from the shopping cart.'
-                  example: 11
+                  example: 1
               required:
                 - activity_id
       security: []
@@ -1736,7 +1349,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the teacher.'
-        example: 6
+        example: 7
         required: true
         schema:
           type: integer
@@ -1754,6 +1367,9 @@ tags:
     name: Authentication
     description: 'Creates a new user with the provided information.'
   -
+    name: Comments
+    description: 'This function creates a new comment associated with a specific activity.'
+  -
     name: Endpoints
     description: ''
   -
@@ -1762,6 +1378,9 @@ tags:
   -
     name: Purchase
     description: 'This endpoint allows a user to purchase an activity, either by making a direct payment or using their available credit balance.'
+  -
+    name: Questions
+    description: 'This function creates a new question associated with a specific activity.'
   -
     name: 'Shopping Cart'
     description: 'Retrieve a list of all items in the shopping cart for the authenticated user.'
