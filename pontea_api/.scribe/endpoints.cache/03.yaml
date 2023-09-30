@@ -39,7 +39,8 @@ endpoints:
                       "email": "john@example.com",
                       "created_at": "2023-09-01T12:34:56Z",
                       "updated_at": "2023-09-01T12:34:56Z",
-                      "note": 4.5
+                      "note": 4.5,
+                      "countActivities": 2
                   },
                   {
                       "id": 2,
@@ -47,7 +48,8 @@ endpoints:
                       "email": "alice@example.com",
                       "created_at": "2023-09-01T13:45:00Z",
                       "updated_at": "2023-09-01T13:45:00Z",
-                      "note": 3.8
+                      "note": 3.8,
+                      "countActivities": 2
                   }
                   // ... (other teacher objects)
               ]
@@ -131,12 +133,12 @@ endpoints:
         name: id
         description: 'The ID of the teacher.'
         required: true
-        example: 8
+        example: 6
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 8
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
