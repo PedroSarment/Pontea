@@ -134,7 +134,7 @@ endpoints:
         name: text
         description: 'The text to search in the title or description of the activity (optional).'
         required: false
-        example: laborum
+        example: quod
         type: string
         enumValues: []
         custom: []
@@ -142,7 +142,7 @@ endpoints:
         name: age_group_id
         description: 'The ID of the age group to filter activities by a specific age group (optional).'
         required: false
-        example: 4
+        example: 13
         type: integer
         enumValues: []
         custom: []
@@ -150,7 +150,7 @@ endpoints:
         name: area_id
         description: 'The ID of the area to filter activities by a specific area (optional).'
         required: false
-        example: 20
+        example: 5
         type: integer
         enumValues: []
         custom: []
@@ -158,7 +158,7 @@ endpoints:
         name: level_id
         description: 'The ID of the level to filter activities by a specific level (optional).'
         required: false
-        example: 16
+        example: 15
         type: integer
         enumValues: []
         custom: []
@@ -182,18 +182,18 @@ endpoints:
         name: has_visual_instructions
         description: 'Defines whether the activity should have visual instructions (true) or not (false) (optional).'
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         custom: []
     cleanQueryParameters:
-      text: laborum
-      age_group_id: 4
-      area_id: 20
-      level_id: 16
+      text: quod
+      age_group_id: 13
+      area_id: 5
+      level_id: 15
       created_by: 2
       has_multimedia_resources: true
-      has_visual_instructions: true
+      has_visual_instructions: false
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -363,7 +363,7 @@ endpoints:
         name: media_path_1
         description: ''
         required: false
-        example: nesciunt
+        example: sed
         type: string
         enumValues: []
         custom: []
@@ -379,7 +379,7 @@ endpoints:
         name: media_path_3
         description: ''
         required: false
-        example: sed
+        example: eligendi
         type: string
         enumValues: []
         custom: []
@@ -387,7 +387,7 @@ endpoints:
         name: media_path_4
         description: ''
         required: false
-        example: et
+        example: optio
         type: string
         enumValues: []
         custom: []
@@ -395,7 +395,7 @@ endpoints:
         name: price
         description: ''
         required: true
-        example: 3.055752
+        example: 812238.23259292
         type: number
         enumValues: []
         custom: []
@@ -407,11 +407,11 @@ endpoints:
       level_id: 3
       has_multimedia_resources: true
       has_visual_instructions: false
-      media_path_1: nesciunt
+      media_path_1: sed
       media_path_2: et
-      media_path_3: sed
-      media_path_4: et
-      price: 3.055752
+      media_path_3: eligendi
+      media_path_4: optio
+      price: 812238.23259292
     fileParameters: []
     responses:
       -
@@ -481,12 +481,12 @@ endpoints:
         name: id
         description: 'The ID of the activity to update.'
         required: true
-        example: 9
+        example: 11
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 9
+      id: 11
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -550,7 +550,7 @@ endpoints:
         name: media_path_1
         description: ''
         required: false
-        example: similique
+        example: facilis
         type: string
         enumValues: []
         custom: []
@@ -558,7 +558,7 @@ endpoints:
         name: media_path_2
         description: ''
         required: false
-        example: ea
+        example: officiis
         type: string
         enumValues: []
         custom: []
@@ -566,7 +566,7 @@ endpoints:
         name: media_path_3
         description: ''
         required: false
-        example: ducimus
+        example: earum
         type: string
         enumValues: []
         custom: []
@@ -574,7 +574,7 @@ endpoints:
         name: media_path_4
         description: ''
         required: false
-        example: architecto
+        example: cum
         type: string
         enumValues: []
         custom: []
@@ -582,7 +582,7 @@ endpoints:
         name: price
         description: ''
         required: false
-        example: 2.3906873
+        example: 6.7992
         type: number
         enumValues: []
         custom: []
@@ -594,11 +594,11 @@ endpoints:
       level_id: 4
       has_multimedia_resources: false
       has_visual_instructions: true
-      media_path_1: similique
-      media_path_2: ea
-      media_path_3: ducimus
-      media_path_4: architecto
-      price: 2.3906873
+      media_path_1: facilis
+      media_path_2: officiis
+      media_path_3: earum
+      media_path_4: cum
+      price: 6.7992
     fileParameters: []
     responses:
       -

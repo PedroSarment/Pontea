@@ -27,7 +27,7 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity to be purchased.'
         required: true
-        example: 6
+        example: 11
         type: integer
         enumValues: []
         custom: []
@@ -35,13 +35,13 @@ endpoints:
         name: pontea_credit_payment
         description: 'Indicates whether the purchase should be made using available credit (true) or direct payment (false). Default is false.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         custom: []
     cleanBodyParameters:
-      activity_id: 6
-      pontea_credit_payment: false
+      activity_id: 11
+      pontea_credit_payment: true
     fileParameters: []
     responses:
       -

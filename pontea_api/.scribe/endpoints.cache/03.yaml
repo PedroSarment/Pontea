@@ -133,12 +133,12 @@ endpoints:
         name: id
         description: 'The ID of the teacher.'
         required: true
-        example: 7
+        example: 8
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 7
+      id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

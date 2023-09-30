@@ -82,12 +82,12 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity to add to the shopping cart.'
         required: true
-        example: 15
+        example: 17
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      activity_id: 15
+      activity_id: 17
     fileParameters: []
     responses:
       -
@@ -140,12 +140,12 @@ endpoints:
         name: activity_id
         description: 'The ID of the activity to remove from the shopping cart.'
         required: true
-        example: 1
+        example: 12
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      activity_id: 1
+      activity_id: 12
     fileParameters: []
     responses:
       -
